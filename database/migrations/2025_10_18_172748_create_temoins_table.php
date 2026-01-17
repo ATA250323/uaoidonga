@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->uuid('public_id')->unique();
             $table->string('image')->nullable();
-            $table->text('message')->nullable();
+            $table->text('messagear')->nullable();
+            $table->text('messagefr')->nullable();
             $table->string('nom_prenom')->nullable();
             $table->string('nom_organe')->nullable();
             $table->timestamps();

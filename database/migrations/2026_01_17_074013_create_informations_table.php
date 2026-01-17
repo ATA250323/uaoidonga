@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('informations', function (Blueprint $table) {
             $table->id();
             $table->uuid('public_id')->unique();
-            $table->text('apropos')->nullable();
-            $table->text('mission')->nullable();
-            $table->text('objectif')->nullable();
-            $table->text('vision')->nullable();
+            $table->text('histoirar')->nullable();
+            $table->text('histoirfr')->nullable();
+            $table->text('raisonar')->nullable();
+            $table->text('raisonfr')->nullable();
+            $table->text('inforganisaar')->nullable();
+            $table->text('inforganisafr')->nullable();
             $table->timestamps();
         });
     }

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('evennements', function (Blueprint $table) {
             $table->id();
             $table->uuid('public_id')->unique();
-            $table->string('titre')->nullable();
+            $table->string('titrear')->nullable();
+            $table->string('titrefr')->nullable();
             $table->string('image')->nullable();
             $table->date('annee')->nullable();
             $table->foreignId('organisation_id')->constrained()->onDelete('cascade');
