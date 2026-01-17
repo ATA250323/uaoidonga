@@ -14,7 +14,7 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="name" placeholder="{{ __('traduction.email')}}">
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="name" placeholder="{{ __('traduction.email')}}">
                                         <label for="name">{{ __('traduction.email')}}</label>
                                     </div>
                                     @error('email')
@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="{{ __('traduction.mdp')}}">
+                                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="{{ __('traduction.mdp')}}">
                                         <label for="password">{{ __('traduction.mdp')}}</label>
                                     </div>
                                     @error('password')

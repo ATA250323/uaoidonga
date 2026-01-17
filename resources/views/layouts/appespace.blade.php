@@ -45,7 +45,7 @@
     <!-- Spinner End -->
 
 
-    @include('layouts.partifixe.naves')
+    @include('layouts.partifixe.nave')
     <main class="main">
 
         @yield('content')

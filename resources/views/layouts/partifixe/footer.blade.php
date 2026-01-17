@@ -14,18 +14,18 @@
                     <p><i class="fa fa-phone-alt me-3"></i>+229 0196332360 / 97634621</p>
                     <p><i class="fa fa-envelope me-3"></i>uaoidonga@gmail.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://x.com/UaoiDonga"><i
                                 class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.facebook.com/share/1Kcz18dipP/"><i
                                 class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
                                 class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=" https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=10od80xg"><i
                                 class="fab fa-instagram"></i></a>
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
                                 class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="bi bi-tiktok"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.tiktok.com/@uaoi.donga?_r=1&_t=ZM-92xaDOw0uhE"><i 
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
