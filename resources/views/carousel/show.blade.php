@@ -28,18 +28,6 @@
                                     <strong>Image:</strong>
                                     {{ $carousel->image }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Titre:</strong>
-                                    {{ $carousel->titre }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Description:</strong>
-                                    {{ $carousel->description }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $carousel->user_id }}
-                                </div>
 
                     </div>
                 </div>

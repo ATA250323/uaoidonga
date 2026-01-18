@@ -24,9 +24,6 @@ class CarouselRequest extends FormRequest
         return [
 			'public_id' => 'required',
 			'image' => 'string',
-			'titre' => 'string',
-			'description' => 'string',
-			'user_id' => 'required',
         ];
     }
 }

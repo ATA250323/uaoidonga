@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http;
-
-use App\Http\Middleware\AuthEnseignant;
+use Spatie\Permission\Middlewares\RoleMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use App\Http\Middleware\RedirectIfEnseignantAuthenticated;
+use Spatie\Permission\Middlewares\PermissionMiddleware;
+use Spatie\Permission\Middlewares\RoleOrPermissionMiddleware;
+
 
 class Kernel extends HttpKernel
 {
@@ -46,5 +47,5 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
- 
+   
 }

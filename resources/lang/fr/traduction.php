@@ -405,6 +405,9 @@ return [
     'conditions'=>'Conditions générales',
     'carriere'=>'Carrières',
     'temoignage'=>'Les témoignages',
+
+     'Clair'=>'Clair',
+    'Sombre'=>'Sombre',
     // ''=>'',
     // ''=>'',
     // ''=>'',

@@ -38,9 +38,6 @@
                                         
 									<th >Public Id</th>
 									<th >Image</th>
-									<th >Titre</th>
-									<th >Description</th>
-									<th >User Id</th>
 
                                         <th></th>
                                     </tr>
@@ -52,9 +49,6 @@
                                             
 										<td >{{ $carousel->public_id }}</td>
 										<td >{{ $carousel->image }}</td>
-										<td >{{ $carousel->titre }}</td>
-										<td >{{ $carousel->description }}</td>
-										<td >{{ $carousel->user_id }}</td>
 
                                             <td>
                                                 <form action="{{ route('carousels.destroy', $carousel->id) }}" method="POST">

@@ -347,4 +347,7 @@ return [
     'carriere' => 'الوظائف',
     'temoignage' => 'الشهادات',
 
+
+'Clair'=>'فاتح',
+'Sombre'=>'داكن',
 ];
