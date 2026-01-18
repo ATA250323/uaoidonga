@@ -56,6 +56,14 @@
                 </span>
             </a>
         </li>
+        <li class="pc-item pc-hasmenu">
+            <a class="pc-link" href="{{ route('permissions.index') }}">
+                <span class="pc-micon"> </span>
+                <span class="pc-mtext">
+                    {{ __('traduction.permission') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                </span>
+            </a>
+        </li>
         @endrole
       </ul>
     </div>
