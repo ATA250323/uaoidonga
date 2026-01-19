@@ -403,8 +403,7 @@ return [
     'conditions'=>'Conditions générales',
     'carriere'=>'Carrières',
     'temoi'=>'Les témoignages',
-
-     'Clair'=>'Clair',
+    'Clair'=>'Clair',
     'Sombre'=>'Sombre',
 
 
