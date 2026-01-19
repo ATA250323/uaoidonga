@@ -12,7 +12,7 @@
                                @if ($carousels)
                                     <img class="img-fluid" src="{{ asset('storage/' . $carousels->image) }}" alt="Image">
                                 @else
-                                    <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                                    <img class="img-fluid" src="{{ asset('assets/img/logo12.png') }}" alt="">
                                 @endif
                             </div>
                             <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
@@ -25,10 +25,10 @@
                     @else
                         <div class="row">
                             <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                                <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                                <img class="img-fluid" src="{{ asset('assets/img/logo12.png') }}" alt="">
                             </div>
                             <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                                <img class="img-fluid w-75" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                                <img class="img-fluid w-75" src="{{ asset('assets/img/logo12.png') }}" alt="">
                                 <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
                                     <h4 class="text-white lh-base mb-0">{{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 1990</h4>
                                 </div>

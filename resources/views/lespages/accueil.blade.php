@@ -18,8 +18,8 @@
                             @endforeach
                         @else
                             <img class="img-fluid" src="{{ asset('assets/img/logo12.png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/img/logo12.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/img/logo12.png') }}" alt="">
                             @endif
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                             @if ($carousel)
                                 <img class="img-fluid w-100" src="{{ asset('storage/' . $carousel->image) }}" alt="Image">
                             @else
-                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.png') }}" alt="">
                             @endif
                             <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
                                 <h4 class="text-white lh-base mb-0">{{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 1990</h4>
@@ -165,7 +165,7 @@
                         <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                             <div class="team-item position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="{{ asset('storage/' . $carousel->image) }}" alt="Image">
-                                {{-- <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt=""> --}}
+                                {{-- <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.png') }}" alt=""> --}}
                                 <div class="team-overlay">
                                     <small class="mb-2">{{ $dirigent->profession }}</small>
                                     <h4 class="lh-base text-light">{{ $dirigent->nom }}</h4>
@@ -209,7 +209,7 @@
                                             @if ($temoin->image)
                                                 <img class="img-fluid w-65" src="{{ asset('storage/' . $temoin->image) }}" alt="Image"  width="60" height="60">
                                             @else
-                                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.png') }}" alt="">
                                             @endif
                                         </div>
                                     </div>
