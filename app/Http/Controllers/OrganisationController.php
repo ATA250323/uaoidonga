@@ -55,7 +55,7 @@ class OrganisationController extends Controller
 
                 // Stocker la vidéo avec le Storage Laravel
                 $imagePath = $request->file('image')->storeAs('organisation', $imageName, 'public');
-                
+
             // dd($request->titre,$request->description,$request->anneescolaire_id,$request->image,);
                 Organisation::create([
                     'titre' => $request->titre,

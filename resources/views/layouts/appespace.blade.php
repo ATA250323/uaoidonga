@@ -65,6 +65,11 @@
     <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
+<style>
+    .taille {
+        font-size: 50px;
+    }
+</style>
 </head>
 
 <body>
@@ -141,7 +146,7 @@
             </h5>
             <a href="#!" class="btn btn-link btn-sm">
                 <a class="btn btn-primary btn-sm" href="{{ route('infolignes.index') }}">
-                {{ __('traduction.affiche') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                {{ __('traduction.affichemes') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
             </a>
             </div>
             {{-- Affichage --}}
@@ -176,11 +181,6 @@
             </li>
             @endforeach
             </ul>
-            <div class="text-center py-2">
-            <a href="#!" class="text-danger-500 hover:text-danger-600 focus:text-danger-600 active:text-danger-600">
-                Clear all Notifications
-            </a>
-            </div>
             </div>
             @endif
         @endforeach

@@ -67,11 +67,11 @@
                  srcset="https://flagcdn.com/32x24/fr.png 2x,
                          https://flagcdn.com/48x36/fr.png 3x"
                  width="16" height="12" alt="Français" class="flag"> FR
-        @elseif($locale == 'en')
+        {{-- @elseif($locale == 'en')
             <img src="https://flagcdn.com/16x12/gb.png"
                  srcset="https://flagcdn.com/32x24/gb.png 2x,
                          https://flagcdn.com/48x36/gb.png 3x"
-                 width="16" height="12" alt="English" class="flag"> EN
+                 width="16" height="12" alt="English" class="flag"> EN --}}
         @elseif($locale == 'ar')
             <img src="https://flagcdn.com/16x12/sa.png"
                  srcset="https://flagcdn.com/32x24/sa.png 2x,
@@ -86,12 +86,12 @@
                          https://flagcdn.com/48x36/fr.png 3x"
                  width="16" height="12" alt="Français" class="flag"> Français
         </a>
-        <a href="{{ route('langue.choisir', 'en') }}">
+        {{-- <a href="{{ route('langue.choisir', 'en') }}">
             <img src="https://flagcdn.com/16x12/gb.png"
                  srcset="https://flagcdn.com/32x24/gb.png 2x,
                          https://flagcdn.com/48x36/gb.png 3x"
                  width="16" height="12" alt="English" class="flag"> English
-        </a>
+        </a> --}}
         <a href="{{ route('langue.choisir', 'ar') }}">
             <img src="https://flagcdn.com/16x12/sa.png"
                  srcset="https://flagcdn.com/32x24/sa.png 2x,

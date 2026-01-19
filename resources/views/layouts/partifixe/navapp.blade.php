@@ -41,7 +41,7 @@
             </a>
         </li>
         <li class="pc-item pc-hasmenu">
-            <a class="pc-link" href="{{ route('roles.index') }}">
+            <a class="pc-link taille" href="{{ route('roles.index') }}">
                 <span class="pc-micon"> </span>
                 <span class="pc-mtext">
                     {{ __('traduction.rol') }}
@@ -58,20 +58,20 @@
         </li>
         @endrole
         @role('Super-Administrateur|Administrateur')
-            <li class="pc-item pc-caption">
+            <li class="pc-item pc-caption  " style="font-size: 20px">
                 <label>⚙️ {{ __('traduction.para') }}</label>
                 <i data-feather="feather"></i>
             </li>
-            <li class="pc-item pc-hasmenu">
-                <a class="pc-link" href="{{ route('anneescolaires.index') }}">
+            <li class="pc-item pc-hasmenu ">
+                <a class="pc-link taille" href="{{ route('anneescolaires.index') }}">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.ansclair') }}
                     </span>
                 </a>
             </li>
-            <li class="pc-item pc-hasmenu">
-                <a class="pc-link" href="{{ route('carousels.index') }}">
+            <li class="pc-item pc-hasmenu ">
+                <a class="pc-link taille" href="{{ route('carousels.index') }}">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.photobienve') }}
@@ -83,6 +83,14 @@
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.apropos') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('dirigents.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.no_dirigents') }}
                     </span>
                 </a>
             </li>
@@ -107,6 +115,22 @@
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.evennement') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('infolignes.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.suggestion') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('temoins.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.temoi') }}
                     </span>
                 </a>
             </li>

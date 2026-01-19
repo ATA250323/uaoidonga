@@ -30,16 +30,18 @@
 
 
     <!-- About Start -->
+    @if ($information)
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6">
                     <div class="row">
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="img/about-1.jpg" alt="">
-                        </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid h-75" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            @if ($carousel)
+                                <img class="img-fluid w-100" src="{{ asset('storage/' . $carousel->image) }}" alt="Image">
+                            @else
+                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            @endif
                             <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
                                 <h4 class="text-white lh-base mb-0">{{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 1990</h4>
                             </div>
@@ -48,11 +50,20 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">{{ __('traduction.h1')}}</span> {{ __('traduction.h2')}}</h1>
-                    <p class="mb-4">{{ __('traduction.h1')}}</p>
+                    <p class="mb-4">{{ app()->getLocale() == 'ar' ? $information->histoirar : $information->histoirfr }}</p>
+                    <div class="d-flex align-items-center mt-5">
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.facebook.com/share/1Kcz18dipP/"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://x.com/UaoiDonga"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=10od80xg"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+     @endif
     <!-- About End -->
 
 
@@ -64,7 +75,7 @@
                 </h1>
             </div>
             <div class="row g-5 align-items-center text-center">
-                Raison de choix
+                {{ app()->getLocale() == 'ar' ? $information->raisonar : $information->raisonfr }}
             </div>
         </div>
     </div>
@@ -72,6 +83,7 @@
 
 
     <!-- Project Start -->
+    @if ($evennement)
     <div class="container-fluid mt-5">
         <div class="container mt-5">
             <div class="row g-0">
@@ -84,36 +96,39 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-0">
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Kitchen</h4>
-                                    <small class="text-white">72 Projects</small>
-                                </a>
+                        @foreach ($evennements as $evennement)
+                            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="project-item position-relative overflow-hidden">
+                                    <img class="img-fluid  w-100" src="{{ asset('storage/' . $evennement->image) }}" alt="Image">
+                                    <a class="project-overlay text-decoration-none" href="#!">
+                                        <small class="text-white">{{ $evennement->titrear }}</small>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
+     @endif
     <!-- Project End -->
 
 
     <!-- Service Start -->
+    @if ($organisation)
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                     <h1 class="mb-5">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</h1>
-                    <p>Info sur organisation</p>
+                    <p>{{ app()->getLocale() == 'ar' ? $information->inforganisaar : $information->inforganisafr }}</p>
                     <div class="d-flex align-items-center bg-light">
                         <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
                             <i class="fa fa-phone fa-2x text-white"></i>
                         </div>
                         <div class="px-3">
-                            <h3>+0123456789</h3>
+                            <h3>+229 0196332360 / 97634621</h3>
                             <span>{{ __('traduction.appelernous')}}</span>
                         </div>
                     </div>
@@ -123,11 +138,10 @@
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
                             <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
                                 <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                                    <h3>Interior Design</h3>
+                                    <img class="img-fluid  w-100" src="{{ asset('storage/' . $organisation->image) }}" alt="Image">
+                                    <h3>{{ $organisation->titre }}</h3>
                                 </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
+                                <p class="mb-0">{{ $organisation->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -135,206 +149,86 @@
             </div>
         </div>
     </div>
+     @endif
     <!-- Service End -->
 
-
     <!-- Team Start -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <h1 class="mb-5">{{ __('traduction.no_dirigents')}}<span class="text-uppercase text-primary bg-light px-2">{{ __('traduction.professionnel')}}</span>
-            </h1>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Boris Johnson</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
+    @if ($dirigent)
+        <div class="container-fluid bg-light py-5">
+            <div class="container py-5">
+                <h1 class="mb-5">{{ __('traduction.no_dirigents')}}<span class="text-uppercase text-primary bg-light px-2">{{ __('traduction.professionnel')}}</span>
+                </h1>
+                <div class="row g-4">
+                    @foreach ($dirigents as $dirigent)
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="team-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="{{ asset('storage/' . $carousel->image) }}" alt="Image">
+                                {{-- <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt=""> --}}
+                                <div class="team-overlay">
+                                    <small class="mb-2">{{ $dirigent->profession }}</small>
+                                    <h4 class="lh-base text-light">{{ $dirigent->nom }}</h4>
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="{{ $dirigent->facebook }}">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="{{ $dirigent->tiweter }}">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="{{ $dirigent->whatsapp }}">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        {{-- <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="{{ $dirigent->email }}">
+                                            <i class="fa fa-envelope"></i>
+                                        </a> --}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Donald Pakura</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Bradley Gordon</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Alexander Bell</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
+    @endif
     <!-- Team End -->
 
     <!-- Testimonial Start -->
+    @if ($temoin)
     <div class="container-xxl py-5">
         <div class="container py-5">
-            <h3 class="text-center">{{ __('traduction.temoignage')}}</h3>
+            <h3 class="text-center">{{ __('traduction.temoi')}}</h3>
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-9">
                     <div class="owl-carousel testimonial-carousel " data-wow-delay="0.2s">
-                        <div class="testimonial-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="testimonial-img">
-                                        <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                        @foreach ($temoins as $temoin)
+                            <div class="testimonial-item">
+                                <div class="row g-5 align-items-center">
+                                    <div class="col-md-6">
+                                        <div class="testimonial-img">
+                                            @if ($temoin->image)
+                                                <img class="img-fluid w-65" src="{{ asset('storage/' . $temoin->image) }}" alt="Image"  width="60" height="60">
+                                            @else
+                                                <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonial-text pb-5 pb-md-0">
-                                        <h3>Sustainable Material</h3>
-                                        <p>Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed
-                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
-                                            dolore erat
-                                            amet</p>
-                                        <h5 class="mb-0">Boris Johnson</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="testimonial-img">
-                                        <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonial-text pb-5 pb-md-0">
-                                        <h3>Customer Satisfaction</h3>
-                                        <p>Clita erat ipsum et lorem et sit, sed
-                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
-                                            dolore erat
-                                            amet</p>
-                                        <h5 class="mb-0">Alexander Bell</h5>
+                                    <div class="col-md-6">
+                                        <div class="testimonial-text pb-5 pb-md-0">
+                                            <h3>{{ $temoin->nom_organe }}</h3>
+                                            <p>
+                                                {{ app()->getLocale() == 'ar' ? $temoin->messagear : $temoin->messagefr }}
+                                            </p>
+                                            <h5 class="mb-0">{{ $temoin->nom_prenom }}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="testimonial-img">
-                                        <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonial-text pb-5 pb-md-0">
-                                        <h3>Budget Friendly</h3>
-                                        <p>Diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed
-                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
-                                            dolore erat
-                                            amet</p>
-                                        <h5 class="mb-0">Bradley Gordon</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
     <!-- Testimonial End -->
 
-
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary newsletter p-0">
-        <div class="container p-0">
-            <div class="row g-0 align-items-center">
-                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                </div>
-                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-5">
-                        <h1 class="mb-5">{{ __('traduction.rejoinne')}}<span
-                                class="text-uppercase text-primary bg-white px-2">{{ __('traduction.boite')}}</span></h1>
-                        <div class="position-relative w-100 mb-2">
-                            <input class="form-control border-0 w-100 ps-4 pe-5" type="text"
-                                placeholder="Enter Your Email" style="height: 60px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                        <p class="mb-0">Diam sed sed dolor stet amet eirmod</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Newsletter End -->
 @endsection

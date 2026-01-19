@@ -17,16 +17,6 @@
             {!! $errors->first('email', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="phone" class="form-label">{{ __('Phone') }}</label>
-            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone', $infoligne?->phone) }}" id="phone" placeholder="Phone">
-            {!! $errors->first('phone', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="project" class="form-label">{{ __('Project') }}</label>
-            <input type="text" name="project" class="form-control @error('project') is-invalid @enderror" value="{{ old('project', $infoligne?->project) }}" id="project" placeholder="Project">
-            {!! $errors->first('project', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
             <label for="subjet" class="form-label">{{ __('Subjet') }}</label>
             <input type="text" name="subjet" class="form-control @error('subjet') is-invalid @enderror" value="{{ old('subjet', $infoligne?->subjet) }}" id="subjet" placeholder="Subjet">
             {!! $errors->first('subjet', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}

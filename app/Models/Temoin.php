@@ -6,22 +6,23 @@ use App\Traits\HasPublicId;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Infoligne
+ * Class Temoin
  *
  * @property $id
  * @property $public_id
- * @property $nom
- * @property $email
- * @property $subjet
- * @property $message
- * @property $lire
+ * @property $image
+ * @property $messagear
+ * @property $messagefr
+ * @property $nom_prenom
+ * @property $nom_organe
+ * @property $avis
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Infoligne extends Model
+class Temoin extends Model
 {
     use HasPublicId;
     
@@ -32,7 +33,7 @@ class Infoligne extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['public_id', 'nom', 'email', 'subjet', 'message', 'lire'];
+    protected $fillable = ['public_id', 'image', 'messagear', 'messagefr', 'nom_prenom', 'nom_organe','status'];
 
 
 }

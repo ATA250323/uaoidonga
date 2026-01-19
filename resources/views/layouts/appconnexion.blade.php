@@ -7,8 +7,8 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('assets/images/logos.png" type="image/x-icon') }}" />
+      <!-- [Favicon] icon -->
+    <link rel="icon" href="{{ asset('assetsapp/images/logos.png" type="image/x-icon') }}" />
     <link href="template/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->

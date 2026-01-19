@@ -1,13 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.appespace2')
 
 @section('template_title')
     {{ $infoligne->name ?? __('Show') . " " . __('Infoligne') }}
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <div class="pc-container">
+      <div class="pc-content">
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
@@ -20,42 +19,33 @@
 
                     <div class="card-body bg-white">
                         
-                                <div class="form-group mb-2 mb20">
+                                {{-- <div class="form-group mb-2 mb20">
                                     <strong>Public Id:</strong>
                                     {{ $infoligne->public_id }}
-                                </div>
+                                </div> --}}
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nom:</strong>
+                                    <strong>{{ __('traduction.nom') }}:</strong>
                                     {{ $infoligne->nom }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Email:</strong>
+                                    <strong>{{ __('traduction.email') }}:</strong>
                                     {{ $infoligne->email }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Phone:</strong>
-                                    {{ $infoligne->phone }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Project:</strong>
-                                    {{ $infoligne->project }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Subjet:</strong>
+                                    <strong>{{ __('traduction.subjet') }}:</strong>
                                     {{ $infoligne->subjet }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Message:</strong>
+                                    <strong>{{ __('traduction.messages') }}:</strong>
                                     {{ $infoligne->message }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
+                                {{-- <div class="form-group mb-2 mb20">
                                     <strong>Lire:</strong>
                                     {{ $infoligne->lire }}
-                                </div>
+                                </div> --}}
 
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 @endsection

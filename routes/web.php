@@ -9,7 +9,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ApropoController;
 use App\Http\Controllers\CentreController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TemoinController;
 use App\Http\Controllers\CarouselController;
+use App\Http\Controllers\DirigentController;
 use App\Http\Controllers\InfoligneController;
 use App\Http\Controllers\EvennementController;
 use App\Http\Controllers\PermissionController;
@@ -63,6 +65,8 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur'
     Route::resource('anneescolaires', AnneescolaireController::class);
     Route::resource('apropos', ApropoController::class);
     Route::resource('information', InformationController::class);
+    Route::resource('dirigents', DirigentController::class);
+    Route::put('lire/{id}/messages_etabli', [App\Http\Controllers\InfoligneController::class,'liremessage'])->name('lire.messages_etabli');
 });
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');
@@ -70,6 +74,9 @@ Route::get('a_propos', [App\Http\Controllers\PageController::class, 'apropos'])-
 Route::get('galleries', [App\Http\Controllers\PageController::class, 'galleries'])->name('galleries');
 Route::get('acceuil', [App\Http\Controllers\PageController::class, 'acceuil'])->name('acceuils');
 
+Route::resource('temoins', TemoinController::class);
+Route::patch('/temoins/{id}/toggle', [TemoinController::class, 'temoinsStatus'])->name('temoins.status');
+Route::resource('infolignes', InfoligneController::class);
 
 
 Route::get('/events', [EventController::class, 'index']);

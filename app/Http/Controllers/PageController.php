@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apropo;
+use App\Models\Temoin;
 use App\Models\Carousel;
+use App\Models\Dirigent;
+use App\Models\Evennement;
+use App\Models\Information;
+use App\Models\Organisation;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -12,13 +18,18 @@ class PageController extends Controller
     public function contact()
     {
 
+        $carousel = Carousel::first();
+        $apropos = Apropo::first();
 
-        return view('lespages.contact');
+        return view('lespages.contact', compact('apropos','carousel'));
     }
     public function apropos()
     {
 
-        return view('lespages.apropos');
+        $carousel = Carousel::first();
+        $carousels = Carousel::skip(1)->first();
+        $apropos = Apropo::first();
+        return view('lespages.apropos', compact('apropos','carousel','carousels'));
     }
     public function galleries()
     {
@@ -30,6 +41,23 @@ class PageController extends Controller
         // 1. Récupérer toutes les diapositives, triées par un ordre (si nécessaire)
         $carousels = Carousel::all();
         $hasCarousel = $carousels->isNotEmpty();
-        return view('lespages.accueil', compact('carousels', 'hasCarousel'));
+        $information = Information::first();
+        $carousel = Carousel::first();
+        $organisation = Organisation::first();
+        $evennement = Evennement::first();
+        $evennements = Evennement::orderBy('created_at', 'desc')->take(6)->get();
+        $dirigents = Dirigent::all();
+        $dirigent = $dirigents->isNotEmpty();
+        $temoins = Temoin::where('status', operator: 1)->paginate();
+        $temoin = $temoins->isNotEmpty();
+        return view('lespages.accueil', compact('carousels',
+        'hasCarousel',
+        'information',
+        'carousel',
+        'organisation',
+        'evennement',
+        'evennements',
+        'dirigent',
+        'dirigents','temoins','temoin'));
     }
 }

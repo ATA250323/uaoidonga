@@ -31,7 +31,7 @@ return [
     'choixoption'=>'Or choose the following options as a school or institution creator',
     'selectetabli'=>'Select an institution',
     'selecte'=>'Select',
-    'affiche'=>'Display',
+    'mes'=>'Display',
     'choi'=>'Choose',
     'choietablis'=>'Choose a school or institution to register',
     'naviguez'=>'Navigate',
@@ -548,5 +548,17 @@ return [
     'inforganisaar' => 'About the organization in Arabic',
     'inforganisafr' => 'About the organization in French',
     'histoire' => 'History',
+
+
+    'mission'   => 'Mission',
+    'objectif'  => 'Objective',
+    'vision'    => 'Vision',
+    'suggestion'=> 'Suggestions',
+    'messages'  => 'Messages',
+    'subjet'    => 'Subjects',
+    'affichemes'   => 'View messages',
+    'messagear' => 'Messages in Arabic',
+    'messagefr' => 'Messages in French',
+
 
 ];

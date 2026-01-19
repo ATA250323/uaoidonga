@@ -39,8 +39,7 @@ class InfoligneController extends Controller
     {
         Infoligne::create($request->validated());
 
-        return Redirect::route('infolignes.index')
-            ->with('success', 'Infoligne created successfully.');
+        return Redirect::route('acceuils')->with('success', __('traduction.save_success'));
     }
 
     /**
@@ -48,7 +47,7 @@ class InfoligneController extends Controller
      */
     public function show($id): View
     {
-        $infoligne = Infoligne::find($id);
+        $infoligne = Infoligne::where('public_id',$id)->firstOrFail();
 
         return view('infoligne.show', compact('infoligne'));
     }
@@ -58,7 +57,7 @@ class InfoligneController extends Controller
      */
     public function edit($id): View
     {
-        $infoligne = Infoligne::find($id);
+        $infoligne = Infoligne::where('public_id',$id)->firstOrFail();
 
         return view('infoligne.edit', compact('infoligne'));
     }
@@ -76,9 +75,27 @@ class InfoligneController extends Controller
 
     public function destroy($id): RedirectResponse
     {
-        Infoligne::find($id)->delete();
+        $infoligne = Infoligne::where('public_id',$id)->firstOrFail();
 
-        return Redirect::route('infolignes.index')
-            ->with('success', 'Infoligne deleted successfully');
+        $infoligne->delete();
+        return Redirect::route('infolignes.index')->with('success', __('traduction.delete_success'));
+    }
+    public function liremessage(Request $request, string $id)
+    {
+        //  request()->validate([
+        //     'id' => 'required|exists:infoligneplateformes,id',
+        //         "lire" =>"required",
+        //     ]);
+         request()->validate([
+                "lire" => ["required", "string:1",  "min:1", "max:1", ],
+            ]);
+
+            $lire =  Infoligne::findOrFail($id);
+            $lire->lire = $request->lire;
+            $lire->save();
+           return redirect()->route('home')->with('success',
+             __('traduction.lirs_success') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */
+       );
+
     }
 }

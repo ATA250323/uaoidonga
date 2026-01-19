@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InfoligneRequest extends FormRequest
+class DirigentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,13 @@ class InfoligneRequest extends FormRequest
     {
         return [
 			// 'public_id' => 'required',
-			'nom' => 'required|string',
-			'email' => 'required|string',
-			'subjet' => 'required|string',
-			'message' => 'required|string',
-			// 'lire' => 'required',
+			'nom' => 'string',
+			'profession' => 'string',
+			'facebook' => 'string',
+			'whatsapp' => 'string',
+			'tiweter' => 'string',
+			'email' => 'string',
+			'image' => 'required|file|mimes:jpg,jpeg,png,gif|max:2048', // max 2MB
         ];
     }
 }

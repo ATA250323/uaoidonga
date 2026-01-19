@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('infolignes', function (Blueprint $table) {
+        Schema::create('dirigents', function (Blueprint $table) {
             $table->id();
             $table->uuid('public_id')->unique();
-            $table->string('nom');
-            $table->string('email');
-            $table->string('subjet');
-            $table->text('message');
-            $table->boolean('lire')->default(0);
+            $table->string('nom')->nullable();
+            $table->text('profession')->nullable();
+            $table->text('facebook')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('tiweter')->nullable();
+            $table->string('email')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('infolignes');
+        Schema::dropIfExists('dirigents');
     }
 };

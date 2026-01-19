@@ -89,11 +89,11 @@ return [
 'profession'=>'Votre Profession',
 'sujet'=>'Votre sujet',
 'envoi'=>'Envoyer',
-'mess'=>'Votre message',
+'mess'=>'Votre s',
 'sujetenvoyer'=>'Sujet envoyer',
-'messenvoyer'=>'Message envoyer',
+'messenvoyer'=>'s envoyer',
 'projet'=>'Projet',
-'enmess'=>'Envoyez votre message',
+'enmess'=>'Envoyez votre s',
 'professionenvoie'=>'Profession',
 'detail'=>'Détail',
 
@@ -131,7 +131,7 @@ return [
 'verifie' => 'Vérification',
 'valid_enrgis' => 'Valider et enregistrer',
 
-//les messages engristrement
+//les ss engristrement
 'save_success'=>'Enregistrement effectué avec succès',
 'update_success'=>'Modification effectué avec succès',
 'update_not'=>'Modification non effectué',
@@ -139,8 +139,8 @@ return [
 'erreur_surve'=>'Une erreur est survenue. Veuillez vérifier et réessayer.',
 'erreur_deja'=>'L’enregistrement existe déjâ',
 'confirm_delete'=>'Voulez-vous vraiment supprimer cet enregistrement ?',
-'lirs_success'=>'Le message a été lire avec succès',
-'sms_envoi_success'=> 'Votre message a été envoyer avec succès.',
+'lirs_success'=>'Le s a été lire avec succès',
+'sms_envoi_success'=> 'Votre s a été envoyer avec succès.',
 'no_resultats'=> 'Aucun résultat trouré',
 'creer_avant'=>'Veuillez d’abord créer votre établissement.',
 'associe_success'=>'Vous avez associé membre à votre établissement avec succès',
@@ -199,7 +199,7 @@ return [
 'inscriptionclotur'=>'⛔️ Inscriptions clôturées',
 'peridtermine'=>'La période d’inscription est terminée depuis le ',
 'inscrirdebut'=>'📢 Les inscriptions débuteront',
-'message'=>'Veuillez remprir ce champ',
+'s'=>'Veuillez remprir ce champ',
 'enregistrer_infos'=>'Veuillez d’abord enregistrer toutes les informations nécessaires : établissement, année scolaire, classe, enseignants et matières.',
 
 'suprime'=>'Supprimer',
@@ -367,7 +367,6 @@ return [
 
     'video'=>'Vidéo',
     'media'=>'Média',
-    'temoi'=>'Témoignage',
     'votretemoi'=>'Enregistrer votre témoignage',
     'temoiDe'=>'Témoignage Désactiver',
     'letemoiDe'=>'Le témoignage est désactivé pour le moment',
@@ -403,7 +402,7 @@ return [
     'Politique'=>'Politique de confidentialité',
     'conditions'=>'Conditions générales',
     'carriere'=>'Carrières',
-    'temoignage'=>'Les témoignages',
+    'temoi'=>'Les témoignages',
 
      'Clair'=>'Clair',
     'Sombre'=>'Sombre',
@@ -427,8 +426,17 @@ return [
 	'inforganisaar' => 'À propos de lorganisation en arabe',
 	'inforganisafr' => 'À propos de lorganisation en français',
     'histoire'=>'Histoire',
-    // ''=>'',
-    // ''=>'',
+
+    'mission' => 'Mission',
+    'objectif' => 'Objectif',
+    'vision' => 'Vision',
+    'suggestion'=>'Les suggestions',
+    'messages'=>'Messages',
+    'subjet'=>'Sujets',
+    'affichemes'=>'Afficher les messages',
+    'messagear'=>'Messages en arabe',
+    'messagefr'=>'Messages en français',
+    'statut_mis'=>'Statut mis à jour avec succès',
     // ''=>'',
     // ''=>'',
 ];
