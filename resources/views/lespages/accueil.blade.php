@@ -17,7 +17,7 @@
                                     <img class="img-fluid" src="{{ asset('storage/' . $carousel->image) }}" alt="Image">
                             @endforeach
                         @else
-                            <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/img/logo12.png') }}" alt="">
                             <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
                             <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
                             @endif
