@@ -41,11 +41,11 @@
                                 class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.facebook.com/share/1Kcz18dipP/"><i
                                 class="fab fa-facebook-f"></i></a>
-                        {{-- <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i 
+                        {{-- <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
                                 class="fab fa-youtube"></i></a>--}}
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=10od80xg"><i
                                 class="fab fa-instagram"></i></a>
-                        {{-- <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i 
+                        {{-- <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
                                 class="fab fa-linkedin-in"></i></a>--}}
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.tiktok.com/@uaoi.donga?_r=1&_t=ZM-92xaDOw0uhE"><i
                                 class="fab fa-tiktok"></i></a>
@@ -53,18 +53,18 @@
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                     <p class="text-white mb-4">{{ __('traduction.lienpo')}}</p>
-                        <a class="btn btn-link" href="#!">{{ __('traduction.propos')}}</a>
-                        <a class="btn btn-link" href="#!">{{ __('traduction.contacter')}} </a>
-                        <a class="btn btn-link" href="#!">{{ __('traduction.Politique')}} </a>
+                        <a class="btn btn-link" href="{{ route('apropos') }}">{{ __('traduction.propos')}}</a>
+                        <a class="btn btn-link" href="{{ route('contacts') }}">{{ __('traduction.contacter')}} </a>
+                        {{-- <a class="btn btn-link" href="#!">{{ __('traduction.Politique')}} </a>
                         <a class="btn btn-link" href="#!">{{ __('traduction.conditions')}}</a>
-                        <a class="btn btn-link" href="#!">{{ __('traduction.carriere')}}</a>
+                        <a class="btn btn-link" href="#!">{{ __('traduction.carriere')}}</a> --}}
                 </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                {{-- <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <p class="text-white mb-4">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</p>
                     <a class="btn btn-link" href="#!">1</a>
                     <a class="btn btn-link" href="#!">2</a>
                     <a class="btn btn-link" href="#!">3</a>
-                </div>
+                </div> --}}
             </div>
         </div>
 
