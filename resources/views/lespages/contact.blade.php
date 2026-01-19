@@ -9,9 +9,11 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-7">
+                    @if ($apropos)
                     <p class="text-center mb-4">
                         {{ app()->getLocale() == 'ar' ? $apropos->aproposar : $apropos->aproposfr }}
                     </p>
+                    @endif
                     <p><i class="fa fa-phone-alt me-3"></i>+229 0196332360 / 97634621  <i class="fa fa-envelope me-3"></i>uaoidonga@gmail.com</p>
                     <div class="wow fadeIn" data-wow-delay="0.3s">
                         <form method="POST" action="{{ route('infolignes.store') }}"  role="form" enctype="multipart/form-data">
