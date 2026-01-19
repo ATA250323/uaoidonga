@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('titre')->nullable();
             $table->text('image')->nullable();
             $table->text('description')->nullable();
+            $table->foreignId('anneescolaire_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

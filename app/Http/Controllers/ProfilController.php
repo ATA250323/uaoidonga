@@ -33,6 +33,8 @@ class ProfilController extends Controller
         return view('profil.index', compact(
             'profils',
             'comptesuers',
+                        'totalMessages',
+                        'infolignes',
                         'profilsuersconets'));
     }
 

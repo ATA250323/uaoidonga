@@ -12,9 +12,15 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="owl-carousel header-carousel animated fadeIn">
-                        <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                        <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
-                        <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                        @if($hasCarousel)
+                            @foreach ($carousels as $carousel)
+                                    <img class="img-fluid" src="{{ asset('storage/' . $carousel->image) }}" alt="Image">
+                            @endforeach
+                        @else
+                            <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('assets/img/logo12.jpg') }}" alt="">
+                            @endif
                     </div>
                 </div>
             </div>

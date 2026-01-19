@@ -1,4 +1,4 @@
-@extends('layouts.appespace')
+@extends('layouts.appespace2')
 
 @section('content')
 <!-- [ Main Content ] start -->
@@ -10,16 +10,16 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                               
+
                                 {{ __('traduction.utili') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
-                                   
+
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('users.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  
+
                                 {{ __('traduction.retr') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
-                                   
+
                                 </a>
                               </div>
                         </div>
@@ -35,11 +35,11 @@
                 <div class="input-group input-group-outline col-md-2 mb-3">
                     <input type="text" class="form-control" name="email" value="" required>
                 </div>
-                <label class="form-label">{{ __('traduction.motdepasse') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</label>
+                <label class="form-label">{{ __('traduction.mdp') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</label>
                 <div class="input-group input-group-outline col-md-2 mb-3">
                     <input type="password" class="form-control" name="password" value="" required>
                 </div>
-                <label class="form-label">{{ __('traduction.confimer') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</label>
+                <label class="form-label">{{ __('traduction.mdp2') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</label>
                 <div class="input-group input-group-outline col-md-2 mb-3">
                     <input type="password" class="form-control" name="password_confirmation" value="" required>
                 </div>

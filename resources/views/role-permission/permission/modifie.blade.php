@@ -1,4 +1,4 @@
-@extends('layouts.appespace')
+@extends('layouts.appespace2')
 
 @section('content')
  <div class="pc-container">
@@ -10,16 +10,16 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                               
+
                                 {{ __('traduction.modif') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
-                                   
+
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('permissions.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  
+
                                 {{ __('traduction.retr') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
-                                   
+
                                 </a>
                               </div>
                         </div>

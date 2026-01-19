@@ -29,7 +29,7 @@ class PageController extends Controller
     {
         // 1. Récupérer toutes les diapositives, triées par un ordre (si nécessaire)
         $carousels = Carousel::all();
-
-        return view('lespages.accueil', compact('carousels'));
+        $hasCarousel = $carousels->isNotEmpty();
+        return view('lespages.accueil', compact('carousels', 'hasCarousel'));
     }
 }

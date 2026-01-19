@@ -22,8 +22,8 @@ class CarouselRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'public_id' => 'required',
-			'image' => 'string',
+			// 'public_id' => 'required',
+			'image' => 'required|file|mimes:jpg,jpeg,png,gif|max:2048', // max 2MB
         ];
     }
 }

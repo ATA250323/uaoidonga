@@ -1,4 +1,4 @@
-@extends('layouts.appespace')
+@extends('layouts.appespace2')
 @section('content')
 
  <!-- [ Main Content ] start -->

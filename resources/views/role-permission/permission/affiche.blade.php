@@ -1,4 +1,4 @@
-@extends('layouts.appespace')
+@extends('layouts.appespace2')
 @section('content')
     <div class="pc-container">
       <div class="pc-content">

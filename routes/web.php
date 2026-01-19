@@ -6,21 +6,31 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ApropoController;
+use App\Http\Controllers\CentreController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\InfoligneController;
+use App\Http\Controllers\EvennementController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\OrganisationController;
+use App\Http\Controllers\AnneescolaireController;
+use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\UserEtablissementController;
 
 
 Route::middleware(SetLocale::class)->group(function(){
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('lespages/accueil');
-});
+// Route::get('/', function () {
+//     return view('lespages/accueil');
+// });
 
 
+Route::get('/', [App\Http\Controllers\PageController::class, 'acceuil']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -39,14 +49,24 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur']], function() 
         Route::put('roles/{roleId}/dontpermirole', [App\Http\Controllers\RoleController::class, 'dontpermirole']);
 });
 
+Route::post('/confirmation', [ConfirmationController::class, 'confirmerCompte'])->name('confirmerCompte');
+
 Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur']], function() {
     Route::resource('carousels', CarouselController::class);
     Route::resource('profils', ProfilController::class);
     Route::resource('infolignes', InfoligneController::class);
+    Route::resource('centres', CentreController::class);
+    Route::resource('etablissements', EtablissementController::class);
+    Route::resource('user-etablissements', UserEtablissementController::class);
+    Route::resource('organisations', OrganisationController::class);
+    Route::resource('evennements', EvennementController::class);
+    Route::resource('anneescolaires', AnneescolaireController::class);
+    Route::resource('apropos', ApropoController::class);
+    Route::resource('information', InformationController::class);
 });
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');
-Route::get('apropos', [App\Http\Controllers\PageController::class, 'apropos'])->name('apropos');
+Route::get('a_propos', [App\Http\Controllers\PageController::class, 'apropos'])->name('apropos');
 Route::get('galleries', [App\Http\Controllers\PageController::class, 'galleries'])->name('galleries');
 Route::get('acceuil', [App\Http\Controllers\PageController::class, 'acceuil'])->name('acceuils');
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->date('annee')->nullable();
             $table->foreignId('organisation_id')->constrained()->onDelete('cascade');
+            $table->foreignId('anneescolaire_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

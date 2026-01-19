@@ -48,8 +48,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- SweetAlert2 -->
-    <script src="{{ asset('assetsapp/js/sweetalert2.all.min.js') }}"></script>
+
    <!-- SheetJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <!-- jsPDF -->
@@ -62,6 +61,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment-hijri@2.1.2/moment-hijri.min.js"></script>
+
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
 </head>
 
 <body>
@@ -215,14 +218,6 @@
                 <span>{{ __('traduction.profile') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</span>
             </span>
             </a>
-        @role('Administrateur')
-            <a href="{{ route('contact') }}" class="dropdown-item">
-              <span>
-                <i class="ti ti-headset"></i>
-                <span>{{ __('traduction.cont') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</span>
-              </span>
-            </a>
-        @endrole
             <div class="grid my-3">
               <a class="btn btn-primary flex items-center justify-center" href="{{ route('logout') }}"
                onclick="event.preventDefault();
@@ -244,7 +239,7 @@
 </div>
 </div>
 </header>
-     @include('layouts.partifixe.alert')
+    @include('layouts.partifixe.alert')
     @yield('content')
   <!-- [ Header ] End -->
 

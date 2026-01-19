@@ -15,7 +15,7 @@ return [
     'version22' => 'We help teachers save time on daily tasks: entering grades, managing attendance, sharing assignments, or communicating with families. Less paperwork, more teaching. Our digital solution meets the growing need to modernize school management in Africa. It optimizes processes, ensures reliable data, and promotes better educational governance. Our ambition is to support the digitalization of the education sector on a large scale.',
     'version3' => '🧑‍🎓 Version for Students',
     'version33' => 'The platform provides students with a secure personal space to view their grades, follow their schedule, access assignments, and receive important communications from the school. It promotes autonomy, organization, and tracking of academic progress while facilitating communication between the school and learners.',
-    
+
     'butplateforme' =>'Managing institutions becomes smoother and more structured with GestÉtab, a platform designed to centralize all administrative operations.',
     'welcome' => 'Welcome to our platform',
     'login' => 'Admin Login',
@@ -529,5 +529,24 @@ return [
 'paseannee' => 'No year',
 'Albums_annee' => 'Albums by school year',
 'albumbshow' => 'Year photo details',
+
+
+    'photobienve' => 'Welcome photos',
+    'apropos' => 'About',
+    'aproposar' => 'About in Arabic',
+    'aproposfr' => 'About in French',
+    'missionar' => 'Mission in Arabic',
+    'missionfr' => 'Mission in French',
+    'objectifar' => 'Objective in Arabic',
+    'objectiffr' => 'Objective in French',
+    'visionar' => 'Vision in Arabic',
+    'visionfr' => 'Vision in French',
+    'histoirar' => 'History in Arabic',
+    'histoirfr' => 'History in French',
+    'raisonar' => 'Reason in Arabic',
+    'raisonfr' => 'Reason in French',
+    'inforganisaar' => 'About the organization in Arabic',
+    'inforganisafr' => 'About the organization in French',
+    'histoire' => 'History',
 
 ];

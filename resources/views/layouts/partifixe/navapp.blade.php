@@ -22,7 +22,7 @@
           <a href="{{ route('home') }}" class="pc-link" style="font-size: 20px">
             <i class="bi bi-house-door text-success"></i>
             <span class="pc-mtext">
-                    {{ __('traduction.tb') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                    {{ __('traduction.tb') }}
 
             </span>
           </a>
@@ -36,7 +36,7 @@
             <a class="pc-link" href="{{ route('users.index') }}">
                 <span class="pc-micon"> </span>
                 <span class="pc-mtext">
-                    {{ __('traduction.utili') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                    {{ __('traduction.utili') }}
                 </span>
             </a>
         </li>
@@ -44,7 +44,7 @@
             <a class="pc-link" href="{{ route('roles.index') }}">
                 <span class="pc-micon"> </span>
                 <span class="pc-mtext">
-                    {{ __('traduction.rol') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                    {{ __('traduction.rol') }}
                 </span>
             </a>
         </li>
@@ -52,10 +52,64 @@
             <a class="pc-link" href="{{ route('permissions.index') }}">
                 <span class="pc-micon"> </span>
                 <span class="pc-mtext">
-                    {{ __('traduction.permission') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                    {{ __('traduction.permission') }}
                 </span>
             </a>
         </li>
+        @endrole
+        @role('Super-Administrateur|Administrateur')
+            <li class="pc-item pc-caption">
+                <label>⚙️ {{ __('traduction.para') }}</label>
+                <i data-feather="feather"></i>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('anneescolaires.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.ansclair') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('carousels.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.photobienve') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('apropos.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.apropos') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('information.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.histoire') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('organisations.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.organisation') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('evennements.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.evennement') }}
+                    </span>
+                </a>
+            </li>
         @endrole
       </ul>
     </div>
