@@ -111,7 +111,10 @@
   <script src="{{ asset('assetsapp/js/component.js') }}"></script>
   <script src="{{ asset('assetsapp/js/theme.js') }}"></script>
   <script src="{{ asset('assetsapp/js/script.js') }}"></script>
-
+    
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
    {{-- pour flatpicker --}}
   <script src="{{ asset('assetsapp/js/flatpickr.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/ar.js') }}"></script>

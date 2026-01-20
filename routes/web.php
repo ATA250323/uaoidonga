@@ -17,6 +17,7 @@ use App\Http\Controllers\InfoligneController;
 use App\Http\Controllers\EvennementController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\InformationController;
+use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\ConfirmationController;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\AnneescolaireController;
@@ -68,6 +69,7 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur'
     Route::resource('apropos', ApropoController::class);
     Route::resource('information', InformationController::class);
     Route::resource('dirigents', DirigentController::class);
+    Route::resource('inscriptions', InscriptionController::class);
     Route::put('lire/{id}/messages_etabli', [App\Http\Controllers\InfoligneController::class,'liremessage'])->name('lire.messages_etabli');
     Route::post('/etablissements/association', [App\Http\Controllers\UserEtablissementController::class, 'etablissementAssociation'])->name('etablissements.association');
 });

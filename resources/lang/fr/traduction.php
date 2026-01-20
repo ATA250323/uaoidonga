@@ -98,7 +98,7 @@ return [
 'detail'=>'Détail',
 
 //partie inscription élève
-'matri'=> 'Le matricule',
+'matri'=> 'Matricule',
 'nivo'=>'Niveau',
 'infoetud'=>'Information d’étude',
 'infopers'=>'Information personnelle',
@@ -469,6 +469,12 @@ return [
     'vousmem'=>'Vous-même',
     'associer'=>'Associer',
     'deassocier'=>'Désassocier',
+    
+'formulairinscrire'=>'Formulaire d’inscription',
+'niveau1' => 'Moyenne',
+'niveau2' => 'Secondaire',
+'ecrire'=>'Écrivez ici…',
+'enploi'=>'Emploi du temps',
     // ''=>'',
     // ''=>'',
     // ''=>'',
