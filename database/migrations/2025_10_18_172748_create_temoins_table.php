@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('messagear')->nullable();
             $table->text('messagefr')->nullable();
             $table->string('nom_prenom')->nullable();
-            $table->string('nom_organe')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
