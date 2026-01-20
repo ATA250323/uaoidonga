@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                     <p class="text-white mb-4">{{ __('traduction.lienpo')}}</p>
-                        <a class="btn btn-link" href="{{ route('apropos') }}">{{ __('traduction.propos')}}</a>
+                        <a class="btn btn-link" href="{{ route('a_propos') }}">{{ __('traduction.propos')}}</a>
                         <a class="btn btn-link" href="{{ route('contacts') }}">{{ __('traduction.contacter')}} </a>
                         {{-- <a class="btn btn-link" href="#!">{{ __('traduction.Politique')}} </a>
                         <a class="btn btn-link" href="#!">{{ __('traduction.conditions')}}</a>

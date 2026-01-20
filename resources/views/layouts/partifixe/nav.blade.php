@@ -12,7 +12,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="{{ route('acceuils') }}" class="nav-item nav-link @if (Request::is('*acceuil')) active  @endif">{{ __('traduction.acc')}}</a>
-                        <a href="{{ route('apropos') }}" class="nav-item nav-link @if (Request::is('*a_propos')) active  @endif">{{ __('traduction.a_pro')}}</a>
+                        <a href="{{ route('a_propos') }}" class="nav-item nav-link @if (Request::is('*a_propos')) active  @endif">{{ __('traduction.a_pro')}}</a>
                         <a href="{{ route('contacts') }}" class="nav-item nav-link @if (Request::is('*contact')) active  @endif">{{ __('traduction.cont')}}</a>
                         {{-- <a href="#" class="nav-item nav-link">{{ __('traduction.carriere')}}</a> --}}
                         {{-- <div class="nav-item dropdown">
