@@ -142,6 +142,8 @@
                     </span>
                 </a>
             </li>
+        @endrole
+        @role('Super-Administrateur|Secondaire')
             <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('centres.index') }}">
                     <span class="pc-micon"> </span>
