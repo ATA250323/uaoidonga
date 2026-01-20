@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur'
 });
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');
-Route::get('a_propos', [App\Http\Controllers\PageController::class, 'apropos'])->name('apropos');
+Route::get('a_propos', [App\Http\Controllers\PageController::class, 'apropos'])->name('a_propos');
 Route::get('galleries', [App\Http\Controllers\PageController::class, 'galleries'])->name('galleries');
 Route::get('acceuil', [App\Http\Controllers\PageController::class, 'acceuil'])->name('acceuils');
 

@@ -24,15 +24,16 @@
                                 <a href="#" class="dropdown-item">4</a>
                             </div>
                         </div> --}}
-                        @include('layouts.partifixe.navapp')
-                        <div class="nav-item dropdown">
+                        {{-- <div class="nav-item dropdown">
                             <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ __('traduction.lang')}}</a>
                             <div class="dropdown-menu bg-light mt-2">
                                 <a href="{{ route('langue.choisir', 'ar') }}" class="dropdown-item">{{ __('traduction.ar')}}</a>
                                 <a href="{{ route('langue.choisir', 'fr') }}" class="dropdown-item">{{ __('traduction.fr')}}</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <a href="{{ route('login') }}" class="nav-item nav-link">{{ __('traduction.login')}}</a>
+                        &nbsp;
+                        @include('layouts.partifixe.lang')
                     </div>
                 </div>
             </nav>
