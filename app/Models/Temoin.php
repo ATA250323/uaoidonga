@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $messagefr
  * @property $nom_prenom
  * @property $nom_organe
- * @property $avis
+ * @property $status
  * @property $created_at
  * @property $updated_at
  *
@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
 class Temoin extends Model
 {
     use HasPublicId;
-    
+
     protected $perPage = 20;
 
     /**
