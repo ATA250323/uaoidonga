@@ -464,17 +464,20 @@ return [
         'uaoi'  => 'U.A.O.I. DONGA',
         'journee'    => 'Bonne journée',
         'equipe'    => 'L’équipe de',
+        'Merci_conserver'    => 'Merci de conserver ces informations avec soin.',
     ],
     'aucunetabli'=>'Aucun établissement',
     'vousmem'=>'Vous-même',
     'associer'=>'Associer',
     'deassocier'=>'Désassocier',
-    
+
 'formulairinscrire'=>'Formulaire d’inscription',
 'niveau1' => 'Moyenne',
 'niveau2' => 'Secondaire',
 'ecrire'=>'Écrivez ici…',
 'enploi'=>'Emploi du temps',
+'Evoiemail_user'=>'Vos avez inscrire un utilisateur ! Un e-mail de confirmation a été envoyé. S’il ne le trouvez pas, de vérifier dans le courrier indésirable (spam).',
+
     // ''=>'',
     // ''=>'',
     // ''=>'',

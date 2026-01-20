@@ -73,6 +73,7 @@ class UserController extends Controller
             } catch (Exception $e) {
             return redirect()->route('users.index')
                 ->with('error', __('traduction.ErreurEvoiemail'));
+            //  dd($e->getMessage()); // pour voir l’erreur exacte
             }
 
     }

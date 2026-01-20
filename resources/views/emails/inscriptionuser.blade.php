@@ -40,13 +40,13 @@
                         {{ __('traduction.message_inscription.notice') }}
                     </h5>
                     <p style="font-size:16px; color:#555; line-height:1.5;">
-                        {{ __('traduction.validation_inscription.Appel') }} - {{ __('traduction.validation_inscription.mail') }}
+                        {{ __('traduction.message_inscription.Appel') }} - {{ __('traduction.message_inscription.mail') }}
                     </p>
                     <p style="font-size:16px; color:#555; line-height:1.5;">
-                        {{ __('traduction.validation_inscription.journee') }}
+                        {{ __('traduction.message_inscription.journee') }}
                     </p>
-                    <p>{{ __('traduction.validation_inscription.equipe') }}<strong>U.A.O.I. DONGA</strong></p>
-                    <p>{{ __('traduction.validation_inscription.Merci_conserver') }}</p>
+                    <p>{{ __('traduction.message_inscription.equipe') }}<strong>U.A.O.I. DONGA</strong></p>
+                    <p>{{ __('traduction.message_inscription.Merci_conserver') }}</p>
                 </td>
             </tr>
 
