@@ -396,27 +396,6 @@ return [
 'gestetab'  => 'School Management',
     ],
 
-
-     'message_inscription' => [
-        // Anglais
-        'subject'           => 'Registration to GESTETAB',
-        'title'             => 'Registration to GESTETAB',
-        'greeting'          => 'Hello, registration successful under the username :name,',
-        'greeting1'         => 'of your institution',
-        'message'           => 'Thank you for registering on our platform. We are delighted to welcome you!',
-        'notice'            => 'If you have any questions, feel free to contact us anytime.',
-        'Whatsapp'          => 'Whatsapp: +229 64 24 34 76',
-        'Appel'             => 'Call: +229 01 52 19 26 19',
-        'mail'              => 'Email: gestetab@djugu.bj',
-        'confirmer'         => 'Please confirm your account by clicking the following link:',
-        'copiez_lien'       => 'Or copy this link into your browser:',
-        'button'            => 'Confirm my account',
-        'confirme_succes'   => 'Your account has been successfully confirmed!',
-        'invalide'          => 'Invalid confirmation code.',
-        'rights'            => 'All rights reserved.',
-        'gestetab'          => 'School Management',
-    ],
-
     'reussie' => '🎉 Registration successful',
     'ok' => 'OK',
     'ErreurEvoiemail' => 'Your account has been created, but the confirmation email could not be sent. Please contact the administrator gestetab@djugu.bj',
@@ -559,6 +538,39 @@ return [
     'affichemes'   => 'View messages',
     'messagear' => 'Messages in Arabic',
     'messagefr' => 'Messages in French',
+
+    'statut_mis'   => 'Status updated successfully',
+'centre'      => 'Centers',
+'nomctar'     => 'Center name in Arabic',
+'nomctfr'     => 'Center name in French',
+'adresse'     => 'Address',
+'prefixect'   => 'Center code',
+'nomarabe'    => 'Institution name in Arabic',
+'nomfrancais' => 'Institution name in French',
+'centre_id'   => 'Center',
+'prefixeet'   => 'Institution code',
+
+'message_inscription' => [
+    'subject'   => 'Registration at UAOIDONGA',
+    'subject2'  => 'Registration at ',
+    'title'    => 'Registration at UAOIDONGA',
+    'greeting' => 'Hello, you have been registered under the name :name,',
+    'greeting1'=> 'on the platform of',
+    'motdepassehasher' => 'This is your password',
+    'notice'   => 'If you have any questions, please feel free to contact us at any time.',
+    'Appel'    => 'Call: +229 0196332360 / 97634621',
+    'mail'     => 'Email: uaoidonga@gmail.com',
+    'connecter'=> 'Please log in to your account by clicking the link below:',
+    'button'   => 'Log in',
+    'rights'   => 'All rights reserved.',
+    'uaoi'     => 'U.A.O.I. DONGA',
+    'journee'  => 'Have a great day',
+    'equipe'   => 'The team of',
+  ],
+  'aucunetabli' => 'No establishment',
+'vousmem'    => 'Yourself',
+'associer'   => 'Associate',
+'deassocier' => 'Dissociate',
 
 
 ];

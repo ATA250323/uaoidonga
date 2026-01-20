@@ -14,8 +14,14 @@
         <div class="form-group mb-2 mb20">
             <label for="organisation_id" class="form-label">{{ __('traduction.organisation') }}</label>
            <select name="organisation_id" class="form-select @error('organisation_id') is-invalid @enderror" autocomplete="organisation">
-                    <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
-                @foreach ($organisations as $organisation)
+                 @if ($evennement?->organisation_id)
+                        <option value="{{ $evennement->organisation_id }}">
+                            {{ $evennement->organisation->titre }} 
+                        </option>
+                    @else
+                            <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
+                    @endif
+                    @foreach ($organisations as $organisation)
                     <option value="{{ $organisation->id }}">{{ ucfirst($organisation->titre) }}</option>
                 @endforeach
             </select>
@@ -26,8 +32,14 @@
             <label for="annee" class="form-label">{{ __('traduction.annee') }}</label>
             {{-- <input type="text" name="annee" class="form-control @error('annee') is-invalid @enderror" value="{{ old('annee', $evennement?->annee) }}" id="annee" placeholder="{{ __('traduction.annee') }}"> --}}
             <select name="anneescolaire_id" class="form-select @error('anneescolaire_id') is-invalid @enderror" autocomplete="organisation">
-                <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
-                @foreach ($anneescolaires as $anneescolaire)
+                     @if ($evennement?->anneescolaire_id)
+                        <option value="{{ $evennement->anneescolaire_id }}">
+                            {{ $evennement->anneescolaire->anneear.'-'.$evennement->anneescolaire->anneefr }} 
+                        </option>
+                    @else
+                            <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
+                    @endif
+                    @foreach ($anneescolaires as $anneescolaire)
                     <option value="{{ $anneescolaire->id }}">{{$anneescolaire->anneear.' / '.$anneescolaire->anneefr }}</option>
                 @endforeach
             </select>

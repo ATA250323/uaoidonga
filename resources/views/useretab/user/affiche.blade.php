@@ -16,7 +16,7 @@
                             <h3 class=" ">
                                 {{ __('traduction.lesmembr') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
 
-                                <a href="{{ route('etabusers.create',$public_id) }}" class="btn btn-info float-end">
+                                <a href="{{ route('etabusers.create') }}" class="btn btn-info float-end">
                                     <i class="fa fa-fw fa-plus"></i>
                                 </a>
                             </h3>
@@ -29,6 +29,7 @@
                                         <th>{{ __('traduction.nom') }}</th>
                                         <th>{{ __('traduction.email') }}</th>
                                         <th>{{ __('traduction.rol') }}</th>
+                                        <th>{{ __('traduction.etabli') }}</th>
                                         <th>{{ __('traduction.statut') }}</th>
                                         <th>{{ __('traduction.action') }}</th>
                                     </tr>
@@ -47,36 +48,56 @@
                                             @endforeach
                                         </td>
                                         <td>
+                                            @forelse ($user->etablissements as $etablissement)
+                                                <span class="badge bg-success">
+                                                   {{ app()->getLocale() == 'ar' ? $etablissement->nomarabe : $etablissement->nomfrancais }}
+                                                </span>
+                                            @empty
+                                                <span class="text-danger">{{ __('traduction.aucunetabli') }}</span>
+                                            @endforelse
+                                        </td>
+                                        <td>
                                             <form action="{{ route('etablissements.association') }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                                <input type="hidden" name="etablissement_id" value="{{ $etablissement->id }}">
-                                                @if($associe)
-                                                    <span class="text-success">Associé</span>
-                                                @else
+                                                {{-- <input type="hidden" name="etablissement_id" value="{{ $etablissement->id }}"> --}}
+                                                {{-- @if($associe) --}}
+                                                    @forelse ($user->etablissements as $etablissement)
+                                                        <input type="hidden" name="etablissement_id" value="{{ $etablissement->id }}">
+                                                    @empty
+                                                        <span><select style="width: 85px;" name="etablissement_id" class="form-select form-select-sm @error('etablissement_id') is-invalid @enderror">
+                                                            <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
+                                                            @foreach ($etablissements as $etablissement)
+                                                                <option value="{{ $etablissement->id }}">
+                                                                    {{ app()->getLocale() == 'ar' ? $etablissement->nomarabe : $etablissement->nomfrancais }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></span>
+                                                    @endforelse
+                                                {{-- @else
                                                     <span class="text-danger">Non associé</span>
-                                                @endif
+                                                @endif --}}
                                                 @if($associe)
                                                     @if($user->id == Auth::user()->id)
                                                         <button type="button" class="btn btn-sm btn-secondary" disabled>
-                                                            Vous-même
+                                                            {{ __('traduction.vousmem') }}
                                                         </button>
                                                     @else
                                                         <button type="submit" class="btn btn-sm btn-danger">
-                                                            Désassocier
+                                                            {{ __('traduction.deassocier') }}
                                                         </button>
                                                     @endif
                                                 @else
                                                     <button type="submit" class="btn btn-sm btn-primary">
-                                                        Associer
+                                                        {{ __('traduction.associer') }}
                                                     </button>
                                                 @endif
                                             </form>
-                                            
+
                                         </td>
                                         <td>
-                                            <form action="{{ route('etabusers.destroy', [$public_id,$user->public_id]) }}" method="POST">
-                                            <a href="{{ route('etabusers.edit', [$public_id,$user->public_id]) }}"
+                                            <form action="{{ route('etabusers.destroy', $user->public_id) }}" method="POST">
+                                            <a href="{{ route('etabusers.edit', $user->public_id) }}"
                                                 class="btn btn-primary btn-sm  ms-1 "><i class="fa fa-fw fa-edit"></i></a>
                                             @csrf
                                                     @method('DELETE')
@@ -86,7 +107,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="text-center text-muted">{{ __('traduction.aucunuser') }}</td>
+                                        <td colspan="4" class="text-center text-muted">{{ __('traduction.Aucunuser') }}</td>
                                     </tr>
                                 @endforelse
                                 </tbody>

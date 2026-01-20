@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Traits\HasPublicId;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,5 +55,30 @@ class Etablissement extends Model
     {
         return $this->belongsTo(\App\Models\Centre::class, 'centre_id', 'id');
     }
+
+     public static function generateCode($etablissementPrefix = 'ET')
+    {
+        $year = Carbon::now()->format('y'); // ex: 26
+
+        $last = self::where('prefixe', 'like', $year.$etablissementPrefix.'%')
+            ->orderBy('prefixe', 'desc')
+            ->first();
+
+        $nextNumber = $last
+            ? intval(substr($last->prefixe, -3)) + 1
+            : 1;
+
+        return $year.$etablissementPrefix.str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+    }
+
+    public function users()
+        {
+            return $this->belongsToMany(
+                User::class,
+                'user_etablissements',
+                'etablissement_id',
+                'user_id'
+            );
+        }
 
 }

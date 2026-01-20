@@ -1,17 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.appespace2')
 
 @section('template_title')
     {{ __('Update') }} Etablissement
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+    <div class="pc-container">
+      <div class="pc-content">
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Etablissement</span>
+                        <span class="card-title">{{ __('traduction.modif') }}</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('etablissements.update', $etablissement->id) }}"  role="form" enctype="multipart/form-data">
@@ -25,5 +24,4 @@
                 </div>
             </div>
         </div>
-    </section>
 @endsection

@@ -39,9 +39,6 @@
                                         {{ __('traduction.rol') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
                                     </th>
                                     <th>
-                                        {{ __('traduction.codeconf') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
-                                    </th>
-                                    <th>
                                         {{ __('traduction.action') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
                                      </th>
                                 </tr>
@@ -58,7 +55,6 @@
                                                 @endforeach
                                             @endif
                                         </td>
-                                        <td>{{ $user->confirmation }}</td>
                                         <td>
                                             <a href="{{ route('users.edit',  $user->id) }}"
                                                 class="btn btn-primary btn-sm  ms-1 "><i class="fa fa-fw fa-edit"></i>

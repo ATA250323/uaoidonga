@@ -25,7 +25,7 @@ class CentreRequest extends FormRequest
 			// 'public_id' => 'required',
 			'nomar' => 'string',
 			'nomfr' => 'string',
-			'prefixe' => 'required|string',
+			// 'prefixe' => 'required|string',
 			'adresse' => 'required|string',
 			'email' => 'required|string',
 			'telephone' => 'required|string',

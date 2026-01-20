@@ -28,10 +28,10 @@
           </a>
         </li>
     @role('Super-Administrateur')
-        <li class="pc-item pc-caption">
+        {{-- <li class="pc-item pc-caption">
           <label>⚙️ {{ __('traduction.para') }}</label>
           <i data-feather="feather"></i>
-        </li>
+        </li> --}}
         <li class="pc-item pc-hasmenu">
             <a class="pc-link" href="{{ route('users.index') }}">
                 <span class="pc-micon"> </span>
@@ -58,10 +58,10 @@
         </li>
         @endrole
         @role('Super-Administrateur|Administrateur')
-            <li class="pc-item pc-caption  " style="font-size: 20px">
+            {{-- <li class="pc-item pc-caption  " style="font-size: 20px">
                 <label>⚙️ {{ __('traduction.para') }}</label>
                 <i data-feather="feather"></i>
-            </li>
+            </li> --}}
             <li class="pc-item pc-hasmenu ">
                 <a class="pc-link taille" href="{{ route('anneescolaires.index') }}">
                     <span class="pc-micon"> </span>
@@ -91,6 +91,14 @@
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.no_dirigents') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('etabusers.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.utili') }}
                     </span>
                 </a>
             </li>
@@ -131,6 +139,22 @@
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.temoi') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('centres.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.centre') }}
+                    </span>
+                </a>
+            </li>
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('etablissements.index') }}">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.etablis') }}
                     </span>
                 </a>
             </li>

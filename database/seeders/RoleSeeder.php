@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
             ['name' => 'Directeur', 'guard_name' => 'web'],
             ['name' => 'Surveillant', 'guard_name' => 'web'],
             ['name' => 'Professeur', 'guard_name' => 'web'],
+            ['name' => 'Organisateur', 'guard_name' => 'web'],
         ];
 
 

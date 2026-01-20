@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserEtablissement;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use App\Http\Requests\UserEtablissementRequest;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Models\UserEtablissement;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\UserEtablissementRequest;
 
 class UserEtablissementController extends Controller
 {
@@ -37,10 +38,66 @@ class UserEtablissementController extends Controller
      */
     public function store(UserEtablissementRequest $request): RedirectResponse
     {
-        UserEtablissement::create($request->validated());
+        // UserEtablissement::create($request->validated());
 
-        return Redirect::route('user-etablissements.index')
-            ->with('success', 'UserEtablissement created successfully.');
+        // return Redirect::route('user-etablissements.index')
+        //     ->with('success', 'UserEtablissement created successfully.');
+
+                $request->validate([
+                    'user_id' => 'required|exists:users,id',
+                    'etablissement_id' => 'required|exists:etablissements,id',
+                ]);
+                if ($request->user_id === Auth::user()->id) {
+                    return back()->with('error', 'Vous ne pouvez pas vous désassocier vous-même.');
+                }
+
+                $existing = UserEtablissement::where('user_id', $request->user_id)
+                    ->where('etablissement_id', $request->etablissement_id)
+                    ->first();
+
+                if ($existing) {
+                    $existing->delete();
+                    return back()->with('success', 'Utilisateur désassocié avec succès.');
+                } else {
+                    UserEtablissement::create([
+                        'user_id' => $request->user_id,
+                        'etablissement_id' => $request->etablissement_id,
+                    ]);
+                    return back()->with('success', 'Utilisateur associé avec succès.');
+                }
+    }
+
+    public function etablissementAssociation(Request $request): RedirectResponse
+    {
+        // UserEtablissement::create($request->validated());
+
+        // return Redirect::route('user-etablissements.index')
+        //     ->with('success', 'UserEtablissement created successfully.');
+                $request->validate([
+                    'user_id' => 'required|exists:users,id',
+                    'etablissement_id' => 'required|exists:etablissements,id',
+                ]);
+
+                // dd($request->user_id,$request->etablissement_id);
+
+                if ($request->user_id === Auth::user()->id) {
+                    return back()->with('error', 'Vous ne pouvez pas vous désassocier vous-même.');
+                }
+
+                $existing = UserEtablissement::where('user_id', $request->user_id)
+                    ->where('etablissement_id', $request->etablissement_id)
+                    ->first();
+
+                if ($existing) {
+                    $existing->delete();
+                    return back()->with('success', 'Utilisateur désassocié avec succès.');
+                } else {
+                    UserEtablissement::create([
+                        'user_id' => $request->user_id,
+                        'etablissement_id' => $request->etablissement_id,
+                    ]);
+                    return back()->with('success', 'Utilisateur associé avec succès.');
+                }
     }
 
     /**

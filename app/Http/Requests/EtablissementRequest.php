@@ -22,10 +22,10 @@ class EtablissementRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'public_id' => 'required',
+			// 'public_id' => 'required',
 			'nomarabe' => 'required|string',
 			'nomfrancais' => 'required|string',
-			'prefixe' => 'required|string',
+			// 'prefixe' => 'required|string',
 			'adresse' => 'required|string',
 			'email' => 'required|string',
 			'telephone' => 'required|string',

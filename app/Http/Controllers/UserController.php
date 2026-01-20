@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
-use App\Mail\Inscription;
 use Illuminate\Http\Request;
-use App\Models\Etablissement;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\Inscriptionuser;
 
 class UserController extends Controller
 {
@@ -30,7 +30,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        $roles = Role::pluck( "name","name")->all();
+        $roles = Role::all();
         return view("role-permission.user.ajout",compact('roles'));
     }
 
@@ -40,23 +40,40 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $iduser= Auth::user();
         request()->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'roles' => ['required']
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => ['required']
         ]);
+
+        function generatemotdepasse($longueur =9){
+                $caracteres= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$&';
+                return substr(str_shuffle(str_repeat($caracteres,ceil($longueur / strlen($caracteres)))), 0, $longueur);
+            }
+
+            $motdepassenonhasher = generatemotdepasse(9);
+            $motdepassehasher = Hash::make($motdepassenonhasher);
 
         $user =  User::create([
             "name" => $request->name,
             "email" => $request->email,
-            "password"=> Hash::make($request->password)
+            "user_id" => $iduser->id,
+            "password" => $motdepassehasher,
 
         ]);
-        $user->syncRoles($request->roles);
-        $motdepasse =  $request->password;
-        Mail::to($user->email)->send(new Inscription($user, $motdepasse));
-        return redirect()->route('users.index')->with('message', 'Admin a été ajouté avec succès');
+        $user->syncRoles($request->role);
+        // Mail::to($user->email)->send(new Inscriptionuser($user, $motdepassenonhasher));
+        // return redirect()->route('users.index')->with('success', __('traduction.save_success'));
+         try {
+                Mail::to($user->email)->send(new Inscriptionuser($user,  $motdepassenonhasher));
+                return redirect()->route('users.index')->with('success', __('traduction.Evoiemail_user'));
+
+            } catch (Exception $e) {
+            return redirect()->route('users.index')
+                ->with('error', __('traduction.ErreurEvoiemail'));
+            }
 
     }
 
@@ -75,8 +92,9 @@ class UserController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        $roles = Role::pluck( "name","name")->all();
-        $userRoles = $user->roles->pluck( "name","name")->all();
+        $roles = Role::all();
+        // récupérer uniquement les noms des rôles
+        $userRoles = $user->roles->pluck('name')->toArray();
         return view("role-permission.user.modifie",compact('user','roles','userRoles'));
     }
 
@@ -87,19 +105,17 @@ class UserController extends Controller
     {
 
             request()->validate([
-                "name" => ["required", "string:2",  "min:2", "max:255", "unique:users,name,$id"],
+                "name" => ["required", "string:2",  "min:2", "max:255"],
                 'email' => ['required', 'string', "min:5", "max:255"],
-                'password' => ['required', 'string', "min:5", "max:255"],
-                'roles' => ['required']
+                'role' => ['required']
             ]);
 
             $user =  User::findOrFail($id);
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = $request->password;
             $user->save();
 
-            $user->syncRoles($request->roles);
+            $user->syncRoles($request->role);
 
         return redirect()->route('users.index')->with('success',
              __('traduction.save_success') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */

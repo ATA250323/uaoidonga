@@ -6,11 +6,9 @@
     <div class="pc-container">
       <div class="pc-content">
         <div class="card-body">
-
-
-                 <div class="card sm:my-12  w-full shadow-none">
+            <div class="card sm:my-12  w-full shadow-none">
               <div class="card-body !p-10">
-                <a href="{{ route('etabusers.index',$public_id) }}" class="btn btn-info float-end">
+                <a href="{{ route('etabusers.index') }}" class="btn btn-info float-end">
                     {{ __('traduction.listmembr') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
                 </a>
                 <h4 class="text-center font-medium mb-4">
@@ -19,11 +17,10 @@
         {{-- <form method="POST" action="{{ route('etabusers.store') }}">
                     @csrf --}}
 
-            <form action="{{ route('etabusers.update',[$public_id, $user->id]) }}" method="post">
+            <form action="{{ route('etabusers.update', $user->id) }}" method="post">
                 @csrf
                 @method('put')
-
-            <div class="row">
+                    <div class="row">
                         <div class="grid grid-cols-12 gap-3 mb-3">
                             <div class="col-span-12 xl:col-span-4 md:col-span-4">
                                 <label for="name" class="form-label">

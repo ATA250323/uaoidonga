@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Centre;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use App\Http\Requests\CentreRequest;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Models\Anneescolaire;
+use App\Http\Requests\CentreRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class CentreController extends Controller
 {
@@ -28,20 +30,75 @@ class CentreController extends Controller
     public function create(): View
     {
         $centre = new Centre();
+        $anneescolaires = Anneescolaire::all();
 
-        return view('centre.create', compact('centre'));
+        return view('centre.create', compact('centre','anneescolaires'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CentreRequest $request): RedirectResponse
-    {
-        Centre::create($request->validated());
 
-        return Redirect::route('centres.index')
-            ->with('success', 'Centre created successfully.');
+     public function store(CentreRequest $request): RedirectResponse
+{
+    $user = Auth::user();
+
+    $data = $request->validated();
+
+    // Vérifier si le centre existe déjà (exemple par nom ou classe)
+    if (Centre::where('nomar', $data['nomar'])->exists()) {
+        return redirect()
+            ->route('centres.create')
+            ->with('alertMessage', __('traduction.erreur_deja'));
     }
+
+    // Génération du code unique
+    $prefixe = Centre::generateCode('CT');
+
+    Centre::create([
+        'nomar'            => $data['nomar'],
+        'nomfr'            => $data['nomfr'],
+        'adresse'          => $data['adresse'],
+        'email'            => $data['email'],
+        'telephone'        => $data['telephone'],
+        'anneescolaire_id' => $data['anneescolaire_id'],
+        'prefixe'             => $prefixe,
+    ]);
+
+    return redirect()
+        ->route('centres.index')
+        ->with('success', __('traduction.save_success'));
+}
+
+    // public function store(CentreRequest $request): RedirectResponse
+    // {
+    //     // Centre::create($request->validated());
+
+    //     // return Redirect::route('centres.index')
+    //     //     ->with('success', 'Centre created successfully.');
+    //     $user= Auth::user();
+    //      $request->validated();
+        
+    //     if (Centre::where('classe',$request->classe)->exists()) {
+    //             return Redirect::route('centres.create')
+    //                     ->with('alertMessage',
+    //                     __('traduction.erreur_deja') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */
+    //                 );
+    //             # code...
+    //         }else{
+    //                 Centre::create([
+    //                     "nomar" => $request->nomar,
+    //                     "nomfr" => $request->nomfr,
+    //                     "adresse" => $request->adresse,
+    //                     "email" => $request->email,
+    //                     "telephone" => $request->telephone,
+    //                     "anneescolaire_id" => $request->anneescolaire_id,
+    //                 ]);
+    //                 return redirect()->route('centres.index')->with('success',
+    //                     __('traduction.save_success') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */
+    //             );
+    //         }
+    // }
 
     /**
      * Display the specified resource.
@@ -58,27 +115,58 @@ class CentreController extends Controller
      */
     public function edit($id): View
     {
-        $centre = Centre::find($id);
+        // $centre = Centre::find($id);
+        $centre = Centre::where('public_id',$id)->firstOrFail();
+        $anneescolaires = Anneescolaire::all();
 
-        return view('centre.edit', compact('centre'));
+        return view('centre.edit', compact('centre','anneescolaires'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CentreRequest $request, Centre $centre): RedirectResponse
+    public function update(Request $request, $id): RedirectResponse
     {
-        $centre->update($request->validated());
+        // $centre->update($request->validated());
 
-        return Redirect::route('centres.index')
-            ->with('success', 'Centre updated successfully');
+        // return Redirect::route('centres.index')
+        //     ->with('success', 'Centre updated successfully');
+         request()->validate([
+            'nomar' => 'string',
+			'nomfr' => 'string',
+			'adresse' => 'required|string',
+			'email' => 'required|string',
+			'telephone' => 'required|string',
+			'anneescolaire_id' => 'required',
+            ]);
+
+            $centre =  Centre::findOrFail($id);
+            $centre->nomar = $request->nomar;
+            $centre->nomfr = $request->nomfr;
+            $centre->adresse = $request->adresse;
+            $centre->email = $request->email;
+            $centre->telephone = $request->telephone;
+            $centre->anneescolaire_id = $request->anneescolaire_id;
+            $centre->save();
+        return Redirect::route('centres.index',)
+            ->with('success',
+             __('traduction.update_success') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */
+       );
     }
 
     public function destroy($id): RedirectResponse
     {
-        Centre::find($id)->delete();
+        // Centre::find($id)->delete();
 
+        // return Redirect::route('centres.index')
+        //     ->with('success', 'Centre deleted successfully');
+        
+        // Carousel::find($id)->delete();
+        $centre = Centre::where('public_id',$id)->firstOrFail();
+
+        // Supprimer en base
+        $centre->delete();
         return Redirect::route('centres.index')
-            ->with('success', 'Centre deleted successfully');
+            ->with('success', __('traduction.delete_success'));
     }
 }

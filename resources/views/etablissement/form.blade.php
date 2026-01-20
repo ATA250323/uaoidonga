@@ -1,54 +1,64 @@
-<div class="row padding-1 p-1">
-    <div class="col-md-12">
-        
-        <div class="form-group mb-2 mb20">
-            <label for="public_id" class="form-label">{{ __('Public Id') }}</label>
-            <input type="text" name="public_id" class="form-control @error('public_id') is-invalid @enderror" value="{{ old('public_id', $etablissement?->public_id) }}" id="public_id" placeholder="Public Id">
-            {!! $errors->first('public_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="nomarabe" class="form-label">{{ __('Nomarabe') }}</label>
-            <input type="text" name="nomarabe" class="form-control @error('nomarabe') is-invalid @enderror" value="{{ old('nomarabe', $etablissement?->nomarabe) }}" id="nomarabe" placeholder="Nomarabe">
+<div class="row">
+    <div class="grid grid-cols-12 gap-3 mb-3">
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="nomarabe" class="form-label">{{ __('traduction.nomarabe') }}</label>
+            <input type="text" name="nomarabe" class="form-control @error('nomarabe') is-invalid @enderror" value="{{ old('nomarabe', $etablissement?->nomarabe) }}" id="nomarabe" placeholder="">
             {!! $errors->first('nomarabe', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
-            <label for="nomfrancais" class="form-label">{{ __('Nomfrancais') }}</label>
-            <input type="text" name="nomfrancais" class="form-control @error('nomfrancais') is-invalid @enderror" value="{{ old('nomfrancais', $etablissement?->nomfrancais) }}" id="nomfrancais" placeholder="Nomfrancais">
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="nomfrancais" class="form-label">{{ __('traduction.nomfrancais') }}</label>
+            <input type="text" name="nomfrancais" class="form-control @error('nomfrancais') is-invalid @enderror" value="{{ old('nomfrancais', $etablissement?->nomfrancais) }}" id="nomfrancais" placeholder="">
             {!! $errors->first('nomfrancais', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
-            <label for="prefixe" class="form-label">{{ __('Prefixe') }}</label>
-            <input type="text" name="prefixe" class="form-control @error('prefixe') is-invalid @enderror" value="{{ old('prefixe', $etablissement?->prefixe) }}" id="prefixe" placeholder="Prefixe">
-            {!! $errors->first('prefixe', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="adresse" class="form-label">{{ __('Adresse') }}</label>
-            <input type="text" name="adresse" class="form-control @error('adresse') is-invalid @enderror" value="{{ old('adresse', $etablissement?->adresse) }}" id="adresse" placeholder="Adresse">
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="adresse" class="form-label">{{ __('traduction.adresse') }}</label>
+            <input type="text" name="adresse" class="form-control @error('adresse') is-invalid @enderror" value="{{ old('adresse', $etablissement?->adresse) }}" id="adresse" placeholder="adresse">
             {!! $errors->first('adresse', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
-            <label for="email" class="form-label">{{ __('Email') }}</label>
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="email" class="form-label">{{ __('traduction.email') }}</label>
             <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $etablissement?->email) }}" id="email" placeholder="Email">
             {!! $errors->first('email', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
-            <label for="telephone" class="form-label">{{ __('Telephone') }}</label>
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="telephone" class="form-label">{{ __('traduction.tel') }}</label>
             <input type="text" name="telephone" class="form-control @error('telephone') is-invalid @enderror" value="{{ old('telephone', $etablissement?->telephone) }}" id="telephone" placeholder="Telephone">
             {!! $errors->first('telephone', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
-            <label for="annee" class="form-label">{{ __('Annee') }}</label>
-            <input type="text" name="annee" class="form-control @error('annee') is-invalid @enderror" value="{{ old('annee', $etablissement?->annee) }}" id="annee" placeholder="Annee">
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="centre_id" class="form-label">{{ __('traduction.centre') }}</label>
+            <select name="centre_id" class="form-select @error('centre_id') is-invalid @enderror" autocomplete="organisation">
+                    @if ($etablissement?->centre_id)
+                        <option value="{{ $etablissement->centre_id }}">
+                            {{ $etablissement->centre->nomar.'-'.$etablissement->centre->nomfr }} {{-- Affiche le nom de l'enseignant --}}
+                        </option>
+                    @else
+                            <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
+                    @endif
+                    @foreach ($centres as $centre)
+                        <option value="{{ $centre->id }}">{{$centre->nomar.' '.$centre->nomfr }}</option>
+                    @endforeach
+            </select>
             {!! $errors->first('annee', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
-            <label for="centre_id" class="form-label">{{ __('Centre Id') }}</label>
-            <input type="text" name="centre_id" class="form-control @error('centre_id') is-invalid @enderror" value="{{ old('centre_id', $etablissement?->centre_id) }}" id="centre_id" placeholder="Centre Id">
-            {!! $errors->first('centre_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+        <div class="col-span-12 xl:col-span-6 md:col-span-6">
+            <label for="anneescolaire_id" class="form-label">{{ __('traduction.annee') }}</label>
+            <select name="anneescolaire_id" class="form-select @error('annee') is-invalid @enderror" autocomplete="">
+                    @if ($etablissement?->anneescolaire_id)
+                        <option value="{{ $etablissement->anneescolaire_id }}">
+                            {{ $etablissement->anneescolaire->anneear.'-'.$etablissement->anneescolaire->anneefr }} {{-- Affiche le nom de l'enseignant --}}
+                        </option>
+                    @else
+                            <option value="">{{ __('traduction.selecte') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</option>
+                    @endif
+                    @foreach ($anneescolaires as $anneescolaire)
+                        <option value="{{ $anneescolaire->id }}">{{$anneescolaire->anneear.' / '.$anneescolaire->anneefr }}</option>
+                    @endforeach
+            </select>
+            {!! $errors->first('annee', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-
     </div>
     <div class="col-md-12 mt20 mt-2">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('traduction.enregistre') }}</button>
     </div>
 </div>

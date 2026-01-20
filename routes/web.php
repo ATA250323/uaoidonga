@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TemoinController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DirigentController;
+use App\Http\Controllers\UseretabController;
 use App\Http\Controllers\InfoligneController;
 use App\Http\Controllers\EvennementController;
 use App\Http\Controllers\PermissionController;
@@ -57,6 +58,7 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur'
     Route::resource('carousels', CarouselController::class);
     Route::resource('profils', ProfilController::class);
     Route::resource('infolignes', InfoligneController::class);
+    Route::resource('etabusers', UseretabController::class);
     Route::resource('centres', CentreController::class);
     Route::resource('etablissements', EtablissementController::class);
     Route::resource('user-etablissements', UserEtablissementController::class);
@@ -67,6 +69,7 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur'
     Route::resource('information', InformationController::class);
     Route::resource('dirigents', DirigentController::class);
     Route::put('lire/{id}/messages_etabli', [App\Http\Controllers\InfoligneController::class,'liremessage'])->name('lire.messages_etabli');
+    Route::post('/etablissements/association', [App\Http\Controllers\UserEtablissementController::class, 'etablissementAssociation'])->name('etablissements.association');
 });
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');
