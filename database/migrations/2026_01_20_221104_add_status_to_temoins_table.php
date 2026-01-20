@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('temoins', function (Blueprint $table) {
             //
+            $table->string('status')->nullable();
         });
     }
 
