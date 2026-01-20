@@ -24,6 +24,7 @@
                                 <a href="#" class="dropdown-item">4</a>
                             </div>
                         </div> --}}
+                        @include('layouts.partifixe.navapp')
                         <div class="nav-item dropdown">
                             <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ __('traduction.lang')}}</a>
                             <div class="dropdown-menu bg-light mt-2">
