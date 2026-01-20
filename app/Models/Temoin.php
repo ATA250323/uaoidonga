@@ -37,4 +37,3 @@ class Temoin extends Model
 
 
 }
-temoins
