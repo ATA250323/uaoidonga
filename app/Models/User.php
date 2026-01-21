@@ -71,5 +71,18 @@ public function isOnline()
     return $this->last_activity && $this->last_activity >= now()->subMinutes(2);
 }
 
+public function offlineSince(): ?string
+{
+    if (!$this->last_activity) {
+        return null;
+    }
+
+    if ($this->isOnline()) {
+        return null;
+    }
+
+    return Carbon::parse($this->last_activity)->diffForHumans();
+}
+
 
 }

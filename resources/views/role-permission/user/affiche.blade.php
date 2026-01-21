@@ -62,7 +62,14 @@
                                             @if($user->isOnline())
                                                  <span class="badge bg-success">🟢 {{ __('traduction.connect')}}</span>
                                             @else
-                                                 <span class="badge bg-secondary">⚪ {{ __('traduction.nonconnect')}}</span>
+                                                <span class="badge bg-secondary">⚪ {{ __('traduction.nonconnect')}}
+                                                    @if($user->offlineSince())
+                                                        <br>
+                                                        <small>
+                                                         {{ $user->offlineSince() }}
+                                                        </small>
+                                                    @endif
+                                                </span>
                                             @endif
                                         </td>
                                         <td>
