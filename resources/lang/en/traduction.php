@@ -572,6 +572,8 @@ return [
 'associer'   => 'Associate',
 'deassocier' => 'Dissociate',
 'anneecrer' => 'Year of establishment',
+'connect'    => 'Connected',
+'nonconnect' => 'Not connected',
 
 
 ];

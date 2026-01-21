@@ -12,14 +12,14 @@
 
                             <span id="card_title">
 
-                                {{ __('traduction.utili') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                                {{ __('traduction.utili')}}
 
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
 
-                                {{ __('traduction.ajout') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                                {{ __('traduction.ajout')}}
 
                                 </a>
                               </div>
@@ -30,16 +30,19 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        {{ __('traduction.nom') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                                        {{ __('traduction.nom')}}
                                     </th>
                                     <th>
-                                        {{ __('traduction.email') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                                        {{ __('traduction.email')}}
                                     </th>
                                     <th>
-                                        {{ __('traduction.rol') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                                        {{ __('traduction.rol')}}
                                     </th>
                                     <th>
-                                        {{ __('traduction.action') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}
+                                        {{ __('traduction.statut')}}
+                                    </th>
+                                    <th>
+                                        {{ __('traduction.action')}}
                                      </th>
                                 </tr>
                             </thead>
@@ -56,12 +59,19 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if($user->isOnline())
+                                                 <span class="badge bg-success">🟢 {{ __('traduction.connect')}}</span>
+                                            @else
+                                                 <span class="badge bg-secondary">⚪ {{ __('traduction.nonconnect')}}</span>
+                                            @endif
+                                        </td>
+                                        <td>
                                             <a href="{{ route('users.edit',  $user->id) }}"
                                                 class="btn btn-primary btn-sm  ms-1 "><i class="fa fa-fw fa-edit"></i>
                                             </a>
                                             <a href="{{ url('users/' . $user->id . '/destroy') }}"
                                                 class="btn btn-danger btn-sm  ms-1 "
-                                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette personne ?')"><i class="fa fa-fw fa-trash"></i>
+                                                onclick="return confirm('{{ __('traduction.confirm_delete') }}')"><i class="fa fa-fw fa-trash"></i>
                                             </a>
 
                                         </td>

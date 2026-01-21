@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use App\Traits\HasPublicId;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -23,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'user_id',
+        'last_activity' => 'datetime', // ✅ TRÈS IMPORTANT
     ];
 
     /**
@@ -63,5 +65,11 @@ class User extends Authenticatable
             'etablissement_id'
         );
 }
+
+public function isOnline()
+{
+    return $this->last_activity && $this->last_activity >= now()->subMinutes(2);
+}
+
 
 }
