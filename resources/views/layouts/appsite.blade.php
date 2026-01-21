@@ -28,6 +28,9 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
 </head>
 
 <body>
@@ -42,6 +45,7 @@
 
 
     @include('layouts.partifixe.nav')
+    @include('layouts.partifixe.alert')
 
     <main class="main">
 

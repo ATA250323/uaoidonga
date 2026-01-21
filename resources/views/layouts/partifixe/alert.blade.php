@@ -33,6 +33,17 @@
     </script>
 @endif
 
+@if(session('status'))
+    <script>
+        Swal.fire({
+            text: '{{ session('status') }}',
+            icon: 'success',
+            confirmButtonText: '{{ __('traduction.fermer') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+@endif
+
 @if(session('alertMessage'))
     <script>
         Swal.fire({
