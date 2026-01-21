@@ -73,6 +73,12 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Administrateur'
     Route::put('lire/{id}/messages_etabli', [App\Http\Controllers\InfoligneController::class,'liremessage'])->name('lire.messages_etabli');
     Route::post('/etablissements/association', [App\Http\Controllers\UserEtablissementController::class, 'etablissementAssociation'])->name('etablissements.association');
 });
+
+Route::group(['middleware' => ['auth','role:Super-Administrateur|Secondaire']], function() {
+    Route::resource('centres', CentreController::class);
+    Route::resource('etablissements', EtablissementController::class);
+    Route::resource('inscriptions', InscriptionController::class);
+});
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');
 Route::get('a_propos', [App\Http\Controllers\PageController::class, 'apropos'])->name('a_propos');
