@@ -6,7 +6,7 @@
       <div class="pc-content">
             <div class="col-md-12">
                 <br><br>
-                <div class="card my-4">
+                <div class="card my-4" >
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
@@ -49,29 +49,20 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td class="text-success">
+                                        <td style="font-size: 16px;">{{ $user->name }}</td>
+                                        <td style="font-size: 16px;">{{ $user->email }}</td>
+                                        <td class="text-success" style="font-size: 20px;">
                                             @if (!@empty($user->getRoleNames()))
                                                 @foreach ($user->getRoleNames() as $rolename)
                                                     <label class="badge bg-info">{{ $rolename }}</label>
                                                 @endforeach
                                             @endif
                                         </td>
-                                        {{-- <td>
-                                            @if($user->isOnline())
-                                                 <span class="text-success"> {{ $user->statusLabel() }}</span>
-                                            @elseif ($user->last_activity)
-                                                 <span class="text-warning"> {{ $user->statusLabel() }}</span>
-                                            @else
-                                                <span class="text-secondary"> {{ $user->statusLabel() }}</span>
-                                            @endif
-                                        </td> --}}
-                                        <td>
-    <span class="{{ $user->statusLabel()['class'] }}">
-        {{ $user->statusLabel()['text'] }}
-    </span>
-</td>
+                                        <td style="font-size: 16px;">
+                                            <span class="{{ $user->statusLabel()['class'] }}">
+                                                {{ $user->statusLabel()['text'] }}
+                                            </span>
+                                        </td>
 
                                         <td>
                                             <a href="{{ route('users.edit',  $user->id) }}"
