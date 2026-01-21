@@ -27,7 +27,7 @@
                     <p style="font-size:12px; color:#555; line-height:1.5;">
                         {{ __('traduction.message_inscription.connecter') }}
                     </p>
-                        <a href="{{ route('confirmerCompte') }}"
+                        <a href="{{ route('login') }}"
                                 style="display:inline-block;padding:10px 20px;background:#007bff;color:white;border-radius:5px;text-decoration:none;">
                                 {{ __('traduction.message_inscription.button') }}
                         </a>
