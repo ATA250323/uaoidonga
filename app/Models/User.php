@@ -115,7 +115,7 @@ public function isOnline()
 
     return [
         'text' => '⚪' . __('traduction.jamaisconnect'),
-        'class' => 'text-danger',
+        'class' => 'text-secondary',
     ];
 }
 
