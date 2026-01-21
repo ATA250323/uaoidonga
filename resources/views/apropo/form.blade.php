@@ -1,5 +1,10 @@
 <div class="row">
     <div class="grid grid-cols-12 gap-3 mb-3">
+        <div class="col-span-12 xl:col-span-12 md:col-span-12">
+            <label for="annee" class="form-label">{{ __('traduction.anneecrer') }}</label> Ex: 1447 - 2026 
+            <input type="text" name="annee" class="form-control @error('annee') is-invalid @enderror" value="{{ old('annee', $apropo?->annee) }}" id="annee" placeholder="annee">
+            {!! $errors->first('annee', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+        </div>
         <div class="col-span-12 xl:col-span-6 md:col-span-6">
             <label for="aproposar" class="form-label">{{ __('traduction.aproposar') }}</label>
             <textarea name="aproposar"

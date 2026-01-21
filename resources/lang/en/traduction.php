@@ -571,6 +571,7 @@ return [
 'vousmem'    => 'Yourself',
 'associer'   => 'Associate',
 'deassocier' => 'Dissociate',
+'anneecrer' => 'Year of establishment',
 
 
 ];

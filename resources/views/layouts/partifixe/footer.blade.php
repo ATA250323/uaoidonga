@@ -59,12 +59,14 @@
                         <a class="btn btn-link" href="#!">{{ __('traduction.conditions')}}</a>
                         <a class="btn btn-link" href="#!">{{ __('traduction.carriere')}}</a> --}}
                 </div>
-                {{-- <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <p class="text-white mb-4">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</p>
-                    <a class="btn btn-link" href="#!">1</a>
-                    <a class="btn btn-link" href="#!">2</a>
-                    <a class="btn btn-link" href="#!">3</a>
-                </div> --}}
+                @if ($organisation)
+                    <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                        <p class="text-white mb-4">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</p>
+                        @foreach ($lienorganisations as $lienorganisation)
+                            <a class="btn btn-link" href="#!">{{ $lienorganisation->titre }}</a>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
 

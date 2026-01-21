@@ -94,14 +94,14 @@
                     </span>
                 </a>
             </li>
-            <li class="pc-item pc-hasmenu">
+            {{-- <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('etabusers.index') }}" style="font-size: 20px">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.utili') }}
                     </span>
                 </a>
-            </li>
+            </li> --}}
             <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('information.index') }}" style="font-size: 20px">
                     <span class="pc-micon"> </span>

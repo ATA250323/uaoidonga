@@ -24,6 +24,10 @@
                                         <div class="grid grid-cols-12 gap-3 mb-3">
 
                                       @foreach ($apropos as $apropo)
+                                        <div class="col-span-12 xl:col-span-12 md:col-span-12">
+                                            <h3>{{ __('traduction.anneecrer') }}</h3>
+                                            <p >{{ $apropo->annee }}</p>
+                                        </div>
                                         <div class="col-span-12 xl:col-span-6 md:col-span-6">
                                             <h3>{{ __('traduction.apropos') }}</h3>
                                             <p >{{ $apropo->aproposar }}</p>

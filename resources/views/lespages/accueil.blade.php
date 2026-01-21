@@ -8,7 +8,11 @@
                 <div class="col-lg-6">
                     <h1 class="animated ">{{ __('traduction.uaoidonga2')}}</h1>
                     <h5 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
-                        {{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 1990</h5>
+                        {{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 
+                        @if($apropos)
+                            {{ $apropos->annee }}
+                        @endif
+                    </h5>
                 </div>
                 <div class="col-lg-6">
                     <div class="owl-carousel header-carousel animated fadeIn">
@@ -124,7 +128,9 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                     <h1 class="mb-5">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</h1>
-                    <p>{{ app()->getLocale() == 'ar' ? $information->inforganisaar : $information->inforganisafr }}</p>
+                    @if ($information)
+                        <p>{{ app()->getLocale() == 'ar' ? $information->inforganisaar : $information->inforganisafr }}</p>
+                    @endif
                     <div class="d-flex align-items-center bg-light">
                         <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
                             <i class="fa fa-phone fa-2x text-white"></i>
@@ -137,6 +143,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-0">
+                        @foreach ($organisations as $organisation)
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
                             <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
                                 <a href="#!" class="service-img position-relative mb-4">
@@ -146,6 +153,7 @@
                                 <p class="mb-0">{{ $organisation->description }}</p>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

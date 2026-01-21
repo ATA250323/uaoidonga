@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('objectifar')->nullable();
             $table->text('objectiffr')->nullable();
             $table->text('visionar')->nullable();
-            $table->text('visionfr')->nullable();
+            $table->text('annee')->nullable();
             $table->timestamps();
         });
     }

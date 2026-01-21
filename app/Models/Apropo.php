@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $public_id
+ * @property $annee
  * @property $aproposar
  * @property $aproposfr
  * @property $missionar
@@ -35,7 +36,7 @@ class Apropo extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['public_id', 'aproposar', 'aproposfr', 'missionar', 'missionfr', 'objectifar', 'objectiffr', 'visionar', 'visionfr'];
+    protected $fillable = ['public_id', 'annee','aproposar', 'aproposfr', 'missionar', 'missionfr', 'objectifar', 'objectiffr', 'visionar', 'visionfr'];
 
 
 }

@@ -23,6 +23,7 @@ class ApropoRequest extends FormRequest
     {
         return [
 			// 'public_id' => 'required',
+			'annee' => 'string',
 			'aproposar' => 'string',
 			'aproposfr' => 'string',
 			'missionar' => 'string',
