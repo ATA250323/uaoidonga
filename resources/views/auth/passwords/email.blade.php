@@ -14,7 +14,7 @@
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="name" placeholder="{{ __('traduction.email')}}">
+                                        <input type="email"  name="email" class="form-control @error('email') is-invalid @enderror" id="name" placeholder="{{ __('traduction.email')}}">
                                         <label for="name">{{ __('traduction.email')}}</label>
                                     </div>
                                     @error('email')
