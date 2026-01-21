@@ -58,20 +58,21 @@
                                                 @endforeach
                                             @endif
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @if($user->isOnline())
-                                                 <span class="badge bg-success">🟢 {{ __('traduction.connect')}}</span>
+                                                 <span class="text-success"> {{ $user->statusLabel() }}</span>
+                                            @elseif ($user->last_activity)
+                                                 <span class="text-warning"> {{ $user->statusLabel() }}</span>
                                             @else
-                                                <span class="badge bg-secondary">⚪ {{ __('traduction.nonconnect')}}
-                                                    @if($user->offlineSince())
-                                                        <br>
-                                                        <small>
-                                                         {{ $user->offlineSince() }}
-                                                        </small>
-                                                    @endif
-                                                </span>
+                                                <span class="text-secondary"> {{ $user->statusLabel() }}</span>
                                             @endif
-                                        </td>
+                                        </td> --}}
+                                        <td>
+    <span class="{{ $user->statusLabel()['class'] }}">
+        {{ $user->statusLabel()['text'] }}
+    </span>
+</td>
+
                                         <td>
                                             <a href="{{ route('users.edit',  $user->id) }}"
                                                 class="btn btn-primary btn-sm  ms-1 "><i class="fa fa-fw fa-edit"></i>

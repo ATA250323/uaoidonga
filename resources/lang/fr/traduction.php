@@ -479,8 +479,9 @@ return [
 'Evoiemail_user'=>'Vos avez inscrire un utilisateur ! Un e-mail de confirmation a été envoyé. S’il ne le trouvez pas, de vérifier dans le courrier indésirable (spam).',
 
     'anneecrer'=>'Année de la création',
-    'connect'=>'Connecté',
+    'connect'=>'En ligne',
     'nonconnect'=>'Non Connecté',
+    'jamaisconnect'=>'Jamais connecté',
     // ''=>'',
     // ''=>'',
     // ''=>'',

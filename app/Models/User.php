@@ -71,17 +71,52 @@ public function isOnline()
     return $this->last_activity && $this->last_activity >= now()->subMinutes(2);
 }
 
-public function offlineSince(): ?string
+// public function offlineSince(): ?string
+// {
+//     if (!$this->last_activity) {
+//         return null;
+//     }
+
+//     if ($this->isOnline()) {
+//         return null;
+//     }
+
+//     return Carbon::parse($this->last_activity)->diffForHumans();
+// }
+
+    // public function statusLabel(): string
+    // {
+    //     if ($this->isOnline()) {
+    //         return '🟢'. __('traduction.connect');
+    //     }
+
+    //     if ($this->last_activity) {
+    //         return '🟡'. __('traduction.nonconnect').' '. Carbon::parse($this->last_activity)->diffForHumans();
+    //     }
+
+    //     return '⚪' . __('traduction.jamaisconnect');
+    // }
+
+    public function statusLabel(): array
 {
-    if (!$this->last_activity) {
-        return null;
-    }
-
     if ($this->isOnline()) {
-        return null;
+        return [
+            'text' => '🟢'. __('traduction.connect'),
+            'class' => 'text-success',
+        ];
     }
 
-    return Carbon::parse($this->last_activity)->diffForHumans();
+    if ($this->last_activity) {
+        return [
+            'text' => '🟡'.  __('traduction.nonconnect') . ' ' . Carbon::parse($this->last_activity)->diffForHumans(),
+            'class' => 'text-warning',
+        ];
+    }
+
+    return [
+        'text' => '⚪' . __('traduction.jamaisconnect'),
+        'class' => 'btn btn-danger',
+    ];
 }
 
 

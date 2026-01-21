@@ -424,6 +424,7 @@ return [
 'anneecrer' => 'سنة التأسيس',
 'connect'    => 'متصل',
 'nonconnect' => 'غير متصل',
+'jamaisconnect'=>'لم تقم بتسجيل الدخول أبدا',
 
 
 ];
