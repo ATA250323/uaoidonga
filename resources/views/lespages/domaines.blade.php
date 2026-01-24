@@ -41,13 +41,13 @@
                                 <img class="img-fluid  w-100" src="{{ asset('storage/' . $organisation_id->image) }}" alt="Image" width="" height="">
                             </div>
                             <div class="col-lg-7 wow fadeIn" data-wow-delay="0.1s">
-                                @if ($organisation->titre === 'لجنة التربية والثقافــــــة')
+                                @if ($organisation_id->titre === 'لجنة التربية والثقافــــــة')
                                     <h2 class="mb-2 text-center">أولا: في مجال التربية والتعليم:</h2>
-                                @elseif ($organisation->titre === 'لجنة الدعوة والبحوث')
+                                @elseif ($organisation_id->titre === 'لجنة الدعوة والبحوث')
                                     <h2 class="mb-2 text-center">ثانيا: في مجال الدعوة إلى الله يهتم الاتحاد بالآتي:</h2>
-                                @elseif ($organisation->titre === 'لجنة الشـــــــــؤون الاجتماعية')
+                                @elseif ($organisation_id->titre === 'لجنة الشـــــــــؤون الاجتماعية')
                                     <h2 class="mb-2 text-center">ثالثا: في مجال الشؤون الاجتماعية :</h2>
-                                @elseif ($organisation->titre === 'لجنـــة الاقتصاد والمشاريع')
+                                @elseif ($organisation_id->titre === 'لجنـــة الاقتصاد والمشاريع')
                                     <h2 class="mb-2 text-center">رابعا: في مجال المشاريع وتنمية الموارد:</h2>
                                 @endif
                                 <ol class="modern-ol text-end" dir="rtl">
