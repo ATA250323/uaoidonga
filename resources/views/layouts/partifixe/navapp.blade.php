@@ -78,14 +78,14 @@
                     </span>
                 </a>
             </li>
-            <li class="pc-item pc-hasmenu">
+            {{-- <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('apropos.index') }}" style="font-size: 20px">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.apropos') }}
                     </span>
                 </a>
-            </li>
+            </li> --}}
             <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('dirigents.index') }}" style="font-size: 20px">
                     <span class="pc-micon"> </span>
@@ -102,14 +102,14 @@
                     </span>
                 </a>
             </li> --}}
-            <li class="pc-item pc-hasmenu">
+            {{-- <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('information.index') }}" style="font-size: 20px">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
                         {{ __('traduction.histoire') }}
                     </span>
                 </a>
-            </li>
+            </li> --}}
             <li class="pc-item pc-hasmenu">
                 <a class="pc-link" href="{{ route('organisations.index') }}" style="font-size: 20px">
                     <span class="pc-micon"> </span>

@@ -1,5 +1,20 @@
 @extends('layouts.appsite')
+<style>
+    [dir="rtl"] .modern-ol li::before {
+    right: auto;
+    left: 12px;
+    }
+    .minimal-ol {
+        list-style: decimal;
+        padding-right: 20px;
+    }
 
+    .minimal-ol li {
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+    }
+
+</style>
 @section('content')
     <!-- Hero Start -->
     <div class="container-fluid pb-5 hero-header bg-light mb-5">
@@ -8,10 +23,9 @@
                 <div class="col-lg-6">
                     <h1 class="animated ">{{ __('traduction.uaoidonga2')}}</h1>
                     <h5 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
-                        {{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 
-                        @if($apropos)
-                            {{ $apropos->annee }}
-                        @endif
+                        {{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}}
+                        <br>
+                       م 1975 - 1395 ه
                     </h5>
                 </div>
                 <div class="col-lg-6">
@@ -34,7 +48,7 @@
 
 
     <!-- About Start -->
-    @if ($information)
+    {{-- @if ($information) --}}
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5">
@@ -47,14 +61,22 @@
                                 <img class="img-fluid w-100" src="{{ asset('assets/img/logo12.png') }}" alt="">
                             @endif
                             <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
-                                <h4 class="text-white lh-base mb-0">{{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}} 1990</h4>
+                                <h5 class="text-white lh-base mb-0">{{ __('traduction.uaoidonga')}} {{ __('traduction.depuis')}}
+                                    <br>
+                       م 1975 - 1395 ه
+                                </h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">{{ __('traduction.h1')}}</span> {{ __('traduction.h2')}}</h1>
-                    <p class="mb-4">{{ app()->getLocale() == 'ar' ? $information->histoirar : $information->histoirfr }}</p>
+                    <h3 class="mb-2 text-center"><span class="text-uppercase text-primary bg-light px-2 ">{{ __('traduction.histoiretitle')}}</span></h3>
+                    <p class="mb-2 text-center">{{ __('traduction.histoiretitle2')}}</p>
+                    <p class="mb-2">
+                        {{ Str::limit(__('traduction.histoire1'), 255) }}<a href="{{ route('a_propos') }}" style="font-size: 25px; color: rgb(5, 248, 37)">{{ __('traduction.ensoir')}}</a>
+                    </p>
+                    {{-- <p class="mb-4">{{ app()->getLocale() == 'ar' ? $information->histoirar : $information->histoirfr }}</p> --}}
                     <div class="d-flex align-items-center mt-5">
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://www.facebook.com/share/1Kcz18dipP/"><i
                                 class="fab fa-facebook-f"></i></a>
@@ -67,24 +89,27 @@
             </div>
         </div>
     </div>
-     @endif
+     {{-- @endif --}}
     <!-- About End -->
 
 
     <!-- Feature Start -->
-@if ($information)
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="mb-5">{{ __('traduction.rejoinne')}}<span class="text-uppercase text-primary bg-light px-2"> {{ __('traduction.uaoidonga')}}</span>
+                <h1 class="mb-5">{{ __('traduction.defis')}}<span class="text-uppercase text-primary bg-light px-2"> {{ __('traduction.uaoidonga')}}</span>
                 </h1>
             </div>
-            <div class="row g-5 align-items-center text-center">
-                {{ app()->getLocale() == 'ar' ? $information->raisonar : $information->raisonfr }}
+            <div class="">
+                <ul  class="minimal-ol">
+                    <li class="">{{ __('traduction.defis1')}}</li>
+                    <li class="">{{ __('traduction.defis2')}}</li>
+                    <li class="">{{ __('traduction.defis3')}}</li>
+                </ul>
+            <a href="{{ route('a_propos') }}" style="font-size: 25px; color: rgb(5, 248, 37)">{{ __('traduction.ensoir')}}</a>
             </div>
         </div>
     </div>
-@endif
     <!-- Feature End -->
 
 
@@ -122,44 +147,50 @@
 
 
     <!-- Service Start -->
-    @if ($organisation)
+
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="mb-5">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</h1>
-                    @if ($information)
-                        <p>{{ app()->getLocale() == 'ar' ? $information->inforganisaar : $information->inforganisafr }}</p>
-                    @endif
+                    <h1 class="mb-5">{{ __('traduction.organise')}}</h1>
+                    {{-- @if ($information) --}}
+                        <p>
+                            {{ Str::limit(__('traduction.organise1'), 255) }}
+                            <a href="{{ route('a_propos') }}" style="font-size: 25px; color: rgb(5, 248, 37)">{{ __('traduction.ensoir')}}</a>
+                        </p>
+                    {{-- @endif --}}
                     <div class="d-flex align-items-center bg-light">
                         <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
                             <i class="fa fa-phone fa-2x text-white"></i>
                         </div>
                         <div class="px-3">
-                            <h3>+229 0196332360 / 97634621</h3>
+                            <h4>+229 0196332360 / 97634621</h4>
                             <span>{{ __('traduction.appelernous')}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-0">
+                    @if ($organisation)
                         @foreach ($organisations as $organisation)
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
                             <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="#!" class="service-img position-relative mb-4">
+                                <a href="{{ route('detail.domaine',$organisation->id) }}" class="service-img position-relative mb-4">
                                     <img class="img-fluid  w-100" src="{{ asset('storage/' . $organisation->image) }}" alt="Image">
                                     <h3>{{ $organisation->titre }}</h3>
                                 </a>
-                                <p class="mb-0">{{ $organisation->description }}</p>
+                                <p class="mb-0">
+                                    {{ Str::limit( $organisation->description, 100) }}
+                                </p>
                             </div>
                         </div>
                         @endforeach
+                    @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     @endif
     <!-- Service End -->
 
     <!-- Team Start -->

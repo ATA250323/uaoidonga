@@ -63,7 +63,7 @@
                     <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                         <p class="text-white mb-4">{{ __('traduction.no')}} {{ __('traduction.organisation')}}</p>
                         @foreach ($lienorganisations as $lienorganisation)
-                            <a class="btn btn-link" href="#!">{{ $lienorganisation->titre }}</a>
+                            <a class="btn btn-link" href="{{ route('detail.domaine',$lienorganisation->id) }}">{{ $lienorganisation->titre }}</a>
                         @endforeach
                     </div>
                 @endif

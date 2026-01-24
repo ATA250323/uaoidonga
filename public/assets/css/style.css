@@ -1,5 +1,10 @@
 /********** Template CSS **********/
-
+body {
+    font-family: 'Arial', sans-serif;
+}
+h1, h2, h3 {
+    font-family: 'Times New Roman', serif;
+}
 /* Aligner le texte à droite uniquement en mode Arabe */
 [dir="rtl"] .testimonial-text {
     text-align: right;

@@ -84,6 +84,7 @@ Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->
 Route::get('a_propos', [App\Http\Controllers\PageController::class, 'apropos'])->name('a_propos');
 Route::get('galleries', [App\Http\Controllers\PageController::class, 'galleries'])->name('galleries');
 Route::get('acceuil', [App\Http\Controllers\PageController::class, 'acceuil'])->name('acceuils');
+Route::get('detail/{id}/domaine', [App\Http\Controllers\PageController::class, 'detaildomaine'])->name('detail.domaine');
 
 Route::resource('temoins', TemoinController::class);
 Route::patch('/temoins/{id}/toggle', [TemoinController::class, 'temoinsStatus'])->name('temoins.status');

@@ -30,10 +30,9 @@ class PageController extends Controller
 
         $carousel = Carousel::first();
         $carousels = Carousel::skip(1)->first();
-        $apropos = Apropo::first();
         $organisation = Organisation::first();
         $lienorganisations = Organisation::all();
-        return view('lespages.apropos', compact('apropos','carousel','carousels','lienorganisations','organisation'));
+        return view('lespages.apropos', compact('carousel','carousels','lienorganisations','organisation'));
     }
     public function galleries()
     {
@@ -43,10 +42,8 @@ class PageController extends Controller
     public function acceuil()
     {
         // 1. Récupérer toutes les diapositives, triées par un ordre (si nécessaire)
-        $apropos = Apropo::first();
         $carousels = Carousel::all();
         $hasCarousel = $carousels->isNotEmpty();
-        $information = Information::first();
         $carousel = Carousel::first();
         $organisation = Organisation::first();
         $evennement = Evennement::first();
@@ -59,13 +56,35 @@ class PageController extends Controller
         $temoin = $temoins->isNotEmpty();
         return view('lespages.accueil', compact('carousels',
         'hasCarousel',
-        'information',
         'carousel',
         'organisation',
         'organisations',
         'evennement',
         'evennements',
         'dirigent',
-        'dirigents','temoins','temoin','apropos','lienorganisations'));
+        'dirigents',
+        'temoins',
+        'temoin',
+        'lienorganisations'));
+    }
+
+     public function detaildomaine($id)
+    {
+        // $organisation_id = Organisation::find($id);
+
+        $organisation_id = Organisation::findOrFail($id);
+
+        $liste = collect(preg_split('/•|\n/', $organisation_id->description))
+            ->filter()
+            ->map(fn($item) => trim($item, " \t\n\r\0\x0B."));
+
+        $organisation = Organisation::first();
+        $lienorganisations = Organisation::all();
+        $organisations = Organisation::orderBy('created_at', 'desc')->take(4)->get();
+
+        return view('lespages.domaines', compact(
+            'organisation',
+            'organisations',
+            'lienorganisations','organisation_id','liste'));
     }
 }
