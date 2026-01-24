@@ -107,12 +107,34 @@ class CarouselController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CarouselRequest $request, Carousel $carousel): RedirectResponse
+    public function update(CarouselRequest $request, $id): RedirectResponse
     {
-        $carousel->update($request->validated());
+        // $carousel->update($request->validated());
 
-        return Redirect::route('carousels.index')
-            ->with('success', 'Carousel updated successfully');
+        // return Redirect::route('carousels.index')
+        //     ->with('success', 'Carousel updated successfully');
+
+        $request->validated();
+
+            $carousel = Carousel::where('public_id',$id)->firstOrFail();
+            if ($request->hasFile('image')) {
+
+                // Supprimer le fichier physique
+                Storage::disk('public')->delete($carousel->image);
+
+                // Générer un nom unique
+                $imageName = time() . '.' . $request->file('image')->extension();
+
+                // Stocker la vidéo avec le Storage Laravel
+                $imagePath = $request->file('image')->storeAs('carousel', $imageName, 'public');
+
+                    $carousel->image = $imagePath;
+                    $carousel->save();
+                    return redirect()->route('carousels.index')->with('succes', __('traduction.update_success') );
+                }else{
+                            return Redirect::route('carousels.index')
+                    ->with('error', __('traduction.erreurphoto') );
+                }
     }
 
     public function destroy($id): RedirectResponse
