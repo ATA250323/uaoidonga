@@ -348,6 +348,7 @@ return [
 
 'titre' => 'العنوان',
 'description' => 'الوصف',
+'photo_bienvenu' => 'صور الترحيب',
 'Clair'=>'فاتح',
 'Sombre'=>'داكن',
     'photobienve' => 'صور الترحيب',

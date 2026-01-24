@@ -90,6 +90,8 @@ class EvennementController extends Controller
     public function show($id): View
     {
         $evennement = Evennement::find($id);
+        $organisations = Organisation::all();
+        $anneescolaires = Anneescolaire::all();
 
         return view('evennement.show', compact('evennement'));
     }
@@ -99,20 +101,47 @@ class EvennementController extends Controller
      */
     public function edit($id): View
     {
-        $evennement = Evennement::find($id);
+        $evennement = Evennement::where('public_id',$id)->firstOrFail();
+        $organisations = Organisation::all();
+        $anneescolaires = Anneescolaire::all();
 
-        return view('evennement.edit', compact('evennement'));
+        return view('evennement.edit', compact('evennement','organisations','anneescolaires'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(EvennementRequest $request, Evennement $evennement): RedirectResponse
+    public function update(EvennementRequest $request, $id): RedirectResponse
     {
-        $evennement->update($request->validated());
+        // $evennement->update($request->validated());
 
-        return Redirect::route('evennements.index')
-            ->with('success',__('traduction.update_success'));
+        // return Redirect::route('evennements.index')
+        //     ->with('success',__('traduction.update_success'));
+
+        $request->validated();
+
+            $evennement = Evennement::where('public_id',$id)->firstOrFail();
+            if ($request->hasFile('image')) {
+
+                // Supprimer le fichier physique
+                Storage::disk('public')->delete($evennement->image);
+
+                // Générer un nom unique
+                $imageName = time() . '.' . $request->file('image')->extension();
+
+                // Stocker la vidéo avec le Storage Laravel
+                $imagePath = $request->file('image')->storeAs('evennement', $imageName, 'public');
+
+                    $evennement->titrear = $request->titrear;
+                    $evennement->organisation_id = $request->organisation_id;
+                    $evennement->anneescolaire_id = $request->anneescolaire_id;
+                    $evennement->image = $imagePath;
+                    $evennement->save();
+                    return redirect()->route('evennements.index')->with('succes', __('traduction.update_success') );
+                }else{
+                            return Redirect::route('evennements.index')
+                    ->with('error', __('traduction.erreurphoto') );
+                }
     }
 
     public function destroy($id): RedirectResponse
