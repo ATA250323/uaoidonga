@@ -7,15 +7,15 @@
             {!! $errors->first('public_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div> --}}
         <div class="form-group mb-2 mb20">
-            <label for="titre" class="form-label">{{ __('Titre') }}</label>
+            <label for="titre" class="form-label">{{ __('traduction.titre') }}</label>
             <input type="text" name="titre" class="form-control @error('titre') is-invalid @enderror" value="{{ old('titre', $organisation?->titre) }}" id="titre" placeholder="Titre">
             {!! $errors->first('titre', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="description" class="form-label">{{ __('Description') }}</label>
+            <label for="description" class="form-label">{{ __('traduction.description') }}</label>
              <textarea name="description"
                 id="description" cols="30"  rows="10" class="form-control @error('description') is-invalid @enderror"
-                placeholder="Description">{{ old('description') }}
+                placeholder="Description">{{ old('description', $organisation?->description) }}
             </textarea>
             {!! $errors->first('description', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
@@ -31,13 +31,13 @@
             {!! $errors->first('annee', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="image" class="form-label">{{ __('Image') }}</label>
+            <label for="image" class="form-label">{{ __('traduction.photo') }}</label>
             <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" value="{{ old('image', $organisation?->image) }}" id="image" placeholder="Image">
             {!! $errors->first('image', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
 
     </div>
     <div class="col-md-12 mt20 mt-2">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('traduction.enregistre') }}</button>
     </div>
 </div>

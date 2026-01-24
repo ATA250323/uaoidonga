@@ -83,11 +83,13 @@
                         @foreach ($organisations as $organisation)
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
                             <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="{{ route('detail.domaine',$organisation->id) }}" class="service-img position-relative mb-4">
+                                <a href="{{ route('detail.domaine',$organisation->public_id) }}" class="service-img position-relative mb-4">
                                     <img class="img-fluid  w-100" src="{{ asset('storage/' . $organisation->image) }}" alt="Image">
                                     <h3>{{ $organisation->titre }}</h3>
                                 </a>
-                                <p class="mb-0">{{ $organisation->description }}</p>
+                                <p class="mb-0">
+                                    {{ Str::limit($organisation->description, 100) }}
+                                </p>
                             </div>
                         </div>
                         @endforeach

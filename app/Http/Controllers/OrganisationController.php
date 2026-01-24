@@ -87,20 +87,47 @@ class OrganisationController extends Controller
      */
     public function edit($id): View
     {
-        $organisation = Organisation::find($id);
+        // $organisation = Organisation::find($id);
 
-        return view('organisation.edit', compact('organisation'));
+        $organisation = Organisation::where('public_id',$id)->firstOrFail();
+        $anneescolaires = Anneescolaire::all();
+
+        return view('organisation.edit', compact('organisation','anneescolaires'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(OrganisationRequest $request, Organisation $organisation): RedirectResponse
+    public function update(OrganisationRequest $request,  $id): RedirectResponse
     {
-        $organisation->update($request->validated());
+        // $organisation->update($request->validated());
 
-        return Redirect::route('organisations.index')
-            ->with('success', 'Organisation updated successfully');
+        // return Redirect::route('organisations.index')
+        //     ->with('success', 'Organisation updated successfully');
+         $request->validated();
+
+            $organisation = Organisation::where('public_id',$id)->firstOrFail();
+            if ($request->hasFile('image')) {
+
+                // Supprimer le fichier physique
+                Storage::disk('public')->delete($organisation->image);
+
+                // Générer un nom unique
+                $imageName = time() . '.' . $request->file('image')->extension();
+
+                // Stocker la vidéo avec le Storage Laravel
+                $imagePath = $request->file('image')->storeAs('organisation', $imageName, 'public');
+
+                    $organisation->titre = $request->titre;
+                    $organisation->description = $request->description;
+                    $organisation->anneescolaire_id = $request->anneescolaire_id;
+                    $organisation->image = $imagePath;
+                    $organisation->save();
+                    return redirect()->route('organisations.index')->with('succes', __('traduction.update_success') );
+                }else{
+                            return Redirect::route('organisations.index')
+                    ->with('error', __('traduction.erreurphoto') );
+                }
     }
 
     public function destroy($id): RedirectResponse

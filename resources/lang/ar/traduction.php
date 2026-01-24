@@ -347,6 +347,7 @@ return [
     'temoi' => 'الشهادات',
 
 'titre' => 'العنوان',
+'description' => 'الوصف',
 'Clair'=>'فاتح',
 'Sombre'=>'داكن',
     'photobienve' => 'صور الترحيب',

@@ -70,9 +70,8 @@ class PageController extends Controller
 
      public function detaildomaine($id)
     {
-        // $organisation_id = Organisation::find($id);
 
-        $organisation_id = Organisation::findOrFail($id);
+    $organisation_id = Organisation::where('public_id',$id)->firstOrFail();
 
         $liste = collect(preg_split('/•|\n/', $organisation_id->description))
             ->filter()

@@ -28,39 +28,35 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
+                                        <tr>
                                         <th>{{ __('traduction.num') }}</th>
-
-									{{-- <th >Public Id</th> --}}
-									<th >{{ __('traduction.titre') }}</th>
-									<th >{{ __('traduction.description') }}</th>
-									<th >{{ __('traduction.photo') }}</th>
-
-                                        <th></th>
+                                        <th>{{ __('traduction.action') }}</th>
+                                        <th >{{ __('traduction.photo') }}</th>
+                                        {{-- <th >Public Id</th> --}}
+                                        <th >{{ __('traduction.titre') }}</th>
+                                        <th >{{ __('traduction.description') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($organisations as $organisation)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-
-										{{-- <td >{{ $organisation->public_id }}</td> --}}
-										<td >{{ $organisation->titre }}</td>
-                                        <td >{{ $organisation->description }}</td>
+                                        <td>{{ ++$i }}</td>
+                                        <td>
+                                            <form action="{{ route('organisations.destroy', $organisation->public_id) }}" method="POST">
+                                                        {{-- <a class="btn btn-sm btn-primary " href="{{ route('organisations.show', $organisation->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a> --}}
+                                                <a class="btn btn-sm btn-success" href="{{ route('organisations.edit', $organisation->public_id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('{{ __('traduction.confirm_delete') }}') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i></button>
+                                            </form>
+                                        </td>
 										<td >
                                             {{-- {{ $organisation->image }} --}}
                                             <img class="img-fluid w-100" src="{{ asset('storage/' . $organisation->image) }}" class="rounded-full" width="60" height="60">
                                         </td>
-
-                                            <td>
-                                                <form action="{{ route('organisations.destroy', $organisation->public_id) }}" method="POST">
-                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('organisations.show', $organisation->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a> --}}
-                                                    {{-- <a class="btn btn-sm btn-success" href="{{ route('organisations.edit', $organisation->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a> --}}
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('{{ __('traduction.confirm_delete') }}') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i></button>
-                                                </form>
-                                            </td>
+										{{-- <td >{{ $organisation->public_id }}</td> --}}
+										<td >{{ $organisation->titre }}</td>
+                                        <td >{{ $organisation->description }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
