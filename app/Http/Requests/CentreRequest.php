@@ -24,11 +24,11 @@ class CentreRequest extends FormRequest
         return [
 			// 'public_id' => 'required',
 			'nomar' => 'string',
-			'nomfr' => 'string',
+			'nomfr' => 'nullable',
 			// 'prefixe' => 'required|string',
-			'adresse' => 'required|string',
-			'email' => 'required|string',
-			'telephone' => 'required|string',
+			'adresse' => 'nullable',
+			'email' => 'nullable',
+			'telephone' => 'nullable',
 			'anneescolaire_id' => 'required',
         ];
     }

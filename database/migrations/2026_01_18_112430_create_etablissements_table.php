@@ -16,11 +16,10 @@ return new class extends Migration
             $table->uuid('public_id')->unique();
             $table->string('nomarabe');
             $table->string('nomfrancais');
-            $table->text('prefixe');
-            $table->text('adresse');
-            $table->text('email');
-            $table->text('telephone');
-            $table->date('annee')->nullable();
+            $table->text('prefixe')->nullable();
+            $table->text('adresse')->nullable();
+            $table->text('email')->nullable();
+            $table->text('telephone')->nullable();
             $table->foreignId('centre_id')->constrained('centres')->onDelete('cascade');
             $table->foreignId('anneescolaire_id')->constrained()->onDelete('cascade');
             $table->timestamps();

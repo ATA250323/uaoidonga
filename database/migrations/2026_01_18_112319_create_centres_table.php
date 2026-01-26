@@ -16,10 +16,10 @@ return new class extends Migration
             $table->uuid('public_id')->unique();
             $table->text('nomar')->nullable();
             $table->text('nomfr')->nullable();
-            $table->text('prefixe');
-            $table->text('adresse');
-            $table->text('email');
-            $table->text('telephone');
+            $table->text('prefixe')->nullable();
+            $table->text('adresse')->nullable();
+            $table->text('email')->nullable();
+            $table->text('telephone')->nullable();
             $table->foreignId('anneescolaire_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

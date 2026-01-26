@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>{{ __('traduction.action') }}</th>
                                         <th>{{ __('traduction.num') }}</th>
-                                        
+
 									{{-- <th >Public Id</th> --}}
 									{{-- <th >{{ __('traduction.nomarabe') }}</th> --}}
 									<th >{{ __('traduction.etablis') }}</th>
@@ -55,11 +55,12 @@
                                                 </form>
                                             </td>
                                             <td>{{ ++$i }}</td>
-                                            
+
 										{{-- <td >{{ $etablissement->public_id }}</td> --}}
 										{{-- <td >{{ $etablissement->nomarabe }}</td> --}}
 										<td >
-                                            {{ app()->getLocale() == 'ar' ? $etablissement->nomarabe : $etablissement->nomfrancais }}
+                                            {{ $etablissement->nomarabe.' '.$etablissement->nomfrancais}}
+                                            {{-- {{ app()->getLocale() == 'ar' ? $etablissement->nomarabe : $etablissement->nomfrancais }} --}}
                                         </td>
 										<td >{{ $etablissement->prefixe }}</td>
 										<td >{{ $etablissement->adresse }}</td>

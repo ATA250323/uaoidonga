@@ -24,13 +24,13 @@ class EtablissementRequest extends FormRequest
         return [
 			// 'public_id' => 'required',
 			'nomarabe' => 'required|string',
-			'nomfrancais' => 'required|string',
-			// 'prefixe' => 'required|string',
-			'adresse' => 'required|string',
-			'email' => 'required|string',
-			'telephone' => 'required|string',
+			'nomfrancais' => 'nullable',
+			// 'prefixe' => 'nullable',
+			'adresse' => 'nullable',
+			'email' => 'nullable',
+			'telephone' => 'nullable',
 			'centre_id' => 'required',
-			'anneescolaire_id' => 'required|string',
+			'anneescolaire_id' => 'required',
         ];
     }
 }

@@ -40,7 +40,7 @@
 									<th >{{ __('traduction.tel') }}</th>
 									<th >{{ __('traduction.annee') }}</th>
 
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,7 +60,8 @@
 										{{-- <td >{{ $centre->public_id }}</td> --}}
 										{{-- <td >{{ $centre->nomar }}</td> --}}
 										<td >
-                                            {{ app()->getLocale() == 'ar' ? $centre->nomar : $centre->nomfr }}
+                                            {{ $centre->nomar.' '.$centre->nomfr}}
+                                            {{-- {{ app()->getLocale() == 'ar' ? $centre->nomar : $centre->nomfr }} --}}
                                         </td>
 										<td >{{ $centre->prefixe }}</td>
 										<td >{{ $centre->adresse }}</td>
