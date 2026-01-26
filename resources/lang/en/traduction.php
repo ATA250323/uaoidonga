@@ -544,11 +544,11 @@ return [
 'nomctar'     => 'Center name in Arabic',
 'nomctfr'     => 'Center name in French',
 'adresse'     => 'Address',
-'prefixect'   => 'Center code',
+'prefixect'   => 'Code',
 'nomarabe'    => 'Institution name in Arabic',
 'nomfrancais' => 'Institution name in French',
 'centre_id'   => 'Center',
-'prefixeet'   => 'Institution code',
+'prefixeet'   => 'Code',
 
 'message_inscription' => [
     'subject'   => 'Registration at UAOIDONGA',

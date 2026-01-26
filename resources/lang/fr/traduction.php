@@ -441,11 +441,11 @@ return [
     'nomctar' => 'Nom du centre en arabe',
 	'nomctfr' => 'Nom du centre en français',
 	'adresse' => 'Adresse',
-    'prefixect'=>'Le code du centre',
+    'prefixect'=>'Le code',
     'nomarabe' => 'Nom établissement en arabe',
 	'nomfrancais' => 'Nom établissement en français',
 	'centre_id' => 'Centre',
-    'prefixeet'=>'Le code du établissement',
+    'prefixeet'=>'Le code',
 
     'message_inscription' => [
         // Français

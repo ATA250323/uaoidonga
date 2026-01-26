@@ -386,11 +386,11 @@ return [
 'nomctar'     => 'اسم المركز باللغة العربية',
 'nomctfr'     => 'اسم المركز باللغة الفرنسية',
 'adresse'     => 'العنوان',
-'prefixect'   => 'رمز المركز',
+'prefixect'   => 'رمز',
 'nomarabe'    => 'اسم المؤسسة باللغة العربية',
 'nomfrancais' => 'اسم المؤسسة باللغة الفرنسية',
 'centre_id'   => 'المركز',
-'prefixeet'   => 'رمز المؤسسة',
+'prefixeet'   => 'رمز',
 
 'message_inscription' => [
     'subject'   => 'التسجيل في UAOI DJOUGOU',
