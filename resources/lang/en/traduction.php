@@ -619,6 +619,11 @@ return [
 'comite2'=> 'Da‘wah (Preaching) and Research Committee',
 'comite3'=> 'Social Affairs Committee',
 'comite4'=> 'Economy and Projects Committee',
+// Anglais
+'libelle'        => 'Label',
+'code'           => 'Code',
+'ajoutexamen'    => 'Add exam',
+'modifieexamen'  => 'Edit exam',
 
 // Anglais
 'centrecompo' => 'Examination center',

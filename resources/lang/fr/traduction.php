@@ -528,10 +528,13 @@ return [
 'comite3' => 'Commission des affaires sociales',
 'comite4' => 'Commission de l’économie et des projets',
 
-'libelle'=>'Libelle',
-'code'=>'Le code',
-'ajoutexamen'=>'Ajout examen',
-'modifieexamen'=>'Modifie examen',
+// Français
+'libelle'        => 'Libellé',
+'code'           => 'Le code',
+'ajoutexamen'    => 'Ajout d’examen',
+'modifieexamen'  => 'Modification de l’examen',
+
+
 
 // Français
 'centrecompo'=>'Centre de composition',

@@ -472,6 +472,12 @@ return [
 
 
 // Arabe
+'libelle'        => 'التسمية',
+'code'           => 'الرمز',
+'ajoutexamen'    => 'إضافة امتحان',
+'modifieexamen'  => 'تعديل الامتحان',
+
+// Arabe
 'centrecompo' => 'مركز الامتحان',
 'candidats' => 'المترشحون',
 'inscriptioncandida' => 'استمارة تسجيل المترشح',
