@@ -30,23 +30,25 @@
   <!-- [Page specific CSS] start -->
   <link href="{{ asset('assetsapp/css/plugins/animate.min.css') }}" rel="stylesheet" type="text/css" />
   <!-- [Page specific CSS] end -->
+
   <!-- [Font] Family -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <!-- [phosphor Icons] https://phosphoricons.com/ -->
-  <link rel="stylesheet" href="{{ asset('assetsapp/fonts/phosphor/duotone/style.css') }}" />
-  <!-- [Tabler Icons] https://tablericons.com -->
-  <link rel="stylesheet" href="{{ asset('assetsapp/fonts/tabler-icons.min.css') }}" />
-  <!-- [Feather Icons] https://feathericons.com -->
-  <link rel="stylesheet" href="{{ asset('assetsapp/fonts/feather.css') }}" />
-  <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-  <link rel="stylesheet" href="{{ asset('assetsapp/fonts/fontawesome.css') }}" />
-  <!-- [Material Icons] https://fonts.google.com/icons -->
-  <link rel="stylesheet" href="{{ asset('assetsapp/fonts/material.css') }}" />
+
+ <!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Tabler Icons -->
+<link rel="stylesheet" href="{{ asset('assetsapp/fonts/tabler-icons.min.css') }}">
   <!-- [Template CSS Files] -->
   <link rel="stylesheet" href="{{ asset('assetsapp/css/style.css') }}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+  <link rel="stylesheet" href="{{ asset('assetsapp/fonts/fontawesome.css') }}" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS Bundle (Popper + JS) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
    <!-- SheetJS -->
@@ -55,8 +57,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js"></script>
@@ -65,11 +65,6 @@
     <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
-<style>
-    .taille {
-        font-size: 50px;
-    }
-</style>
 </head>
 
 <body>

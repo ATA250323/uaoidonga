@@ -57,10 +57,10 @@ class CentreController extends Controller
 
     Centre::create([
         'nomar'            => $data['nomar'],
-        'nomfr'            => $data['nomfr'],
+        // 'nomfr'            => $data['nomfr'],
         'adresse'          => $data['adresse'],
-        'email'            => $data['email'],
-        'telephone'        => $data['telephone'],
+        // 'email'            => $data['email'],
+        // 'telephone'        => $data['telephone'],
         'anneescolaire_id' => $data['anneescolaire_id'],
         'prefixe'             => $prefixe,
     ]);
@@ -70,35 +70,7 @@ class CentreController extends Controller
         ->with('success', __('traduction.save_success'));
 }
 
-    // public function store(CentreRequest $request): RedirectResponse
-    // {
-    //     // Centre::create($request->validated());
 
-    //     // return Redirect::route('centres.index')
-    //     //     ->with('success', 'Centre created successfully.');
-    //     $user= Auth::user();
-    //      $request->validated();
-        
-    //     if (Centre::where('classe',$request->classe)->exists()) {
-    //             return Redirect::route('centres.create')
-    //                     ->with('alertMessage',
-    //                     __('traduction.erreur_deja') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */
-    //                 );
-    //             # code...
-    //         }else{
-    //                 Centre::create([
-    //                     "nomar" => $request->nomar,
-    //                     "nomfr" => $request->nomfr,
-    //                     "adresse" => $request->adresse,
-    //                     "email" => $request->email,
-    //                     "telephone" => $request->telephone,
-    //                     "anneescolaire_id" => $request->anneescolaire_id,
-    //                 ]);
-    //                 return redirect()->route('centres.index')->with('success',
-    //                     __('traduction.save_success') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */
-    //             );
-    //         }
-    // }
 
     /**
      * Display the specified resource.
@@ -133,19 +105,19 @@ class CentreController extends Controller
         //     ->with('success', 'Centre updated successfully');
          request()->validate([
             'nomar' => 'string',
-			'nomfr' => 'string',
+			// 'nomfr' => 'string',
 			'adresse' => 'required|string',
-			'email' => 'required|string',
-			'telephone' => 'required|string',
+			// 'email' => 'required|string',
+			// 'telephone' => 'required|string',
 			'anneescolaire_id' => 'required',
             ]);
 
             $centre =  Centre::findOrFail($id);
             $centre->nomar = $request->nomar;
-            $centre->nomfr = $request->nomfr;
+            // $centre->nomfr = $request->nomfr;
             $centre->adresse = $request->adresse;
-            $centre->email = $request->email;
-            $centre->telephone = $request->telephone;
+            // $centre->email = $request->email;
+            // $centre->telephone = $request->telephone;
             $centre->anneescolaire_id = $request->anneescolaire_id;
             $centre->save();
         return Redirect::route('centres.index',)
@@ -160,7 +132,7 @@ class CentreController extends Controller
 
         // return Redirect::route('centres.index')
         //     ->with('success', 'Centre deleted successfully');
-        
+
         // Carousel::find($id)->delete();
         $centre = Centre::where('public_id',$id)->firstOrFail();
 

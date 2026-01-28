@@ -114,6 +114,7 @@ return [
 'prenom'=>'Prénom(s)',
 'sexe'=>'Sexe',
 'pays'=>'Pays',
+'ville'=>'Ville',
 'datnais'=>'Date de naissance',
 'lieu'=>'Lieu de naissance',
 'nation'=>'Nationnalité',
@@ -472,8 +473,8 @@ return [
     'deassocier'=>'Désassocier',
 
 'formulairinscrire'=>'Formulaire d’inscription',
-'niveau1' => 'Moyenne',
-'niveau2' => 'Secondaire',
+'examen1' => 'Moyenne',
+'examen2' => 'Secondaire',
 'ecrire'=>'Écrivez ici…',
 'enploi'=>'Emploi du temps',
 'Evoiemail_user'=>'Vos avez inscrire un utilisateur ! Un e-mail de confirmation a été envoyé. S’il ne le trouvez pas, de vérifier dans le courrier indésirable (spam).',
@@ -527,6 +528,19 @@ return [
 'comite3' => 'Commission des affaires sociales',
 'comite4' => 'Commission de l’économie et des projets',
 
-    // ''=>'',
+'libelle'=>'Libelle',
+'code'=>'Le code',
+'ajoutexamen'=>'Ajout examen',
+'modifieexamen'=>'Modifie examen',
+
+// Français
+'centrecompo'=>'Centre de composition',
+'candidats' => 'Les candidats',
+'inscriptioncandida' => 'Formulaire d’inscription du candidat',
+'modifiecandida' => 'Formulaire de modification du candidat',
+'renseignecandida' => 'Veuillez renseigner soigneusement les informations du candidat.',
+'etablipasexam' => 'Aucun centre d’examen n’est rattaché à cet établissement pour le niveau concerné.',
+'total' => 'Total',
+
     // ''=>'',
 ];

@@ -28,23 +28,23 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>{{ __('traduction.action') }}</th>
                                         <th>{{ __('traduction.num') }}</th>
+                                        <th>{{ __('traduction.action') }}</th>
 
 									{{-- <th >Public Id</th> --}}
 									{{-- <th >{{ __('traduction.nomarabe') }}</th> --}}
 									<th >{{ __('traduction.etablis') }}</th>
 									<th >{{ __('traduction.prefixeet') }}</th>
-									<th >{{ __('traduction.adresse') }}</th>
-									<th >{{ __('traduction.email') }}</th>
-									<th >{{ __('traduction.tel') }}</th>
+									<th >{{ __('traduction.ville') }}</th>
+									{{-- <th >{{ __('traduction.email') }}</th>
+									<th >{{ __('traduction.tel') }}</th> --}}
 									<th >{{ __('traduction.annee') }}</th>
-									<th >{{ __('traduction.centre_id') }} </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($etablissements as $etablissement)
                                         <tr>
+                                            <td>{{ ++$i }}</td>
                                             <td>
                                                 <form action="{{ route('etablissements.destroy', $etablissement->public_id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('etablissements.show', $etablissement->public_id) }}"><i class="fa fa-fw fa-eye"></i></a> --}}
@@ -54,7 +54,6 @@
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('{{ __('traduction.confirm_delete') }}') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
-                                            <td>{{ ++$i }}</td>
 
 										{{-- <td >{{ $etablissement->public_id }}</td> --}}
 										{{-- <td >{{ $etablissement->nomarabe }}</td> --}}
@@ -64,10 +63,9 @@
                                         </td>
 										<td >{{ $etablissement->prefixe }}</td>
 										<td >{{ $etablissement->adresse }}</td>
-										<td >{{ $etablissement->email }}</td>
-										<td >{{ $etablissement->telephone }}</td>
+										{{-- <td >{{ $etablissement->email }}</td>
+										<td >{{ $etablissement->telephone }}</td> --}}
 										<td >{{ $etablissement->anneescolaire->anneear.' '.$etablissement->anneescolaire->anneefr }}</td>
-										<td >{{ $etablissement->centre->nomar }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -48,37 +48,36 @@ class EtablissementController extends Controller
     //         ->with('success', 'Etablissement created successfully.');
     // }
 
-        public function store(EtablissementRequest $request): RedirectResponse
-{
-    $user = Auth::user();
+public function store(EtablissementRequest $request): RedirectResponse
+    {
+       Auth::user();
 
-    $data = $request->validated();
+        $data = $request->validated();
 
-    // Vérifier si le centre existe déjà (exemple par nom ou classe)
-    if (Etablissement::where('nomarabe', $data['nomarabe'])->exists()) {
+        // Vérifier si le centre existe déjà (exemple par nom ou classe)
+        if (Etablissement::where('nomarabe', $data['nomarabe'])->exists()) {
+            return redirect()
+                ->route('etablissements.create')
+                ->with('alertMessage', __('traduction.erreur_deja'));
+        }
+
+        // Génération du code unique
+        $prefixe = Etablissement::generateCode('ET');
+
+        Etablissement::create([
+            'nomarabe'            => $data['nomarabe'],
+            // 'nomfrancais'            => $data['nomfrancais'],
+            'adresse'          => $data['adresse'],
+            // 'email'            => $data['email'],
+            // 'telephone'        => $data['telephone'],
+            'anneescolaire_id' => $data['anneescolaire_id'],
+            'prefixe'             => $prefixe,
+        ]);
+
         return redirect()
-            ->route('etablissements.create')
-            ->with('alertMessage', __('traduction.erreur_deja'));
+            ->route('etablissements.index')
+            ->with('success', __('traduction.save_success'));
     }
-
-    // Génération du code unique
-    $prefixe = Etablissement::generateCode('ET');
-
-    Etablissement::create([
-        'nomarabe'            => $data['nomarabe'],
-        'nomfrancais'            => $data['nomfrancais'],
-        'adresse'          => $data['adresse'],
-        'email'            => $data['email'],
-        'telephone'        => $data['telephone'],
-        'anneescolaire_id' => $data['anneescolaire_id'],
-        'centre_id' => $data['centre_id'],
-        'prefixe'             => $prefixe,
-    ]);
-
-    return redirect()
-        ->route('etablissements.index')
-        ->with('success', __('traduction.save_success'));
-}
     /**
      * Display the specified resource.
      */
@@ -113,23 +112,23 @@ class EtablissementController extends Controller
         //     ->with('success', 'Etablissement updated successfully');
         request()->validate([
             'nomarabe' => 'required|string',
-			'nomfrancais' => 'required|string',
+			// 'nomfrancais' => 'required|string',
 			'adresse' => 'required|string',
-			'email' => 'required|string',
-			'telephone' => 'required|string',
-			'centre_id' => 'required',
+			// 'email' => 'required|string',
+			// 'telephone' => 'required|string',
 			'anneescolaire_id' => 'required|string',
             ]);
 
             $etablissement =  Etablissement::findOrFail($id);
+            
             $etablissement->nomarabe = $request->nomarabe;
-            $etablissement->nomfrancais = $request->nomfrancais;
+            // $etablissement->nomfrancais = $request->nomfrancais;
             $etablissement->adresse = $request->adresse;
-            $etablissement->email = $request->email;
-            $etablissement->telephone = $request->telephone;
-            $etablissement->centre_id = $request->centre_id;
+            // $etablissement->email = $request->email;
+            // $etablissement->telephone = $request->telephone;
             $etablissement->anneescolaire_id = $request->anneescolaire_id;
             $etablissement->save();
+
         return Redirect::route('etablissements.index',)
             ->with('success',
              __('traduction.update_success') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */

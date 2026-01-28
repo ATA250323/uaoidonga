@@ -966,10 +966,10 @@ b, strong{
   vertical-align: middle;
 }
 .pc-navbar .pc-link .pc-micon:where([dir="ltr"], [dir="ltr"] *){
-  margin-right: 15px;
+  margin-right: -20px;
 }
 .pc-navbar .pc-link .pc-micon:where([dir="rtl"], [dir="rtl"] *){
-  margin-left: 15px;
+  margin-left: -20px;
 }
 .pc-navbar .pc-link .pc-micon > svg{
   display: inline-block;

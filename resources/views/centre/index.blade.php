@@ -28,16 +28,16 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>{{ __('traduction.action') }}</th>
                                         <th>{{ __('traduction.num') }}</th>
+                                        <th>{{ __('traduction.action') }}</th>
 
 									{{-- <th >Public Id</th> --}}
 									{{-- <th >{{ __('traduction.nomctar') }}</th> --}}
 									<th >{{ __('traduction.centre_id') }}</th>
 									<th >{{ __('traduction.prefixect') }}</th>
-									<th >{{ __('traduction.adresse') }}</th>
-									<th >{{ __('traduction.email') }}</th>
-									<th >{{ __('traduction.tel') }}</th>
+									<th >{{ __('traduction.ville') }}</th>
+									{{-- <th >{{ __('traduction.email') }}</th>
+									<th >{{ __('traduction.tel') }}</th> --}}
 									<th >{{ __('traduction.annee') }}</th>
 
 
@@ -46,6 +46,7 @@
                                 <tbody>
                                     @foreach ($centres as $centre)
                                         <tr>
+                                            <td>{{ ++$i }}</td>
                                             <td>
                                                 <form action="{{ route('centres.destroy', $centre->public_id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('centres.show', $centre->public_id) }}"><i class="fa fa-fw fa-eye"></i></a> --}}
@@ -55,7 +56,6 @@
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('{{ __('traduction.confirm_delete') }}') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
-                                            <td>{{ ++$i }}</td>
 
 										{{-- <td >{{ $centre->public_id }}</td> --}}
 										{{-- <td >{{ $centre->nomar }}</td> --}}
@@ -65,8 +65,8 @@
                                         </td>
 										<td >{{ $centre->prefixe }}</td>
 										<td >{{ $centre->adresse }}</td>
-										<td >{{ $centre->email }}</td>
-										<td >{{ $centre->telephone }}</td>
+										{{-- <td >{{ $centre->email }}</td>
+										<td >{{ $centre->telephone }}</td> --}}
 										<td >{{ $centre->anneescolaire->anneear.'-'.$centre->anneescolaire->anneefr}}</td>
                                         </tr>
                                     @endforeach

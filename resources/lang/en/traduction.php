@@ -568,6 +568,9 @@ return [
     'equipe'   => 'The team of',
   ],
   'aucunetabli' => 'No establishment',
+
+'examen1' => 'Moyenne',
+'examen2' => 'Secondaire',
 'vousmem'    => 'Yourself',
 'associer'   => 'Associate',
 'deassocier' => 'Dissociate',
@@ -616,5 +619,14 @@ return [
 'comite2'=> 'Da‘wah (Preaching) and Research Committee',
 'comite3'=> 'Social Affairs Committee',
 'comite4'=> 'Economy and Projects Committee',
+
+// Anglais
+'centrecompo' => 'Examination center',
+'candidats' => 'Candidates',
+'inscriptioncandida' => 'Candidate registration form',
+'modifiecandida' => 'Candidate modification form',
+'renseignecandida' => 'Please carefully fill in the candidate’s information.',
+'etablipasexam' => 'No examination center is linked to this institution for the selected level.',
+
 
 ];

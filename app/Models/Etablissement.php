@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property $email
  * @property $telephone
  * @property $annee
- * @property $centre_id
  * @property $anneescolaire_id
  * @property $created_at
  * @property $updated_at
@@ -38,7 +37,7 @@ class Etablissement extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['public_id', 'nomarabe', 'nomfrancais', 'prefixe', 'adresse', 'email', 'telephone', 'annee', 'centre_id','anneescolaire_id'];
+    protected $fillable = ['public_id', 'nomarabe', 'nomfrancais', 'prefixe', 'adresse', 'email', 'telephone', 'annee','anneescolaire_id'];
 
      /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -46,14 +45,6 @@ class Etablissement extends Model
     public function anneescolaire()
     {
         return $this->belongsTo(\App\Models\Anneescolaire::class, 'anneescolaire_id', 'id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function centre()
-    {
-        return $this->belongsTo(\App\Models\Centre::class, 'centre_id', 'id');
     }
 
      public static function generateCode($etablissementPrefix = 'ET')

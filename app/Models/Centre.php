@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Model;
 class Centre extends Model
 {
     use HasPublicId;
-    
+
     protected $perPage = 20;
 
     /**
@@ -47,15 +47,7 @@ class Centre extends Model
     {
         return $this->belongsTo(\App\Models\Anneescolaire::class, 'anneescolaire_id', 'id');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function etablissements()
-    {
-        return $this->hasMany(\App\Models\Etablissement::class, 'id', 'centre_id');
-    }
-    
+
     public static function generateCode($centrePrefix = 'CT')
     {
         $year = Carbon::now()->format('y'); // ex: 26

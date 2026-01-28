@@ -10,6 +10,7 @@ use App\Http\Controllers\ApropoController;
 use App\Http\Controllers\CentreController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TemoinController;
+use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DirigentController;
 use App\Http\Controllers\UseretabController;
@@ -22,7 +23,9 @@ use App\Http\Controllers\ConfirmationController;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\AnneescolaireController;
 use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\CategoriesExamenController;
 use App\Http\Controllers\UserEtablissementController;
+use App\Http\Controllers\CentreEtablissementExamenController;
 
 
 Route::middleware(SetLocale::class)->group(function(){
@@ -78,6 +81,10 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Secondaire']], 
     Route::resource('centres', CentreController::class);
     Route::resource('etablissements', EtablissementController::class);
     Route::resource('inscriptions', InscriptionController::class);
+
+    Route::resource('categories-examens', CategoriesExamenController::class);
+    Route::resource('centre-etablissement-examens', CentreEtablissementExamenController::class);
+    Route::resource('candidats', CandidatController::class);
 });
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');
