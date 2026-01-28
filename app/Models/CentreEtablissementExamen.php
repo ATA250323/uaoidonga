@@ -62,7 +62,7 @@ class CentreEtablissementExamen extends Model
     }
      public function anneeScolaire()
     {
-        return $this->belongsTo(\App\Models\AnneeScolaire::class, 'anneescolaire_id', 'id');
+        return $this->belongsTo(\App\Models\Anneescolaire::class, 'anneescolaire_id', 'id');
     }
 
 }
