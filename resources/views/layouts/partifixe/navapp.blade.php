@@ -184,14 +184,14 @@
                     </span>
                 </a>
             </li>
-            {{-- <li class="pc-item pc-hasmenu">
-                <a class="pc-link" href="{{ route('inscriptions.index') }}" style="font-size: 18px">
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('resultats.index') }}" style="font-size: 18px">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
-                        {{ __('traduction.listeeleves') }}
+                        {{ __('traduction.resultats') }}
                     </span>
                 </a>
-            </li> --}}
+            </li>
         @endrole
       </ul>
     </div>

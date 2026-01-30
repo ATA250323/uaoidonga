@@ -13,6 +13,7 @@ use App\Http\Controllers\TemoinController;
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\DirigentController;
+use App\Http\Controllers\ResultatController;
 use App\Http\Controllers\UseretabController;
 use App\Http\Controllers\InfoligneController;
 use App\Http\Controllers\EvennementController;
@@ -85,6 +86,10 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Secondaire']], 
     Route::resource('categories-examens', CategoriesExamenController::class);
     Route::resource('centre-etablissement-examens', CentreEtablissementExamenController::class);
     Route::resource('candidats', CandidatController::class);
+
+    Route::get('/import', [ResultatController::class, 'charger'])->name('charger');
+    Route::get('/resultats', [ResultatController::class, 'index'])->name('resultats.index');
+    Route::post('/resultats/import', [ResultatController::class, 'import'])->name('resultats.import');
 });
 // routes ar
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contacts');

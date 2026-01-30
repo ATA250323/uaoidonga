@@ -545,5 +545,15 @@ return [
 'etablipasexam' => 'Aucun centre d’examen n’est rattaché à cet établissement pour le niveau concerné.',
 'total' => 'Total',
 
+    'import'=>'L’importation des résultats',
+    'resultats'=>'Les résultats',
+    'fichier_excel'=>'Fichier Excel',
+    'importer'=>'Importer les résultats',
+    'donneeexiste'=>'⚠️ Données déjà existantes',
+    'oui'=>'Oui, modifier',
+    'non'=>'Non, annuler',
+    'nobreleve'=>'Nombre d’élèves déjà présents',
+    'verifiedabord'=>'Vérifier d’abord le fichier Excel avant de modifier les données',
+    // ''=>'',
     // ''=>'',
 ];

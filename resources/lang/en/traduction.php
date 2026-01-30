@@ -633,5 +633,16 @@ return [
 'renseignecandida' => 'Please carefully fill in the candidate’s information.',
 'etablipasexam' => 'No examination center is linked to this institution for the selected level.',
 
+// 🇬🇧 Anglais
+'import'          => 'Results import',
+'resultats'       => 'Results',
+'fichier_excel'   => 'Excel file',
+'importer'        => 'Import results',
+'donneeexiste'    => '⚠️ Data already exists',
+'oui'             => 'Yes, update',
+'non'             => 'No, cancel',
+'nobreleve'       => 'Number of students already present',
+'verifiedabord'   => 'Please verify the Excel file before updating the data',
+
 
 ];
