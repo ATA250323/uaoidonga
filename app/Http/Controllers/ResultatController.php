@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 use App\Models\Anneescolaire;
 use App\Models\CategoriesExamen;
 use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Excel as ExcelExcel;
+
+
 
 class ResultatController extends Controller
 {
@@ -34,6 +35,7 @@ public function charger(Request $request)
 
     public function import(Request $request)
 {
+
     // 1️⃣ Validation
 
             $request->validate([
@@ -96,7 +98,6 @@ public function charger(Request $request)
                     ]);
         }
 
-
         if ($anneeExiste && $request->has('force_update')) {
 
             DB::table('resultats_dynamiques')
@@ -109,15 +110,40 @@ public function charger(Request $request)
 
 
     // 4️⃣ Lecture Excel
-    if ($request->has('force_update')) {
-            $filePath = storage_path('app/' . session('tmp_file'));
-        } else {
-            $filePath = $request->file('file')->getRealPath();
-        }
+        // if ($request->has('force_update')) {
+        //     $tmpPath = session('tmp_file') ?? null;
+        //     if (!$tmpPath) {
+        //         return back()->with('error', 'Le fichier Excel est manquant, veuillez le re-sélectionner.');
+        //     }
+        //     $file = storage_path('app/' . $tmpPath);
+        // } else {
+        //     $file = $request->file('file')->getRealPath();
+        // }
 
-    $rows = Excel::toArray([], $filePath);
-    $headings = $rows[0][0];
-    $erreurs = [];
+        if ($request->has('force_update')) {
+                // fichier temporaire déjà stocké
+                $filePath = storage_path('app/' . session('tmp_file'));
+                // On force XLSX par défaut, CSV si le nom contient .csv
+                $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+        } else {
+                $file = $request->file('file');
+                $filePath = $file->getRealPath();
+                $extension = $file->getClientOriginalExtension();
+            }
+
+            $extension = strtolower($extension);
+
+            // Déterminer le type pour Excel
+            $type = match($extension) {
+                'csv' => ExcelExcel::CSV,
+                default => ExcelExcel::XLSX, // XLS et XLSX sont lus comme XLSX
+            };
+
+            // Lecture
+        $rows = Excel::toArray([], $filePath, null, $type);
+        // $rows = Excel::toArray([], $file);
+        $headings = $rows[0][0];
+        $erreurs = [];
 
     // 5️⃣ Vérification ligne par ligne
     foreach (array_slice($rows[0], 1) as $index => $row) {
@@ -174,7 +200,6 @@ public function charger(Request $request)
     return back()->with('success', "✅ Importation réussie");
 
 }
-
     // 📊 Affichage
     public function index(Request $request)
     {
