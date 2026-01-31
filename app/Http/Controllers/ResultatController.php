@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 use App\Models\Anneescolaire;
 use App\Models\CategoriesExamen;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Maatwebsite\Excel\Excel as ExcelExcel;
 
 
@@ -139,11 +140,43 @@ public function charger(Request $request)
                 default => ExcelExcel::XLSX, // XLS et XLSX sont lus comme XLSX
             };
 
-            // Lecture
+        $table = 'resultats_dynamiques';
+
+            // Lire le fichier Excel
         $rows = Excel::toArray([], $filePath, null, $type);
         // $rows = Excel::toArray([], $file);
         $headings = $rows[0][0];
         $erreurs = [];
+
+        // Créer table si inexistante
+        if (!Schema::hasTable($table)) {
+            Schema::create($table, function (Blueprint $t) use ($headings) {
+                $t->id();
+                $t->string('matricule')->unique();
+                // Colonnes fixes minimales (optionnel mais conseillé)
+                $t->string('nom',60)->nullable();
+                $t->string('prenom',100)->nullable();
+                $t->string('sexe',15)->nullable();
+                $t->string('annee',20); // ex: 2024-2025
+                $t->string('centres',50)->nullable();
+                $t->string('etablissements',50)->nullable();
+                $t->string('examens',50)->nullable();
+                foreach ($headings as $col) {
+                    $t->string(Str::slug($col, '_'))->nullable();
+                }
+                $t->timestamps();
+            });
+        }
+
+        // Ajouter colonnes manquantes
+        Schema::table($table, function (Blueprint $t) use ($headings, $table) {
+            foreach ($headings as $col) {
+                $column = Str::slug($col, '_');
+                if (!Schema::hasColumn($table, $column)) {
+                    $t->string($column)->nullable();
+                }
+            }
+        });
 
     // 5️⃣ Vérification ligne par ligne
     foreach (array_slice($rows[0], 1) as $index => $row) {
@@ -178,7 +211,7 @@ public function charger(Request $request)
         return back()->with('import_errors', $erreurs);
     }
 
-    // 6️⃣ Insertion
+    // 6️⃣Aucune erreur → insertion
     foreach (array_slice($rows[0], 1) as $row) {
 
         $data = [
