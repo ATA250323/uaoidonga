@@ -554,6 +554,18 @@ return [
     'non'=>'Non, annuler',
     'nobreleve'=>'Nombre d’élèves déjà présents',
     'verifiedabord'=>'Vérifier d’abord le fichier Excel avant de modifier les données',
-    // ''=>'',
+    // 🇫🇷 Français
+    'ligne'    => 'Ligne',
+    'leleve'   => ': L’élève',
+    'existe'   => 'existe déjà avec un autre matricule !',
+    // 🇫🇷 Français
+    'corriger' => '👉 Veuillez corriger le fichier Excel puis réessayer.',
+    'invalide' => 'est invalide (>100 ou non numérique).',
+    'lanote'   => ': La note de',
+    // 🇫🇷 Français
+    'erordetect' => 'Erreurs détectées',
+
+
+
     // ''=>'',
 ];

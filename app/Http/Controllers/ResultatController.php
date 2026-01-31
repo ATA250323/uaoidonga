@@ -99,15 +99,15 @@ public function charger(Request $request)
                     ]);
         }
 
-        if ($anneeExiste && $request->has('force_update')) {
+        // if ($anneeExiste && $request->has('force_update')) {
 
-            DB::table('resultats_dynamiques')
-                ->where('annee', $request->annee)
-                ->where('examens', $request->examens)
-                ->where('centres', $request->centres)
-                ->where('sexe', $request->sexe)
-                ->delete();
-        }
+        //     DB::table('resultats_dynamiques')
+        //         ->where('annee', $request->annee)
+        //         ->where('examens', $request->examens)
+        //         ->where('centres', $request->centres)
+        //         ->where('sexe', $request->sexe)
+        //         ->delete();
+        // }
 
 
     // 4️⃣ Lecture Excel
@@ -181,20 +181,34 @@ public function charger(Request $request)
             $value = $row[$i] ?? null;
             if (!in_array($column,['matricule','nom','prenom','sexe','annee','centres','examens','etablissements']) && $value !== null) {
                 if (!is_numeric($value) || $value < 0 || $value > 100) {
-                    $erreurs[] = "Ligne {$ligne} : La note de {$col} est invalide (>100 ou non numérique).";
+                    $erreurs[] = __('traduction.ligne') .' '. $ligne .' '. __('traduction.lanote').' '.$col.' '.__('traduction.lanote');
                 }
             }
         }
 
         // Doublons matricule
-        if ($matricule) {
-            $eleveExiste = DB::table('resultats_dynamiques')
-                ->where('matricule',$matricule)
-                ->exists();
-            if ($eleveExiste) {
-                $erreurs[] = "Ligne {$ligne} : L’élève {$nom} {$prenom} a un matricule déjà existant.";
-            }
+        // if ($matricule) {
+        //     $eleveExiste = DB::table('resultats_dynamiques')
+        //         ->where('matricule',$matricule)
+        //         ->exists();
+        //     if ($eleveExiste) {
+        //         $erreurs[] = "Ligne {$ligne} : L’élève {$nom} {$prenom} a un matricule déjà existant.";
+        //     }
+        // }
+        $eleveExisteAutreMatricule = DB::table('resultats_dynamiques')
+            ->where('annee', $request->annee)
+            ->where('examens', $request->examens)
+            ->where('centres', $request->centres)
+            ->where('sexe', $request->sexe)
+            ->where('nom', $nom)
+            ->where('prenom', $prenom)
+            ->where('matricule','<>',$matricule)
+            ->exists();
+
+        if ($eleveExisteAutreMatricule) {
+            $erreurs[] = __('traduction.ligne') .' '. $ligne .' '. __('traduction.leleve').' '.$nom .' '.$prenom .' '. __('traduction.existe');
         }
+
     }
 
     if (!empty($erreurs)) {
@@ -202,21 +216,40 @@ public function charger(Request $request)
     }
 
     // 6️⃣Aucune erreur → insertion
-    foreach (array_slice($rows[0], 1) as $row) {
+        foreach (array_slice($rows[0], 1) as $row) {
+            $data = [
+                'annee'    => $request->annee,
+                'examens'  => $request->examens,
+                'centres'  => $request->centres,
+                'sexe'     => $request->sexe,
+            ];
+            // Récupérer matricule (clé principale)
+            $matricule = null;
+            foreach ($headings as $i => $col) {
+                $column = Str::slug($col, '_');
+                $value  = $row[$i] ?? null;
+                if ($column === 'matricule') {
+                    $matricule = $value;
+                }
+                $data[$column] = $value;
+            }
 
-        $data = [
-            'annee'   => $request->annee,
-            'examens' => $request->examens,
-            'centres' => $request->centres,
-            'sexe'    => $request->sexe,
-        ];
-
-        foreach ($headings as $i => $col) {
-            $data[Str::slug($col, '_')] = $row[$i] ?? null;
+            // 🔴 Sécurité : matricule obligatoire
+            if (!$matricule) {
+                continue;
+            }
+            // ✅ UPDATE ou INSERT (ligne par ligne)
+            DB::table('resultats_dynamiques')->updateOrInsert(
+                [
+                    'matricule' => $matricule,
+                    'annee'     => $request->annee,
+                    'examens'   => $request->examens,
+                    'centres'   => $request->centres,
+                    'sexe'      => $request->sexe,
+                ],
+                $data
+            );
         }
-
-        DB::table('resultats_dynamiques')->insert($data);
-    }
 
     session()->forget(['import_data', 'tmp_file']);
 

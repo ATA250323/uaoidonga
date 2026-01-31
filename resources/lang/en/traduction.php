@@ -645,4 +645,16 @@ return [
 'verifiedabord'   => 'Please verify the Excel file before updating the data',
 
 
+// 🇬🇧 Anglais
+'ligne'    => 'Row',
+'leleve'   => 'Student:',
+'existe'   => 'already exists with another ID number!',
+// 🇬🇧 Anglais
+'corriger' => '👉 Please correct the Excel file and try again.',
+'invalide' => 'is invalid (>100 or not numeric).',
+'lanote'   => 'Note of:',
+// 🇬🇧 Anglais
+'erordetect' => 'Detected errors',
+
+
 ];
