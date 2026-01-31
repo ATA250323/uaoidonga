@@ -111,16 +111,6 @@ public function charger(Request $request)
 
 
     // 4️⃣ Lecture Excel
-        // if ($request->has('force_update')) {
-        //     $tmpPath = session('tmp_file') ?? null;
-        //     if (!$tmpPath) {
-        //         return back()->with('error', 'Le fichier Excel est manquant, veuillez le re-sélectionner.');
-        //     }
-        //     $file = storage_path('app/' . $tmpPath);
-        // } else {
-        //     $file = $request->file('file')->getRealPath();
-        // }
-
         if ($request->has('force_update')) {
                 // fichier temporaire déjà stocké
                 $filePath = storage_path('app/' . session('tmp_file'));
