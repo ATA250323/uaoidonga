@@ -228,6 +228,8 @@ public function charger(Request $request)
     {
         $annee = $request->annee;
 
+        $anneescolaires = Anneescolaire::all();
+
         $colonnes = Schema::getColumnListing('resultats_dynamiques');
         $colonnes = array_diff($colonnes, ['id', 'created_at', 'updated_at']);
 
@@ -239,6 +241,6 @@ public function charger(Request $request)
 
         $resultats = $query->get();
 
-        return view('resultats.index', compact('resultats', 'colonnes', 'annee'));
+        return view('resultats.index', compact('resultats', 'colonnes', 'annee','anneescolaires'));
     }
 }

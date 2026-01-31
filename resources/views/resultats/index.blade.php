@@ -11,10 +11,12 @@
 
                             <!-- Filtre année -->
                             <form method="GET" class="mb-3">
-                                <select name="annee" class="form-control w-100" onchange="this.form.submit()">
-                                    <option value="">Toutes les années</option>
-                                    <option value="2023-2024" {{ $annee=='2023-2024'?'selected':'' }}>2023-2024</option>
-                                    <option value="2024-2025" {{ $annee=='2024-2025'?'selected':'' }}>2024-2025</option>
+                                <select name="annee" class="form-select @error('annee') is-invalid @enderror" autocomplete="organisation">
+                                    @foreach ($anneescolaires as $anneescolaire)
+                                        <option value="{{ $anneescolaire->anneefr }}" {{ old('annee') == $anneescolaire->anneefr ? 'selected' : ''  }}>
+                                            {{ $anneescolaire->anneear.' '.$anneescolaire->anneefr }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </form>
 

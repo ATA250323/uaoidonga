@@ -25,8 +25,8 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->unique(
-                ['','annee','examens','centres','sexe'],
-                'uni_session_examen'
+                ['annee','examens','centres','sexe','matricule'],
+                'resultats_dynamiques_matricule_unique'
             );
         });
     }
