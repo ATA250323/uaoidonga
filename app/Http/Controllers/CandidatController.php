@@ -9,11 +9,14 @@ use Illuminate\Http\Request;
 use App\Models\Anneescolaire;
 use App\Models\Etablissement;
 use App\Models\CategoriesExamen;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\CandidatRequest;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\CentreEtablissementExamen;
+use Illuminate\Database\Schema\Blueprint;
 
 class CandidatController extends Controller
 {
@@ -22,10 +25,32 @@ class CandidatController extends Controller
      */
     public function index(Request $request): View
     {
-        $candidats = Candidat::paginate();
+        // $candidats = Candidat::paginate();
 
-        return view('candidat.index', compact('candidats'))
-            ->with('i', ($request->input('page', 1) - 1) * $candidats->perPage());
+        $colonnes = Schema::getColumnListing('candidats');
+        $colonnes = array_diff($colonnes, ['id', 'created_at', 'updated_at','date_naissance','public_id','photo']);
+
+        // $query = DB::table('candidats');
+        
+        // $candidats = $query->get();
+        $candidats = DB::table('candidats')
+                ->leftJoin('etablissements', 'candidats.etablissement_id', '=', 'etablissements.id')
+                ->leftJoin('centres', 'candidats.centre_id', '=', 'centres.id')
+                ->leftJoin('categories_examens', 'candidats.categorie_examen_id', '=', 'categories_examens.id')
+                ->leftJoin('anneescolaires', 'candidats.anneescolaire_id', '=', 'anneescolaires.id')
+                ->select(
+                    'candidats.*',
+                    'etablissements.nomarabe as nomarabe',
+                    'centres.nomar as nomar',
+                    'categories_examens.libelle as libelle',
+                    'anneescolaires.anneefr as anneefr',
+                )
+                ->get();
+
+
+        return view('candidat.index', compact('candidats','colonnes'));
+        // return view('candidat.index', compact('candidats'))
+        //     ->with('i', ($request->input('page', 1) - 1) * $candidats->perPage());
     }
 
     /**
