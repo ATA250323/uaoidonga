@@ -197,7 +197,7 @@
                 <a class="pc-link" href="{{ route('recherche.resultats') }}" style="font-size: 18px">
                     <span class="pc-micon"> </span>
                     <span class="pc-mtext">
-                        {{ __('traduction.resultats') }}
+                        {{ __('traduction.recherresulta') }}
                     </span>
                 </a>
             </li>

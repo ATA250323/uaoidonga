@@ -584,5 +584,16 @@ return [
     'filt'=>'filtré sur',
     'entrtotal'=>'entrées au total',
     'aucuntab'=>'Aucune donnée dans le tableau',
+
+
+    'recherresulta'=>'Rechercher les résultats',
+    'recher'=>'Rechercher',
+    'Consultation'=>'Consultation des Résultats',
+    'Veuillez_entrer'=>'Veuillez entrer votre numéro matricule',
+    'aucun_resultat'=>'Aucun résultat trouvé pour ce matricule.',
+    // ''=>'',
+    // ''=>'',
+    // ''=>'',
+    // ''=>'',
     // ''=>'',
 ];

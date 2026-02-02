@@ -281,20 +281,31 @@ public function charger(Request $request)
      public function recherche_resultats(Request $request)
     {
              $candidat = null;
-             $infos = null;
+             $information = null;
 
-                if ($request->filled('matricule')) {
-                    $candidat = DB::table('resultats_dynamiques')
-                        ->where('matricule', $request->matricule)
-                        ->first();
-
-                        $infos = DB::table('candidats')
+            $numero_table = DB::table('candidats')
                         ->where('numero_table', $request->matricule)
                         ->first();
-                        // dd( $infos,$request->matricule,$candidat);
+
+                if ($numero_table) {
+
+                    $information = DB::table('candidats')
+                        ->where('numero_table', $request->matricule)
+                        ->first();
+
+                    if ($request->filled('matricule')) {
+                        $candidat = DB::table('resultats_dynamiques')
+                            ->where('matricule', $request->matricule)
+                            ->first();
+                        }
+                } else {
+                    # code...
+                    $candidat = null;
+                    $information = null;
                 }
 
-            return view('resultats.recherche_resultat', compact('candidat','infos'));
+
+            return view('resultats.recherche_resultat', compact('candidat','information'));
     }
 
 // public function ajaxRecherche(Request $request)

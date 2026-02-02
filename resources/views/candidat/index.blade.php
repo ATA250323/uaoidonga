@@ -44,7 +44,7 @@
                                                 <th >{{ __('traduction.prenom') }}</th>
                                                 <th >{{ __('traduction.sexe') }}</th>
                                                 {{-- <th >{{ __('traduction.datnais') }}</th> --}}
-                                                <th >{{ __('traduction.centre') }}</th>
+                                                <th >{{ __('traduction.centre_id') }}</th>
                                                 <th >{{ __('traduction.etabli') }} </th>
                                                 <th >{{ __('traduction.exam') }}</th>
                                                 <th >{{ __('traduction.ansclair') }} </th>
