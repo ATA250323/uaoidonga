@@ -591,9 +591,10 @@ return [
     'Consultation'=>'Consultation des Résultats',
     'Veuillez_entrer'=>'Veuillez entrer votre numéro matricule',
     'aucun_resultat'=>'Aucun résultat trouvé pour ce matricule.',
-    // ''=>'',
-    // ''=>'',
-    // ''=>'',
+
+    'admis'=>'Admis',
+    'refuse'=>'Réfusé',
+    'jurys'=>'Décision des jurys',
     // ''=>'',
     // ''=>'',
 ];

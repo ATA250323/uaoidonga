@@ -672,8 +672,13 @@ return [
 'filt'      => 'filtered from',
 'entrtotal' => 'total entries',
 'aucuntab'  => 'No data available in the table',
-
-
-
+'recherresulta'   => 'Search results',
+'recher'          => 'Search',
+'Consultation'    => 'Results Consultation',
+'Veuillez_entrer' => 'Please enter your registration number',
+'aucun_resultat'  => 'No results found for this registration number.',
+'admis'           => 'Admitted',
+'refuse'          => 'Rejected',
+'jurys' => 'Jury decision',
 
 ];

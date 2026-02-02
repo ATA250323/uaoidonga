@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
+<html lang="{{ app()->getLocale() }}" data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}" data-pc-theme="light">
+    <head>
     <meta charset="UTF-8">
     <title>Consultation des Résultats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,9 +50,8 @@
             @if($candidat && $information)
                 <div class="card shadow mx-auto">
                     <div class="card-body ">
-
                         <!-- Photo -->
-                            <div class="position-relative d-inline-block mb-3">
+                        <div class="position-relative d-inline-block mb-3">
                                 <img src="{{ $information->photo
                                         ? asset('storage/'.$information->photo)
                                         : asset('assetsapp/images/application/avatar-6.jpg') }}"
@@ -64,7 +63,7 @@
                                             bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill small">
                                     {{ $candidat->matricule }}
                                 </span>
-                            </div>
+                        </div>
                         <!-- Infos -->
                         <div class="table-responsive">
                             <table class="table align-middle">
@@ -87,8 +86,7 @@
                                     </tr> --}}
                                 </tbody>
                             </table>
-                            <hr style="height: 6px; background-color: #406030; border: none; opacity: 1;">
-
+                            {{-- <hr style="height: 6px; background-color: #406030; border: none; opacity: 1;"> --}}
                             <table class="table align-middle">
                                 <tbody>
                                     <tr>
@@ -101,16 +99,32 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            {{-- <hr style="height: 6px; background-color: #406030; border: none; opacity: 1;"> --}}
+                            <table class="table align-middle">
+                                <tbody>
+                                    <tr>
+                                        <th>{{ __('traduction.exam') }}</th>
+                                        <td>{{ $candidat->examens }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 170px;">{{ __('traduction.annee') }}</th>
+                                        <td>{{ $candidat->annee }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-                        <!-- Décision -->
-                        {{-- <span class="badge fs-6 px-4 py-2
+                             <!-- Décision -->
+                        <span>
+                            {{ __('traduction.jurys') }} 
+                        </span> 
+                        <span class="badge fs-6 px-4 py-2
                             {{ strtolower($candidat->decision) === 'admis'
                                 ? 'bg-success'
                                 : 'bg-danger' }}">
-                            {{ strtoupper($candidat->decision ?? 'DÉCISION') }}
-                        </span> --}}
-
+                                {{ strtolower($candidat->decision) === 'admis'
+                                ?  __('traduction.admis') 
+                                :  __('traduction.refuse') }}
+                        </span>
                     </div>
                 </div>
             @else
