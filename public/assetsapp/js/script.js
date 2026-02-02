@@ -68,9 +68,9 @@ function menu_click() {
   }
 
   // Initialize SimpleBar for navbar content if available
-//   if (document.querySelector('.navbar-content')) {
-//     new SimpleBar(document.querySelector('.navbar-content'));
-//   }
+  if (document.querySelector('.navbar-content')) {
+    new SimpleBar(document.querySelector('.navbar-content'));
+  }
 
   // Add click event listeners to submenu items
   var pc_sub_link_click = document.querySelectorAll('.pc-navbar > li:not(.pc-caption) li.pc-hasmenu');
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', menu_click);
 // Initialize various components on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function () {
   // feather icon start
-//   feather.replace();
+  feather.replace();
   // feather icon end
 
   // Check for specific layout and add scrollbar if necessary(add scrollbar from 1024 screen size in horizontal layout)
@@ -155,19 +155,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // Menu collapse click end
 
   // header dropdown scrollbar start
-//   if (document.querySelector('.header-notification-scroll')) {
-//     new SimpleBar(document.querySelector('.header-notification-scroll'));
-//   }
+  if (document.querySelector('.header-notification-scroll')) {
+    new SimpleBar(document.querySelector('.header-notification-scroll'));
+  }
 
-//   if (document.querySelector('.profile-notification-scroll')) {
-//     new SimpleBar(document.querySelector('.profile-notification-scroll'));
-//   }
-//   // header dropdown scrollbar end
+  if (document.querySelector('.profile-notification-scroll')) {
+    new SimpleBar(document.querySelector('.profile-notification-scroll'));
+  }
+  // header dropdown scrollbar end
 
-//   // component scrollbar start
-//   if (document.querySelector('.component-list-card .scroll-div')) {
-//     new SimpleBar(document.querySelector('.component-list-card .scroll-div'));
-//   }
+  // component scrollbar start
+  if (document.querySelector('.component-list-card .scroll-div')) {
+    new SimpleBar(document.querySelector('.component-list-card .scroll-div'));
+  }
   // component- dropdown scrollbar end
 
   // for sidebar close
@@ -262,12 +262,12 @@ function setLayout() {
 }
 
 // Function to handle menu click and scrollbar initialization
-// function add_scroller() {
-//   // Initialize scrollbar if navbar-content exists
-//   if (document.querySelector('.navbar-content')) {
-//     new SimpleBar(document.querySelector('.navbar-content'));
-//   }
-// }
+function add_scroller() {
+  // Initialize scrollbar if navbar-content exists
+  if (document.querySelector('.navbar-content')) {
+    new SimpleBar(document.querySelector('.navbar-content'));
+  }
+}
 
 // Function to hide mobile menu (sidebar hide on click overlay)
 function rm_menu() {

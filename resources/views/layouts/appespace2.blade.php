@@ -122,6 +122,7 @@
 
   <!-- Required Js -->
   <script src="{{ asset('assetsapp/js/icon/custom-icon.js') }}"></script>
+  <script src="{{ asset('assetsapp/js/plugins/feather.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/component.js') }}"></script>
   <script src="{{ asset('assetsapp/js/theme.js') }}"></script>
   <script src="{{ asset('assetsapp/js/script.js') }}"></script>
