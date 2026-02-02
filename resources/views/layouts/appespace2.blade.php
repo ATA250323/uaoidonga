@@ -121,6 +121,8 @@
   <!-- [ Header ] End -->
 
   <!-- Required Js -->
+  <script src="{{ asset('assetsapp/js/plugins/simplebar.min.js') }}"></script>
+  <script src="{{ asset('assetsapp/js/plugins/popper.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/icon/custom-icon.js') }}"></script>
   <script src="{{ asset('assetsapp/js/plugins/feather.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/component.js') }}"></script>
