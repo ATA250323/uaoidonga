@@ -6,6 +6,7 @@ use App\Models\Centre;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Anneescolaire;
+use App\Models\Candidat;
 use App\Models\CategoriesExamen;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -276,4 +277,61 @@ public function charger(Request $request)
 
         return view('resultats.index', compact('resultats', 'colonnes', 'annee','anneescolaires'));
     }
+
+     public function recherche_resultats(Request $request)
+    {
+             $candidat = null;
+             $infos = null;
+
+                if ($request->filled('matricule')) {
+                    $candidat = DB::table('resultats_dynamiques')
+                        ->where('matricule', $request->matricule)
+                        ->first();
+
+                        $infos = DB::table('candidats')
+                        ->where('numero_table', $request->matricule)
+                        ->first();
+                        // dd( $infos,$request->matricule,$candidat);
+                }
+
+            return view('resultats.recherche_resultat', compact('candidat','infos'));
+    }
+
+// public function ajaxRecherche(Request $request)
+// {
+//      $request->validate([
+//         'matricule' => 'required'
+//     ]);
+
+//     $resultat = DB::table('resultats_dynamiques')
+//         ->where('numero_matricule', $request->matricule)
+//         ->first();
+
+//     if (!$resultat) {
+//         return response()->json([
+//             'success' => false,
+//             'message' => 'Aucun résultat trouvé pour ce numéro matricule'
+//         ]);
+//     }
+
+//     return response()->json([
+//         'success' => true,
+//         'data' => [
+//             'matricule'        => $resultat->numero_matricule,
+//             'nom'              => $resultat->nom,
+//             'prenoms'          => $resultat->prenoms,
+//             'date_naissance'   => $resultat->date_naissance,
+//             'lieu_naissance'   => $resultat->lieu_naissance,
+//             'nationalite'      => $resultat->nationalite,
+//             'sexe'             => $resultat->sexe,
+//             'telephone'        => $resultat->telephone,
+//             'adresse'          => $resultat->adresse,
+//             'decision'         => $resultat->decision,
+//             'photo'            => $resultat->photo
+//                 ? asset('storage/'.$resultat->photo)
+//                 : asset('images/avatar.png'),
+//         ]
+//     ]);
+// }
+
 }

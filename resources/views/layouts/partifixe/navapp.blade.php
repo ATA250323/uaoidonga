@@ -192,6 +192,15 @@
                     </span>
                 </a>
             </li>
+
+            <li class="pc-item pc-hasmenu">
+                <a class="pc-link" href="{{ route('recherche.resultats') }}" style="font-size: 18px">
+                    <span class="pc-micon"> </span>
+                    <span class="pc-mtext">
+                        {{ __('traduction.resultats') }}
+                    </span>
+                </a>
+            </li>
         @endrole
       </ul>
     </div>

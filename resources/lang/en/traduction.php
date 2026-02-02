@@ -656,5 +656,24 @@ return [
 // 🇬🇧 Anglais
 'erordetect' => 'Detected errors',
 
+'affiche'   => 'Show',
+'entr'      => 'entries',
+'reche'     => 'Search:',
+'recheglob' => 'Global search:',
+'afficha'   => 'Showing',
+'a'         => 'to',
+'sur'       => 'of',
+'aucun'     => 'No results found',
+'actua'     => 'Refresh',
+'excel'     => 'Excel',
+'pdf'       => 'PDF',
+'imprimer' => 'Print',
+'raport'   => 'Results Report',
+'filt'      => 'filtered from',
+'entrtotal' => 'total entries',
+'aucuntab'  => 'No data available in the table',
+
+
+
 
 ];

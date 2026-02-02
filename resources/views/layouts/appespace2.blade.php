@@ -54,6 +54,25 @@
     <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- DataTables core -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
+<!-- DataTables Buttons -->
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+
+<!-- Export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
 </head>
 
 <body>
@@ -101,14 +120,8 @@
     @yield('content')
   <!-- [ Header ] End -->
 
-
-  <!-- [ Main Content ] end -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <!-- Required Js -->
-  <script src="{{ asset('assetsapp/js/plugins/simplebar.min.js') }}"></script>
-  <script src="{{ asset('assetsapp/js/plugins/popper.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/icon/custom-icon.js') }}"></script>
-  <script src="{{ asset('assetsapp/js/plugins/feather.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/component.js') }}"></script>
   <script src="{{ asset('assetsapp/js/theme.js') }}"></script>
   <script src="{{ asset('assetsapp/js/script.js') }}"></script>
@@ -120,7 +133,6 @@
   <script src="{{ asset('assetsapp/js/flatpickr.min.js') }}"></script>
   <script src="{{ asset('assetsapp/js/ar.js') }}"></script>
   <script src="{{ asset('assetsapp/js/fr.js') }}"></script>
-  <script src="{{ asset('assetsapp/plugins/hijri.js') }}"></script>
       <!-- Initialisation -->
     <script>
         // flatpickr(".datepicker", {
@@ -145,7 +157,6 @@
     </script>
 
   <!-- [Page Specific JS] start -->
-  <script src="{{ asset('assetsapp/js/plugins/wow.min.js') }}"></script>
   <script>
     // Start [ Menu hide/show on scroll ]
     let ost = 0;

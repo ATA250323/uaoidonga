@@ -567,5 +567,22 @@ return [
 
 
 
+    'affiche'=>'Afficher',
+    'entr'=>'entrées',
+    'reche'=>'Recherche:',
+    'recheglob'=>'Recherche globale :',
+    'afficha'=>'Affichage de',
+    'a'=>'à',
+    'sur'=>'sur',
+    'aucun'=>'Aucun résultat trouvé',
+    'actua'=>'Actualiser',
+    'excel'=>'Excel',
+    'pdf'=>'PDF',
+
+    'imprimer'=>'Imprimer',
+    'raport'=>'Rapport de Résultats',
+    'filt'=>'filtré sur',
+    'entrtotal'=>'entrées au total',
+    'aucuntab'=>'Aucune donnée dans le tableau',
     // ''=>'',
 ];

@@ -102,7 +102,7 @@
             </div>
         <br>
 
-            <script>
+<script>
                 let debounceTimer;
 
                     document.querySelectorAll('#monTableau thead tr:nth-child(2) input').forEach(input => {
@@ -115,7 +115,8 @@
                         });
                     });
 
-                    function filtrerTableau() {
+        function filtrerTableau()
+        {
                 const rows = document.querySelectorAll('#monTableau tbody tr');
                 const inputs = Array.from(document.querySelectorAll('#monTableau thead tr:nth-child(2) input'));
                 const filtres = inputs.map(inp => inp.value.toLowerCase().trim());
@@ -162,11 +163,6 @@
                             totalApresEl.parentElement.style.display = 'none'; // cacher totalApres
                         }
 
-                    // const filtresActifs = filtres
-                    //     // .map((val, i) => val ? `${val} ` : "")
-                    //     .map((val, i) => val ? `${ths[i].textContent} : ${val} -` : "")
-                    //     .filter(Boolean);
-
                         const filtresActifs = filtres
                             .map((val, i) => val ? `${ths[i + 1].textContent.trim()} : ${val} -` : "")
                             .filter(Boolean);
@@ -174,22 +170,6 @@
                             document.getElementById("titreFiltres").textContent = filtresActifs.length
                                 ? "{{ __('traduction.listeeleves') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }} " + filtresActifs.join(" ")
                                 : "{{ __('traduction.listeeleves') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }} ";
-
-                            // Masquer les colonnes filtrées (th + td), sauf si input a le focus
-
-                                // ths.forEach((th, i) => {
-                                //     const filtreActif = filtres[i];
-                                //     const input = document.querySelector(`#monTableau thead tr:nth-child(2) th:nth-child(${i + 1}) input`);
-                                //     const tds = document.querySelectorAll(`#monTableau tr td:nth-child(${i + 1}), #monTableau thead tr th:nth-child(${i + 1})`);
-
-                                //     if (filtreActif && filtreActif !== '' && document.activeElement !== input) {
-                                //         // Cache la colonne uniquement si l'input n'a pas le focus
-                                //         tds.forEach(td => td.style.display = 'none');
-                                //     } else {
-                                //         // Sinon on affiche la colonne
-                                //         tds.forEach(td => td.style.display = '');
-                                //     }
-                                // });
                                 filtres.forEach((filtre, i) => {
                                     const colIndex = i + 1; // ⬅️ IMPORTANT : décalage colonne numéro
 
@@ -208,9 +188,7 @@
                                         cells.forEach(cell => cell.style.display = '');
                                     }
                                 });
-
-
-                        }
+        }
 
                     function cacherElementsAvantExport() {
                         document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
@@ -220,7 +198,7 @@
                     }
 
 
-                    function exportExcel() {
+            function exportExcel() {
                         cacherElementsAvantExport();
 
                         try {
@@ -295,7 +273,7 @@
                         }
                     }
 
-                    document.getElementById('downloadBtn').addEventListener('click', async () => {
+            document.getElementById('downloadBtn').addEventListener('click', async () => {
                         cacherElementsAvantExport();
 
                         // Récupérer le titre
@@ -318,9 +296,9 @@
 
                             afficherElementsApresExport();
                         });
-                    });
+            });
 
-                    document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('resetBtn').addEventListener('click', () => {
                 // Vider tous les inputs de filtre
                 document.querySelectorAll('#monTableau thead tr:nth-child(2) input').forEach(input => {
                     input.value = '';
