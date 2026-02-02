@@ -595,6 +595,6 @@ return [
     'admis'=>'Admis',
     'refuse'=>'Réfusé',
     'jurys'=>'Décision des jurys',
-    // ''=>'',
+    'importreusi'=>'✅ Importation réussie',
     // ''=>'',
 ];

@@ -273,7 +273,7 @@ public function charger(Request $request)
 
             session()->forget(['import_data', 'tmp_file']);
 
-            return back()->with('success', "✅ Importation réussie");
+            return back()->with('success',  __('traduction.importreusi') );
 
         }
     // 📊 Affichage

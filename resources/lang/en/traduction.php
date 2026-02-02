@@ -680,5 +680,7 @@ return [
 'admis'           => 'Admitted',
 'refuse'          => 'Rejected',
 'jurys' => 'Jury decision',
+'importreusi_en' => '✅ Import successful',
+
 
 ];
