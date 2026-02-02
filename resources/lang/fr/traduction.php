@@ -445,7 +445,7 @@ return [
     'prefixect'=>'Le code',
     'nomarabe' => 'Nom établissement en arabe',
 	'nomfrancais' => 'Nom établissement en français',
-	'centre_id' => 'Centre',
+	'centre_id' => 'Centre de composition',
     'prefixeet'=>'Le code',
 
     'message_inscription' => [

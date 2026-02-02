@@ -389,7 +389,7 @@ return [
 'prefixect'   => 'رمز',
 'nomarabe'    => 'اسم المؤسسة باللغة العربية',
 'nomfrancais' => 'اسم المؤسسة باللغة الفرنسية',
-'centre_id'   => 'المركز',
+'centre_id'   => 'مركز الامتحان',
 'prefixeet'   => 'رمز',
 
 'message_inscription' => [

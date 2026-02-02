@@ -547,7 +547,7 @@ return [
 'prefixect'   => 'Code',
 'nomarabe'    => 'Institution name in Arabic',
 'nomfrancais' => 'Institution name in French',
-'centre_id'   => 'Center',
+'centre_id'   => 'Exam Center',
 'prefixeet'   => 'Code',
 
 'message_inscription' => [

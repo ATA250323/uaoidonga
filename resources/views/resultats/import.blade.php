@@ -19,7 +19,7 @@
                             {!! $errors->first('annee', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                         </div>
                         <div class="col-12 col-md-3 col-xl-3">
-                            <label for="centres" class="form-label">{{ __('traduction.centre') }}</label>
+                            <label for="centres" class="form-label">{{ __('traduction.centre_id') }}</label>
                             <select name="centres" class="form-select @error('centre_id') is-invalid @enderror" autocomplete="organisation">
                                     @foreach ($centres as $centre)
                                         <option value="{{ $centre->nomar }}"
