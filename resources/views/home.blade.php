@@ -4,7 +4,7 @@
  <!-- [ Main Content ] start -->
     <div class="pc-container">
       <div class="pc-content">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     @if (session('status'))
