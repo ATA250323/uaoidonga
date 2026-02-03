@@ -117,27 +117,26 @@
                         <span>
                             {{ __('traduction.jurys') }}
                         </span>
+                        @php
+                            $sexe = $candidat->sexe;
+                            $decision = $candidat->decision;
+                        @endphp
 
-                    @if ($candidat->sexe === __('traduction.sexe1'))
-                        <span class="badge fs-6 px-4 py-2
-                            {{ strtolower($candidat->decision) ===  __('traduction.admis')
-                                ? 'bg-success'
-                                : 'bg-danger' }}">
-                                     {{ strtolower($candidat->decision) ===  __('traduction.admis')
-                                        ?  __('traduction.admis')
-                                        :  __('traduction.refuse') }}
-                        </span>
-                    @else
-                        <span class="badge fs-6 px-4 py-2
-                            {{ strtolower($candidat->decision) ===  __('traduction.admise')
-                                ? 'bg-success'
-                                : 'bg-danger' }}">
-                                     {{ strtolower($candidat->decision) ===  __('traduction.admise')
-                                        ?  __('traduction.admise')
-                                        :  __('traduction.refusee') }}
+                        @if($sexe === __('traduction.sexe1')) {{-- Masculin --}}
+                            <span class="badge fs-6 px-4 py-2
+                                {{ $decision === __('traduction.admis') ? 'bg-success' : 'bg-danger' }}">
+                                {{ $decision === __('traduction.admis')
+                                    ? __('traduction.admis')
+                                    : __('traduction.refuse') }}
+                            </span>
+                        @else {{-- Féminin --}}
+                            <span class="badge fs-6 px-4 py-2
+                                {{ $decision === __('traduction.admise') ? 'bg-success' : 'bg-danger' }}">
+                                {{ $decision === __('traduction.admise')
+                                    ? __('traduction.admise')
+                                    : __('traduction.refusee') }}
                             </span>
                         @endif
-
                     </div>
                 </div>
             @else
