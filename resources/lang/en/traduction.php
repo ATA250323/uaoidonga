@@ -686,5 +686,6 @@ return [
 
 'centr'      => 'Center',
 'exame'=>'Exam',
-
+'lienresult' => 'Here is the link to the results.',
+'partage'    => 'Share it on social media or copy it to use later.',
 ];

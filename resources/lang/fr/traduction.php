@@ -602,5 +602,10 @@ return [
 
     'centr'=>'Centre',
     'exame'=>'Examen',
+    'lienresult'=>' Voici le lien des résultats.',
+    'partage'=>'Partagez-le sur les réseaux sociaux ou copiez-le pour l’utiliser plus tard.',
     // ''=>'',
+    // ''=>'',
+
+
 ];
