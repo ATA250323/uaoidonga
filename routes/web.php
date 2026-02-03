@@ -106,9 +106,7 @@ Route::resource('infolignes', InfoligneController::class);
 Route::get('/events', [EventController::class, 'index']);
 
 
-Route::get('/recherche_resultats', [ResultatController::class, 'recherche_resultats'])->name('recherche.resultats');
-Route::post('/resultats/recherche', [ResultatController::class, 'ajaxRecherche'])
-    ->name('resultats.ajax');
+Route::get('/resultats_2025_2026', [ResultatController::class, 'recherche_resultats'])->name('recherche.resultats');
 
 Route::get('/lang/{locale}', function ($locale) {
     $locales = ['fr', 'ar', 'en'];

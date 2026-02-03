@@ -115,16 +115,29 @@
                         </div>
                              <!-- Décision -->
                         <span>
-                            {{ __('traduction.jurys') }} 
-                        </span> 
+                            {{ __('traduction.jurys') }}
+                        </span>
+
+                    @if ($candidat->sexe === __('traduction.sexe1'))
                         <span class="badge fs-6 px-4 py-2
                             {{ strtolower($candidat->decision) === 'admis'
                                 ? 'bg-success'
                                 : 'bg-danger' }}">
-                                {{ strtolower($candidat->decision) === 'admis'
-                                ?  __('traduction.admis') 
-                                :  __('traduction.refuse') }}
+                                     {{ strtolower($candidat->decision) === 'admis'
+                                        ?  __('traduction.admis')
+                                        :  __('traduction.refuse') }}
                         </span>
+                    @else
+                        <span class="badge fs-6 px-4 py-2
+                            {{ strtolower($candidat->decision) === 'admise'
+                                ? 'bg-success'
+                                : 'bg-danger' }}">
+                                     {{ strtolower($candidat->decision) === 'admise'
+                                        ?  __('traduction.admise')
+                                        :  __('traduction.refusee') }}
+                            </span>
+                        @endif
+
                     </div>
                 </div>
             @else

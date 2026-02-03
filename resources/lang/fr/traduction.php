@@ -594,6 +594,8 @@ return [
 
     'admis'=>'Admis',
     'refuse'=>'Réfusé',
+    'admise'=>'Admise',
+    'refusee'=>'Réfusée',
     'jurys'=>'Décision des jurys',
     'importreusi'=>'✅ Importation réussie',
     // ''=>'',

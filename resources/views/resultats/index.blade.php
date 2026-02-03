@@ -21,8 +21,31 @@
                             <thead>
                                 <tr>
                                     @foreach($colonnes as $col)
-                                        <th>{{ ucfirst(str_replace('_',' ',$col)) }}</th>
+                                    <th>
+                                        @if($col == 'matricule')
+                                            {{ __('traduction.matri') }}
+                                        @elseif($col == 'nom')
+                                            {{ __('traduction.nom') }}
+                                        @elseif($col == 'prenom')
+                                            {{ __('traduction.prenom') }}
+                                        @elseif($col == 'sexe')
+                                            {{ __('traduction.sexe') }}
+                                        @elseif($col == 'etablissements')
+                                            {{ __('traduction.etabli') }}
+                                        @elseif($col == 'centres')
+                                            {{ __('traduction.centre_id') }}
+                                        @elseif($col == 'examens')
+                                            {{ __('traduction.exam') }}
+                                        @elseif($col == 'annee')
+                                            {{ __('traduction.annee') }}
+                                        @else
+                                            {{ ucfirst(str_replace('_',' ',$col)) }}
+                                        @endif
+                                    </th>
                                     @endforeach
+                                    {{-- @foreach($colonnes as $col)
+                                        <th>{{ ucfirst(str_replace('_',' ',$col)) }}</th>
+                                    @endforeach --}}
                                 </tr>
                                 <tr>
                                     @foreach($colonnes as $col)
@@ -38,7 +61,28 @@
                                 @foreach($resultats as $row)
                                     <tr>
                                         @foreach($colonnes as $col)
-                                            <td>{{ $row->$col ?? '-' }}</td>
+                                            <td>
+                                            {{-- @if ($col === 'decision') --}}
+                                            @if ($row->$col ==  __('traduction.admis'))
+                                                    <span class="badge fs-6 px-4 py-2 bg-success ">
+                                                        {{ __('traduction.admis') }}
+                                                    </span>
+                                            @elseif ($row->$col == __('traduction.refuse'))
+                                                    <span class="badge fs-6 px-4 py-2 bg-danger ">
+                                                        {{ __('traduction.refuse') }}
+                                                    </span>
+                                            @elseif ($row->$col == __('traduction.admise'))
+                                                    <span class="badge fs-6 px-4 py-2 bg-success ">
+                                                        {{ __('traduction.admise') }}
+                                                    </span>
+                                            @elseif ($row->$col == __('traduction.refusee'))
+                                                    <span class="badge fs-6 px-4 py-2 bg-danger ">
+                                                        {{ __('traduction.refusee') }}
+                                                    </span>
+                                            @else
+                                                {{ $row->$col ?? '-' }}
+                                            @endif
+                                        </td>
                                         @endforeach
                                     </tr>
                                 @endforeach
