@@ -91,11 +91,11 @@
                                 <tbody>
                                     <tr>
                                         <th style="width: 170px;">{{ __('traduction.centre_id') }}</th>
-                                        <td>{{ $candidat->centres }}</td>
+                                        <td>{{ $candidat->centre }}</td>
                                     </tr>
                                     <tr>
                                         <th>{{ __('traduction.etabli') }}</th>
-                                        <td>{{ $candidat->etablissements }}</td>
+                                        <td>{{ $candidat->etablissement }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -104,7 +104,7 @@
                                 <tbody>
                                     <tr>
                                         <th>{{ __('traduction.exam') }}</th>
-                                        <td>{{ $candidat->examens }}</td>
+                                        <td>{{ $candidat->examen }}</td>
                                     </tr>
                                     <tr>
                                         <th style="width: 170px;">{{ __('traduction.annee') }}</th>
@@ -120,19 +120,19 @@
 
                     @if ($candidat->sexe === __('traduction.sexe1'))
                         <span class="badge fs-6 px-4 py-2
-                            {{ strtolower($candidat->decision) === 'admis'
+                            {{ strtolower($candidat->decision) ===  __('traduction.admis')
                                 ? 'bg-success'
                                 : 'bg-danger' }}">
-                                     {{ strtolower($candidat->decision) === 'admis'
+                                     {{ strtolower($candidat->decision) ===  __('traduction.admis')
                                         ?  __('traduction.admis')
                                         :  __('traduction.refuse') }}
                         </span>
                     @else
                         <span class="badge fs-6 px-4 py-2
-                            {{ strtolower($candidat->decision) === 'admise'
+                            {{ strtolower($candidat->decision) ===  __('traduction.admise')
                                 ? 'bg-success'
                                 : 'bg-danger' }}">
-                                     {{ strtolower($candidat->decision) === 'admise'
+                                     {{ strtolower($candidat->decision) ===  __('traduction.admise')
                                         ?  __('traduction.admise')
                                         :  __('traduction.refusee') }}
                             </span>

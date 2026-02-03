@@ -42,8 +42,8 @@ public function charger(Request $request)
 
                     $request->validate([
                         'annee'   => 'required',
-                        'examens' => 'required',
-                        'centres' => 'required',
+                        'examen' => 'required',
+                        'centre' => 'required',
                         'sexe'    => 'required',
                         // 🔥 file requis UNIQUEMENT si ce n’est PAS un force_update
                         'file' => $request->has('force_update')
@@ -54,8 +54,8 @@ public function charger(Request $request)
                 // 2️⃣ Vérifier si données existent
                 $anneeExiste = DB::table('resultats_dynamiques')
                     ->where('annee', $request->annee)
-                    ->where('examens', $request->examens)
-                    ->where('centres', $request->centres)
+                    ->where('examen', $request->examen)
+                    ->where('centre', $request->centre)
                     ->where('sexe', $request->sexe)
                     ->exists();
 
@@ -66,8 +66,8 @@ public function charger(Request $request)
                     session([
                         'import_data' => [
                             'annee'   => $request->annee,
-                            'examens' => $request->examens,
-                            'centres' => $request->centres,
+                            'examen' => $request->examen,
+                            'centre' => $request->centre,
                             'sexe'    => $request->sexe,
                         ]
                     ]);
@@ -75,8 +75,8 @@ public function charger(Request $request)
                     // 2b. Récupérer résumé des données existantes
                     $donneesExistantes = DB::table('resultats_dynamiques')
                         ->where('annee', $request->annee)
-                        ->where('examens', $request->examens)
-                        ->where('centres', $request->centres)
+                        ->where('examen', $request->examen)
+                        ->where('centre', $request->centre)
                         ->where('sexe', $request->sexe)
                         ->select('matricule','nom','prenom')
                         ->get();
@@ -88,8 +88,8 @@ public function charger(Request $request)
                     $totalEleves = $donneesExistantes->count();
 
                     $message  = __('traduction.annee')   . ' : ' . $request->annee   . "\n";
-                    $message .= __('traduction.exam')  . ' : ' . $request->examens . "\n";
-                    $message .= __('traduction.centre')  . ' : ' . $request->centres . "\n";
+                    $message .= __('traduction.exam')  . ' : ' . $request->examen . "\n";
+                    $message .= __('traduction.centre')  . ' : ' . $request->centre . "\n";
                     $message .= __('traduction.sexe')    . ' : ' . $request->sexe    . "\n";
                     $message .=  __('traduction.nobreleve'). ' : ' .$totalEleves. "\n";
                     $message .= __('traduction.verifiedabord');
@@ -127,7 +127,7 @@ public function charger(Request $request)
                     if (empty($rows)) {
                         return back()->with('error', 'Le fichier Excel est vide !');
                     }
-                
+
                 $headings = array_values($rows[0]); // ✅ la ligne d'en-tête
                 $erreurs = [];
 
@@ -141,9 +141,9 @@ public function charger(Request $request)
                         $t->string('prenom',100)->nullable();
                         $t->string('sexe',15)->nullable();
                         $t->string('annee',20); // ex: 2024-2025
-                        $t->string('centres',50)->nullable();
-                        $t->string('etablissements',50)->nullable();
-                        $t->string('examens',50)->nullable();
+                        $t->string('centre',50)->nullable();
+                        $t->string('etablissement',50)->nullable();
+                        $t->string('examen',50)->nullable();
                         foreach ($headings as $col) {
                             $t->string(Str::slug($col, '_'))->nullable();
                         }
@@ -179,7 +179,7 @@ public function charger(Request $request)
 
                     if (!in_array($column, [
                         'matricule','nom','prenom','sexe',
-                        'annee','centres','examens','etablissements'
+                        'annee','centre','examen','etablissement'
                     ]) && $value !== null) {
 
                         $value = trim($value);
@@ -197,8 +197,8 @@ public function charger(Request $request)
                 // Vérification élève existant avec autre matricule
                 $eleveExisteAutreMatricule = DB::table('resultats_dynamiques')
                     ->where('annee', $request->annee)
-                    ->where('examens', $request->examens)
-                    ->where('centres', $request->centres)
+                    ->where('examen', $request->examen)
+                    ->where('centre', $request->centre)
                     ->where('sexe', $request->sexe)
                     ->where('nom', $nom)
                     ->where('prenom', $prenom)
@@ -235,8 +235,8 @@ public function charger(Request $request)
 
                     $data = [
                         'annee'   => $request->annee,
-                        'examens' => $request->examens,
-                        'centres' => $request->centres,
+                        'examen' => $request->examen,
+                        'centre' => $request->centre,
                         'sexe'    => $request->sexe,
                     ];
 
@@ -263,8 +263,8 @@ public function charger(Request $request)
                         [
                             'matricule' => $matricule,
                             'annee'     => $request->annee,
-                            'examens'   => $request->examens,
-                            'centres'   => $request->centres,
+                            'examen'   => $request->examen,
+                            'centre'   => $request->centre,
                             'sexe'      => $request->sexe,
                         ],
                         $data

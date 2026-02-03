@@ -80,8 +80,8 @@ Swal.fire({
 
         form.insertAdjacentHTML('beforeend', `
             <input type="hidden" name="annee" value="{{ $data['annee'] }}">
-            <input type="hidden" name="examens" value="{{ $data['examens'] }}">
-            <input type="hidden" name="centres" value="{{ $data['centres'] }}">
+            <input type="hidden" name="examen" value="{{ $data['examen'] }}">
+            <input type="hidden" name="centre" value="{{ $data['centre'] }}">
             <input type="hidden" name="sexe" value="{{ $data['sexe'] }}">
         `);
 

@@ -30,11 +30,11 @@
                                             {{ __('traduction.prenom') }}
                                         @elseif($col == 'sexe')
                                             {{ __('traduction.sexe') }}
-                                        @elseif($col == 'etablissements')
+                                        @elseif($col == 'etablissement')
                                             {{ __('traduction.etabli') }}
-                                        @elseif($col == 'centres')
+                                        @elseif($col == 'centre')
                                             {{ __('traduction.centre_id') }}
-                                        @elseif($col == 'examens')
+                                        @elseif($col == 'examen')
                                             {{ __('traduction.exam') }}
                                         @elseif($col == 'annee')
                                             {{ __('traduction.annee') }}
@@ -61,27 +61,25 @@
                                 @foreach($resultats as $row)
                                     <tr>
                                         @foreach($colonnes as $col)
-                                            <td>
-                                            {{-- @if ($col === 'decision') --}}
-                                            @if ($row->$col ==  __('traduction.admis'))
-                                                    <span class="badge fs-6 px-4 py-2 bg-success ">
-                                                        {{ __('traduction.admis') }}
-                                                    </span>
-                                            @elseif ($row->$col == __('traduction.refuse'))
-                                                    <span class="badge fs-6 px-4 py-2 bg-danger ">
-                                                        {{ __('traduction.refuse') }}
-                                                    </span>
-                                            @elseif ($row->$col == __('traduction.admise'))
-                                                    <span class="badge fs-6 px-4 py-2 bg-success ">
-                                                        {{ __('traduction.admise') }}
-                                                    </span>
-                                            @elseif ($row->$col == __('traduction.refusee'))
-                                                    <span class="badge fs-6 px-4 py-2 bg-danger ">
-                                                        {{ __('traduction.refusee') }}
-                                                    </span>
+                                        <td>
+                                            @php
+                                                $statuts = [
+                                                    __('traduction.admis')   => 'bg-success',
+                                                    __('traduction.admise')  => 'bg-success',
+                                                    __('traduction.refuse')  => 'bg-danger',
+                                                    __('traduction.refusee') => 'bg-danger',
+                                                ];
+                                                $valeur = $row->$col ?? null;
+                                            @endphp
+
+                                            @if(isset($statuts[$valeur]))
+                                                <span class="badge fs-6 px-4 py-2 {{ $statuts[$valeur] }}">
+                                                    {{ $valeur }}
+                                                </span>
                                             @else
-                                                {{ $row->$col ?? '-' }}
+                                                {{ $valeur ?? '-' }}
                                             @endif
+
                                         </td>
                                         @endforeach
                                     </tr>

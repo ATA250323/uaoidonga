@@ -140,7 +140,7 @@ return [
     'nonvalide'=>'Not Validated',
     'action'=>'Actions',
     'nom'=>'Last Name',
-    'prenom'=>'First Name(s)',
+    'prenom'=>'First Name',
     'sexe'=>'Gender',
     'pays'=>'Country',
     'ville'=>'City',
@@ -684,5 +684,7 @@ return [
 'admise'  => 'Admitted',
 'refusee' => 'Rejected',
 
+'centr'      => 'Center',
+'exame'=>'Exam',
 
 ];

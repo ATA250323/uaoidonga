@@ -20,10 +20,10 @@
                         </div>
                         <div class="col-12 col-md-3 col-xl-3">
                             <label for="centres" class="form-label">{{ __('traduction.centre_id') }}</label>
-                            <select name="centres" class="form-select @error('centre_id') is-invalid @enderror" autocomplete="organisation">
+                            <select name="centre" class="form-select @error('centre_id') is-invalid @enderror" autocomplete="organisation">
                                     @foreach ($centres as $centre)
                                         <option value="{{ $centre->nomar }}"
-                                            {{ old('centres')== $centre->nomar ? 'selected' : '' }}>
+                                            {{ old('centre')== $centre->nomar ? 'selected' : '' }}>
                                             {{ $centre->nomar.' '.$centre->nomfr }}
                                         </option>
                                     @endforeach
@@ -31,16 +31,16 @@
                             {!! $errors->first('centre_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                         </div>
                         <div class="col-12 col-md-3 col-xl-3">
-                            <label for="examens" class="form-label">{{ __('traduction.exam') }}</label>
-                            <select name="examens" class="form-select @error('examens') is-invalid @enderror" autocomplete="organisation">
+                            <label for="examen" class="form-label">{{ __('traduction.exam') }}</label>
+                            <select name="examen" class="form-select @error('examen') is-invalid @enderror" autocomplete="organisation">
                                     @foreach ($examens as $examen)
                                         <option value="{{ $examen->libelle }}"
-                                            {{ old('examens')== $examen->libelle ? 'selected' : '' }}>
+                                            {{ old('examen')== $examen->libelle ? 'selected' : '' }}>
                                             {{ $examen->libelle }}
                                         </option>
                                     @endforeach
                             </select>
-                            {!! $errors->first('examens', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+                            {!! $errors->first('examen', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                         </div>
                         {{-- <div class="col-12 col-md-3 col-xl-3">
                             <label class="form-label mb-2 block">{{ __('traduction.exam') }}</label>

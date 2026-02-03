@@ -111,7 +111,7 @@ return [
 'nonvalide'=>'Non validé',
 'action'=>'Actions',
 'nom'=>'Nom',
-'prenom'=>'Prénom(s)',
+'prenom'=>'Prenom',
 'sexe'=>'Sexe',
 'pays'=>'Pays',
 'ville'=>'Ville',
@@ -598,5 +598,9 @@ return [
     'refusee'=>'Réfusée',
     'jurys'=>'Décision des jurys',
     'importreusi'=>'✅ Importation réussie',
+
+
+    'centr'=>'Centre',
+    'exame'=>'Examen',
     // ''=>'',
 ];
