@@ -52,12 +52,21 @@
                     <div class="card-body ">
                         <!-- Photo -->
                         <div class="position-relative d-inline-block mb-3">
-                                <img src="{{ $information->photo
-                                        ? asset('storage/'.$information->photo)
-                                        : asset('assetsapp/images/application/avatar-6.jpg') }}"
-                                    class="rounded-circle img-thumbnail"
-                                    style="width:160px;height:160px;object-fit:cover;"
-                                    alt="Photo candidat">
+                                @if ($information->sexe === __('traduction.sexe1'))
+                                    <img src="{{ $information->photo
+                                            ? asset('storage/'.$information->photo)
+                                            : asset('assetsapp/images/application/avatar-7.jpg') }}"
+                                        class="rounded-circle img-thumbnail"
+                                        style="width:160px;height:160px;object-fit:cover;"
+                                        alt="Photo candidat">
+                                @else
+                                    <img src="{{ $information->photo
+                                            ? asset('storage/'.$information->photo)
+                                            : asset('assetsapp/images/application/avatar-6.jpg') }}"
+                                        class="rounded-circle img-thumbnail"
+                                        style="width:160px;height:160px;object-fit:cover;"
+                                        alt="Photo candidat">
+                                @endif
                                 <!-- Matricule sur la photo -->
                                 <span class="position-absolute bottom-0 start-50 translate-middle-x
                                             bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill small">
