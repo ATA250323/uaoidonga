@@ -41,7 +41,11 @@
             </div>
         </div>
     </div>
-
+@php
+    $headers = [
+        'anneescolaire_id' => __('traduction.annee'),
+    ];
+@endphp
     <!-- Résultat -->
    @if(request()->filled('matricule'))
     <div class="row justify-content-center mt-4">
@@ -100,11 +104,15 @@
                                 <tbody>
                                     <tr>
                                         <th style="width: 170px;">{{ __('traduction.centre_id') }}</th>
-                                        <td>{{ $candidat->centre }}</td>
+                                        <td>
+                                            {{ $information->centre->nomar ?? '' }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>{{ __('traduction.etabli') }}</th>
-                                        <td>{{ $candidat->etablissement }}</td>
+                                        <td>
+                                            {{ $information->etablissement->nomarabe ?? '' }}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -113,11 +121,15 @@
                                 <tbody>
                                     <tr>
                                         <th>{{ __('traduction.exam') }}</th>
-                                        <td>{{ $candidat->examen }}</td>
+                                        <td>
+                                            {{ $information->categoriesExamen->libelle ?? '' }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="width: 170px;">{{ __('traduction.annee') }}</th>
-                                        <td>{{ $candidat->annee }}</td>
+                                        <td>
+                                            {{ $information->anneescolaire->anneear ?? '' }} {{ $information->anneescolaire->anneefr ?? '' }}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

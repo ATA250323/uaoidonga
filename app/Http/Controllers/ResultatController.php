@@ -308,7 +308,18 @@ public function charger(Request $request)
 
                 if ($numero_table) {
 
-                    $information = DB::table('candidats')
+                    // $information = DB::table('candidats')
+                    // ->with(['anneescolaire'])
+                    // ->where('numero_table', $request->matricule)
+                    // ->first();
+
+                    // $information = DB::table('candidats')
+                    //     ->join('anneescolaires', 'anneescolaires.id', '=', 'candidats.anneescolaire_id')
+                    //     ->where('candidats.numero_table', $request->matricule)
+                    //     ->select('candidats.*', 'anneescolaires.libelle as annee_scolaire')
+                    //     ->first();
+
+                    $information = Candidat::with('anneescolaire','etablissement','centre','categoriesExamen')
                         ->where('numero_table', $request->matricule)
                         ->first();
 
