@@ -297,45 +297,70 @@ public function charger(Request $request)
         return view('resultats.index', compact('resultats', 'colonnes', 'annee','anneescolaires'));
     }
 
-     public function recherche_resultats(Request $request)
+
+public function consultation()
     {
-             $candidat = null;
-             $information = null;
-
-            $numero_table = DB::table('candidats')
-                        ->where('numero_table', $request->matricule)
-                        ->first();
-
-                if ($numero_table) {
-
-                    // $information = DB::table('candidats')
-                    // ->with(['anneescolaire'])
-                    // ->where('numero_table', $request->matricule)
-                    // ->first();
-
-                    // $information = DB::table('candidats')
-                    //     ->join('anneescolaires', 'anneescolaires.id', '=', 'candidats.anneescolaire_id')
-                    //     ->where('candidats.numero_table', $request->matricule)
-                    //     ->select('candidats.*', 'anneescolaires.libelle as annee_scolaire')
-                    //     ->first();
-
-                    $information = Candidat::with('anneescolaire','etablissement','centre','categoriesExamen')
-                        ->where('numero_table', $request->matricule)
-                        ->first();
-
-                    if ($request->filled('matricule')) {
-                        $candidat = DB::table('resultats_dynamiques')
-                            ->where('matricule', $request->matricule)
-                            ->first();
-                        }
-                } else {
-                    # code...
-                    $candidat = null;
-                    $information = null;
-                }
-
-
-            return view('resultats.recherche_resultat', compact('candidat','information'));
+        return view('resultats.consultation');
+    }
+    public function consultation_moutawasith()
+    {
+        return view('resultats.recherche_resultat_moutawasith');
     }
 
+    // Recherche (POST)
+    public function recherche_moutawasith(Request $request)
+    {
+            $request->validate(
+                [
+                    'matricule' => ['required', 'regex:/^[A-Za-z0-9]*m[A-Za-z0-9]*$/i'],
+                ],
+                [
+                    'matricule.regex' =>  __('traduction.formatinvalidm'),
+                ]
+            );
+        $information = Candidat::with('anneescolaire','etablissement','centre','categoriesExamen')
+                        ->where('numero_table', $request->matricule)
+                        ->first();
+
+        $resultatcandidat = DB::table('resultats_dynamiques')
+                    ->where('matricule', $request->matricule)
+                    ->first();
+        if (!$information && !$resultatcandidat) {
+            return back()->with('error', __('traduction.aucun_resultat'));
+        }
+
+        return view('resultats.recherche_resultat_moutawasith', compact( 'information','resultatcandidat'));
+    }
+
+
+
+     public function consultation_sanawi()
+    {
+        return view('resultats.recherche_resultat_sanawi');
+    }
+
+    // Recherche (POST)
+public function recherche_sanawi(Request $request)
+    {
+            $request->validate(
+                [
+                    'matricule' => ['required', 'regex:/^[A-Za-z0-9]*s[A-Za-z0-9]*$/i'],
+                ],
+                [
+                    'matricule.regex' =>  __('traduction.formatinvalids'),
+                ]
+            );
+        $information = Candidat::with('anneescolaire','etablissement','centre','categoriesExamen')
+                        ->where('numero_table', $request->matricule)
+                        ->first();
+
+        $resultatcandidat = DB::table('resultats_dynamiques')
+                    ->where('matricule', $request->matricule)
+                    ->first();
+        if (!$information && !$resultatcandidat) {
+            return back()->with('error', __('traduction.aucun_resultat'));
+        }
+
+        return view('resultats.recherche_resultat_sanawi', compact( 'information','resultatcandidat'));
+    }
 }

@@ -283,8 +283,8 @@ h1, h2, h3 {
 .service-item .service-img h3 {
     position: absolute;
     top: 0;
-    left: 0;
-    padding: 0 12px 7px 0;
+    left: 40px;
+    padding: 0 0px 0px 0;
 }
 
 .service-item.bg-primary .service-img h3 {

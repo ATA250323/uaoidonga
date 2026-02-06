@@ -1,7 +1,7 @@
 @extends('layouts.appespace')
 @php
-    $lien = route('recherche.resultats');
-    $textePartage = urlencode("Découvrez cet établissement : $lien");
+    $lien = route('consultation.resultats');
+    $textePartage = urlencode(__('traduction.resultat_dispo') ."Découvrez cet établissement : $lien");
 @endphp
 @section('content')
  <!-- [ Main Content ] start -->
@@ -17,7 +17,7 @@
 
                                         <div class="card-header !pb-0 !border-b-0">
                                             <h3>
-                                                <a href="{{ route('recherche.resultats') }}" class="badge bg-theme-bg-1 text-white text-[12px]"><i class="fab fa-link"></i>{{ __('traduction.lien') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</a>
+                                                <a href="{{ route('consultation.resultats') }}" class="badge bg-theme-bg-1 text-white text-[12px]"><i class="fab fa-link"></i>{{ __('traduction.lien') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}</a>
                                                 <a href="https://wa.me/?text={{ $textePartage }}" target="_blank"
                                                 class="badge bg-green-500 hover:bg-green-600 rounded text-white text-[12px]">
                                                     <i class="fab fa-whatsapp"></i> {{ __('traduction.what') /** resources/lang/fr/traduction.php ou resources/lang/ar/traduction.php */ }}

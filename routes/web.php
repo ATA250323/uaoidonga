@@ -105,8 +105,13 @@ Route::resource('infolignes', InfoligneController::class);
 
 Route::get('/events', [EventController::class, 'index']);
 
-
-Route::get('/resultats_2025_2026', [ResultatController::class, 'recherche_resultats'])->name('recherche.resultats');
+Route::get('/consultation-resultats', [ResultatController::class, 'consultation'])->name('consultation.resultats');
+// recherche_resultat_sanawi
+Route::get('/resultats-2025-2026_sanawi', [ResultatController::class, 'consultation_sanawi'])->name('resultats.sanawi');
+Route::post('/resultats-2025-2026_sanawi', [ResultatController::class, 'recherche_sanawi'])->name('recherche.sanawi');
+// recherche_resultat_moutawasith
+Route::get('/resultats-2025-2026_moutawasith', [ResultatController::class, 'consultation_moutawasith'])->name('resultats.moutawasith');
+Route::post('/resultats-2025-2026_moutawasith', [ResultatController::class, 'recherche_moutawasith'])->name('recherche.moutawasith');
 
 Route::get('/lang/{locale}', function ($locale) {
     $locales = ['fr', 'ar', 'en'];
