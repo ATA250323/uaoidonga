@@ -45,8 +45,8 @@
 
     <div class="container-fluid py-5">
         <div class="container py-5">
-            <div class="row  align-items-center">
-                <div class="col-lg-4">
+            <div class="row g-3">
+                <div class="col-12 col-md-3 col-xl-4">
                     <div class="service-item h-100 d-flex flex-column bg-primary ">
                         <a href="{{ route('resultats.moutawasith') }}" class="service-img position-relative mb-4 ">
                             {{-- <img class="img-fluid  w-100" src="{{ asset('assets/img/logo12.png') }}" alt="Image"> --}}
@@ -54,7 +54,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <br>
+                <div class="col-12 col-md-3 col-xl-4">
                     <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
                         <a href="{{ route('resultats.sanawi') }}" class="service-img position-relative mb-4">
                             {{-- <img class="img-fluid  w-100" src="{{ asset('assets/img/logo12.png') }}" alt="Image"> --}}
