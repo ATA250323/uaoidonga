@@ -1,7 +1,7 @@
 @extends('layouts.appespace')
 @php
     $lien = route('consultation.resultats');
-    $textePartage = urlencode(__('traduction.resultat_dispo') ."Découvrez cet établissement : $lien");
+    $textePartage = urlencode(__('traduction.resultat_dispo') ." $lien");
 @endphp
 @section('content')
  <!-- [ Main Content ] start -->

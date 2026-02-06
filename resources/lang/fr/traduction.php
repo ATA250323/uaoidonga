@@ -609,7 +609,7 @@ return [
     'formatinvalids'=>'Le numéro de table doit contenir la lettre S majuscule ou minuscule (00..S000).',
     'formatinvalidm'=>'Le numéro de table doit contenir la lettre M majuscule ou minuscule (00..M000).',
 
-    'resultat_dispo'=>'🎓 Les résultats sont disponibles. Les candidats sont priés de se rendre sur le site officiel et d’entrer leur matricule pour consulter leur résultat.',
+    'resultat_dispo'=>'Les résultats sont disponibles. Les candidats sont priés de se rendre sur le site officiel et d’entrer leur matricule pour consulter leur résultat.',
     'Veuillez_consulter'=>'Les résultats sont désormais disponibles. Veuillez cliquer sur le bouton correspondant à chaque résultat pour les consulter.',
     // ''=>'',
     // ''=>'',

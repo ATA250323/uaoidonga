@@ -691,7 +691,7 @@ return [
 'titleresultat' => 'Results',
 'formatinvalids' => 'The table number must contain the letter S (uppercase or lowercase) (00..S000).',
 'formatinvalidm' => 'The table number must contain the letter M (uppercase or lowercase) (00..M000).',
-'resultat_dispo' => '🎓 The results are now available. Candidates are invited to visit the official website and enter their registration number to view their results.',
+'resultat_dispo' => 'The results are now available. Candidates are invited to visit the official website and enter their registration number to view their results.',
 'Veuillez_consulter' => 'The results are now available. Please click on the corresponding button for each result to view it.',
 
 ];
