@@ -671,6 +671,7 @@ return [
 'raport'   => 'Results Report',
 'filt'      => 'filtered from',
 'entrtotal' => 'total entries',
+
 'aucuntab'  => 'No data available in the table',
 'recherresulta'   => 'Search results',
 'recher'          => 'Search',

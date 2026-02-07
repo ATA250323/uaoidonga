@@ -578,7 +578,6 @@ return [
     'actua'=>'Actualiser',
     'excel'=>'Excel',
     'pdf'=>'PDF',
-
     'imprimer'=>'Imprimer',
     'raport'=>'Rapport de Résultats',
     'filt'=>'filtré sur',
