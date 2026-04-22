@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use Storage;
 use App\Models\Centre;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -12,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Maatwebsite\Excel\Excel as ExcelExcel;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 
@@ -37,9 +35,7 @@ public function charger(Request $request)
 
     public function import(Request $request)
         {
-
             // 1️⃣ Validation
-
                     $request->validate([
                         'annee'   => 'required',
                         'examen' => 'required',
@@ -50,7 +46,6 @@ public function charger(Request $request)
                             ? 'nullable'
                             : 'required|mimes:xlsx,xls,csv',
                     ]);
-
                 // 2️⃣ Vérifier si données existent
                 $anneeExiste = DB::table('resultats_dynamiques')
                     ->where('annee', $request->annee)
@@ -138,7 +133,6 @@ public function charger(Request $request)
                         $t->string('matricule')->unique();
                         // Colonnes fixes minimales (optionnel mais conseillé)
                         $t->string('nom',60)->nullable();
-                        $t->string('prenom',100)->nullable();
                         $t->string('sexe',15)->nullable();
                         $t->string('annee',20); // ex: 2024-2025
                         $t->string('centre',50)->nullable();
@@ -171,14 +165,12 @@ public function charger(Request $request)
 
                 $matricule = $data['Matricule'] ?? null;
                 $nom       = $data['Nom'] ?? null;
-                $prenom    = $data['Prenom'] ?? null;
-
                 foreach ($data as $col => $value) {
 
                     $column = Str::slug($col, '_');
 
                     if (!in_array($column, [
-                        'matricule','nom','prenom','sexe',
+                        'matricule','nom','sexe',
                         'annee','centre','examen','etablissement'
                     ]) && $value !== null) {
 
@@ -193,7 +185,6 @@ public function charger(Request $request)
                         }
                     }
                 }
-
                 // Vérification élève existant avec autre matricule
                 $eleveExisteAutreMatricule = DB::table('resultats_dynamiques')
                     ->where('annee', $request->annee)
@@ -201,63 +192,50 @@ public function charger(Request $request)
                     ->where('centre', $request->centre)
                     ->where('sexe', $request->sexe)
                     ->where('nom', $nom)
-                    ->where('prenom', $prenom)
                     ->where('matricule', '<>', $matricule)
                     ->exists();
 
                 if ($eleveExisteAutreMatricule) {
                     $erreurs[] =
                         __('traduction.ligne').' '.$ligne.' '.
-                        __('traduction.leleve').' '.$nom.' '.$prenom.' '.
+                        __('traduction.leleve').' '.$nom.
                         __('traduction.existe');
                 }
             }
-
             if (!empty($erreurs)) {
                 return back()->with('import_errors', $erreurs);
             }
 
             // 6️⃣Aucune erreur → insertion
                 foreach (array_slice($rows, 1) as $index => $row) {
-
                     $ligne = $index + 2;
-
                     if (!is_array($row)) {
                         continue;
                     }
-
                     if (count($headings) !== count($row)) {
                         continue;
                     }
-
                     // 1️⃣ Combiner colonnes + valeurs
                     $rowData = array_combine($headings, $row);
-
                     $data = [
                         'annee'   => $request->annee,
                         'examen' => $request->examen,
                         'centre' => $request->centre,
                         'sexe'    => $request->sexe,
                     ];
-
                     $matricule = null;
-
                     // 2️⃣ Normalisation + récupération matricule
                     foreach ($rowData as $col => $value) {
                         $column = Str::slug($col, '_');
-
                         if ($column === 'matricule') {
                             $matricule = $value;
                         }
-
                         $data[$column] = $value;
                     }
-
                     // 3️⃣ Sécurité
                     if (!$matricule) {
                         continue;
                     }
-
                     // 4️⃣ INSERT / UPDATE
                     DB::table('resultats_dynamiques')->updateOrInsert(
                         [

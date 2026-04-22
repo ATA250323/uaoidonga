@@ -11,7 +11,6 @@ use App\Models\CategoriesExamen;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\CentreEtablissementExamen;
-use App\Http\Requests\CentreEtablissementExamenRequest;
 
 class CentreEtablissementExamenController extends Controller
 {
@@ -82,9 +81,7 @@ class CentreEtablissementExamenController extends Controller
 
             if ($existe) {
                 return back()->with(
-                    'alertMessage',
-                    "Un centre d’examen existe déjà pour cet établissement, cette catégorie et cette année scolaire."
-                );
+                    'alertMessage',__('traduction.centreexiste'));
             }
 
             CentreEtablissementExamen::create([

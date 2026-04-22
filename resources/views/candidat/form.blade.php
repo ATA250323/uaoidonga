@@ -68,15 +68,15 @@
             <br>
                 <div class="row">
                         <div class="col-12 col-md-4 col-xl-4">
-                            <label for="nom" class="form-label">{{ __('traduction.nom') }}</label>
+                            <label for="nom" class="form-label">{{ __('traduction.noms') }}</label>
                             <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom', $candidat?->nom) }}" id="nom" placeholder="Nom">
                             {!! $errors->first('nom', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                         </div>
-                        <div class="col-12 col-md-4 col-xl-4">
+                        {{-- <div class="col-12 col-md-4 col-xl-4">
                             <label for="prenom" class="form-label">{{ __('traduction.prenom') }}</label>
                             <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" value="{{ old('prenom', $candidat?->prenom) }}" id="prenom" placeholder="Prenom">
                             {!! $errors->first('prenom', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-                        </div>
+                        </div> --}}
                         <div class="col-12 col-md-4 col-xl-4">
                             <label class="form-label mb-2 block">{{ __('traduction.sexe') }}</label>
 

@@ -34,7 +34,7 @@
             {!! $errors->first('etablissement_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="col-12 col-md-3 col-xl-3">
-            <label for="anneescolaire_id" class="form-label">{{ __('traduction.etabli') }}</label>
+            <label for="anneescolaire_id" class="form-label">{{ __('traduction.annee') }}</label>
             <select name="anneescolaire_id" class="form-select @error('anneescolaire_id') is-invalid @enderror" autocomplete="organisation">
                     @foreach ($anneescolaires as $anneescolaire)
                         <option value="{{ $anneescolaire->id }}"

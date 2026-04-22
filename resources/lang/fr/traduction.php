@@ -110,8 +110,9 @@ return [
 'valide'=>'Validé',
 'nonvalide'=>'Non validé',
 'action'=>'Actions',
+'noms'=>'Nom élève',
 'nom'=>'Nom',
-'prenom'=>'Prenom',
+'prenom'=>'Prénom',
 'sexe'=>'Sexe',
 'pays'=>'Pays',
 'ville'=>'Ville',
@@ -546,9 +547,11 @@ return [
 'total' => 'Total',
 
     'import'=>'L’importation des résultats',
+    'importcandidat'=>'Importez les candidats',
     'resultats'=>'Les résultats',
     'fichier_excel'=>'Fichier Excel',
     'importer'=>'Importer les résultats',
+    'importercandidat'=>'Importer les candidats',
     'donneeexiste'=>'⚠️ Données déjà existantes',
     'oui'=>'Oui, modifier',
     'non'=>'Non, annuler',
@@ -557,7 +560,8 @@ return [
     // 🇫🇷 Français
     'ligne'    => 'Ligne',
     'leleve'   => ': L’élève',
-    'existe'   => 'existe déjà avec un autre matricule !',
+    'existe'   => ' existe déjà avec un autre matricule !',
+    'existeautresexe'   => ' existe déjà avec un autre sexe !',
     // 🇫🇷 Français
     'corriger' => '👉 Veuillez corriger le fichier Excel puis réessayer.',
     'invalide' => 'est invalide (>100 ou non numérique).',
@@ -610,7 +614,7 @@ return [
 
     'resultat_dispo'=>'Les résultats sont disponibles. Les candidats sont priés de se rendre sur le site officiel et d’entrer leur matricule pour consulter leur résultat.',
     'Veuillez_consulter'=>'Les résultats sont désormais disponibles. Veuillez cliquer sur le bouton correspondant à chaque résultat pour les consulter.',
-    // ''=>'',
+    'centreexiste'=>'Un centre d’examen existe déjà pour cet établissement, cette catégorie et cette année scolaire.',
     // ''=>'',
 
 

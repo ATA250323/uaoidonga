@@ -60,7 +60,7 @@
 										{{-- <td >{{ $centre->public_id }}</td> --}}
 										{{-- <td >{{ $centre->nomar }}</td> --}}
 										<td >
-                                            {{ $centre->nomar.' '.$centre->nomfr}}
+                                            {{ $centre->nomar}}
                                             {{-- {{ app()->getLocale() == 'ar' ? $centre->nomar : $centre->nomfr }} --}}
                                         </td>
 										<td >{{ $centre->prefixe }}</td>

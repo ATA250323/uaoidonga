@@ -11,11 +11,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $public_id
  * @property $nom
- * @property $prenom
  * @property $sexe
  * @property $date_naissance
  * @property $numero_table
- * @property $centre_id
  * @property $etablissement_id
  * @property $anneescolaire_id
  * @property $categorie_examen_id
@@ -40,7 +38,7 @@ class Candidat extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['public_id', 'nom', 'prenom', 'sexe', 'date_naissance', 'numero_table', 'centre_id', 'etablissement_id', 'anneescolaire_id', 'categorie_examen_id'];
+    protected $fillable = ['public_id', 'nom', 'sexe', 'date_naissance', 'numero_table', 'etablissement_id', 'anneescolaire_id', 'categorie_examen_id'];
 
 
     /**

@@ -19,10 +19,10 @@
                     </div>
 
                     <div class="card-body bg-white">
-                        
+
                                 <div class="form-group mb-2 mb20">
                                     <strong>Public Id:</strong>
-                                    {{ $candidat->public_id }}
+                                    {{-- {{ $candidat->public_id }} --}}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>Nom:</strong>

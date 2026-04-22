@@ -85,8 +85,11 @@ Route::group(['middleware' => ['auth','role:Super-Administrateur|Secondaire']], 
 
     Route::resource('categories-examens', CategoriesExamenController::class);
     Route::resource('centre-etablissement-examens', CentreEtablissementExamenController::class);
+    Route::get('/candidats/export-excel', [App\Http\Controllers\CandidatController::class, 'export'])->name('candidat.export');
     Route::resource('candidats', CandidatController::class);
 
+    Route::get('/chargercandidat', [CandidatController::class, 'chargercandidat'])->name('chargercandidat');
+    Route::post('/importcandidat', [CandidatController::class, 'importcandidat'])->name('importcandidat');
     Route::get('/import', [ResultatController::class, 'charger'])->name('charger');
     Route::get('/resultats', [ResultatController::class, 'index'])->name('resultats.index');
     Route::post('/resultats/import', [ResultatController::class, 'import'])->name('resultats.import');

@@ -24,7 +24,6 @@ class CandidatRequest extends FormRequest
         return [
 			// 'public_id' => 'required',
 			'nom' => 'required|string',
-			'prenom' => 'required|string',
 			'sexe' => 'required|string',
 			'numero_table' => 'string',
 			// 'centre_id' => 'required',

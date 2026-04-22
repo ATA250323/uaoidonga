@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->string('matricule')->unique();
             // Colonnes fixes minimales (optionnel mais conseillé)
             $table->string('nom',60)->nullable();
-            $table->string('prenom',100)->nullable();
             $table->string('sexe',15)->nullable();
             $table->string('annee',20); // ex: 2024-2025
             $table->string('centres',50)->nullable();
@@ -26,7 +25,7 @@ return new class extends Migration {
 
             $table->unique(
                 ['annee','examens','centres','sexe','matricule'],
-                'resultats_dynamiques_matricule_unique'
+                'resultats_dyn_matri_unique'
             );
         });
     }
