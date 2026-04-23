@@ -56,7 +56,10 @@
                        <h2>{{ __('traduction.uaoidonga')}}</h2>
                     </div>
                 </div> &nbsp; &nbsp;
-    <div> @include('layouts.partifixe.lang') </div>
+    <div>
+         @include('layouts.partifixe.lang')  &nbsp; &nbsp;
+        <a href="{{ url('/') }}" class="">{{ __('traduction.acc') }}</a>
+    </div>
             </nav>
         </div>
     </div>
