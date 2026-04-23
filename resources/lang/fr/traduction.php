@@ -576,7 +576,7 @@ return [
     'reche'=>'Recherche:',
     'recheglob'=>'Recherche globale :',
     'afficha'=>'Affichage de',
-    'a'=>'à',
+    'a_a'=>'à',
     'sur'=>'sur',
     'aucun'=>'Aucun résultat trouvé',
     'actua'=>'Actualiser',
