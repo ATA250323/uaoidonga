@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('sexe',10)->nullable();
             $table->date('date_naissance')->nullable();
             $table->string('numero_table', 20)->nullable();
-            $table->foreignId('centre_id')->constrained()->cascadeOnDelete();
             $table->foreignId('etablissement_id')->constrained()->cascadeOnDelete();
             $table->foreignId('anneescolaire_id')->constrained()->onDelete('cascade');
             $table->foreignId('categorie_examen_id')->constrained('categories_examens')->cascadeOnDelete();
