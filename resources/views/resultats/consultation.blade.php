@@ -44,13 +44,18 @@
     <!-- Service Start -->
 
     <div class="container-fluid py-5">
+        <center>
         <div class="container py-5">
             <div class="row g-3">
                 <div class="col-12 col-md-3 col-xl-4">
                     <div class="service-item h-100 d-flex flex-column bg-primary ">
                         <a href="{{ route('resultats.moutawasith') }}" class="service-img position-relative mb-4 ">
                             {{-- <img class="img-fluid  w-100" src="{{ asset('assets/img/logo12.png') }}" alt="Image"> --}}
-                            <h3>{{ __('traduction.titleresultat')}} {{ __('traduction.examen1')}} 2025-2026</h3>
+                            {{-- <h3>{{ __('traduction.titleresultat')}} {{ __('traduction.examen1')}} 1447 / 2026</h3> --}}
+                            {!! app()->getLocale() == 'ar'
+                                ? '<h3>'.__('traduction.titleresultat').' '. __('traduction.examen1').' 1447 / 2026</h3>'
+                                : '<h3 style="font-size: 20px">'.__('traduction.titleresultat').' '. __('traduction.examen1').' 1447 / 2026</h3>'
+                            !!}
                         </a>
                     </div>
                 </div>
@@ -59,12 +64,17 @@
                     <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
                         <a href="{{ route('resultats.sanawi') }}" class="service-img position-relative mb-4">
                             {{-- <img class="img-fluid  w-100" src="{{ asset('assets/img/logo12.png') }}" alt="Image"> --}}
-                            <h3>{{ __('traduction.titleresultat')}} {{ __('traduction.examen2')}} 2025-2026</h3>
+                            {!! app()->getLocale() == 'ar'
+                                ? '<h3>'.__('traduction.titleresultat').' '. __('traduction.examen2').' 1447 / 2026</h3>'
+                                : '<h3 style="font-size: 20px">'.__('traduction.titleresultat').' '. __('traduction.examen2').' 1447 / 2026</h3>'
+                            !!}
+                            {{-- <h3 style="font-size: 20px">{{ __('traduction.titleresultat')}} {{ __('traduction.examen2')}} 1447 / 2026</h3> --}}
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+    </center>
     </div>
     <!-- Service End -->
 @endsection

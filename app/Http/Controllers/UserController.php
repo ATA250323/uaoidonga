@@ -64,13 +64,12 @@ class UserController extends Controller
 
         ]);
         $user->syncRoles($request->role);
-        // Mail::to($user->email)->send(new Inscriptionuser($user, $motdepassenonhasher));
-        // return redirect()->route('users.index')->with('success', __('traduction.save_success'));
          try {
                 Mail::to($user->email)->send(new Inscriptionuser($user,  $motdepassenonhasher));
                 return redirect()->route('users.index')->with('success', __('traduction.Evoiemail_user'));
 
             } catch (Exception $e) {
+                         dd($e->getMessage());
             return redirect()->route('users.index')
                 ->with('error', __('traduction.ErreurEvoiemail'));
             //  dd($e->getMessage()); // pour voir l’erreur exacte

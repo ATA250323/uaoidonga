@@ -16,7 +16,9 @@
 
 <div class="container py-5">
      @include('layouts.partifixe.alert')
-<a href="{{ route('consultation.resultats') }}" class="btn btn-primary  ">{{ __('traduction.retr') }}</a>
+    <div> @include('layouts.partifixe.lang') </div>
+
+    <a href="{{ route('consultation.resultats') }}" class="btn btn-primary  ">{{ __('traduction.retr') }}</a>
     <!-- Titre -->
     <div class="text-center mb-4">
         <h3 class="fw-bold">{{ __('traduction.Consultation') }}</h3>

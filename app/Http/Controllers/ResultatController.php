@@ -276,7 +276,7 @@ public function charger(Request $request)
     }
 
 
-public function consultation()
+    public function consultation()
     {
         return view('resultats.consultation');
     }

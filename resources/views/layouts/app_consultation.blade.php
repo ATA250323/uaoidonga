@@ -46,16 +46,17 @@
 <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white justify-content-between">
-                 <h1 class="animated ">{{ __('traduction.uaoidonga2')}}</h1>
+                 <h2 class="animated ">{{ __('traduction.uaoidonga2')}}</h2>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                       <h1>{{ __('traduction.uaoidonga')}}</h1>
+                       <h2>{{ __('traduction.uaoidonga')}}</h2>
                     </div>
-                </div>
+                </div> &nbsp; &nbsp;
+    <div> @include('layouts.partifixe.lang') </div>
             </nav>
         </div>
     </div>

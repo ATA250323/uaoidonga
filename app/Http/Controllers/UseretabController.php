@@ -97,21 +97,17 @@ class UseretabController extends Controller
                 "user_id" => $iduser->id,
                 "password" => $motdepassehasher,
             ]);
-
             $user->syncRoles($request->typecompte);
-
             // ✅ Enregistrement dans Useretablissement
             UserEtablissement::create([
                 'user_id' => $user->id,                // ID de l'utilisateur nouvellement créé
                 'etablissement_id' => $request->etablissement_id, // ID de l'établissement récupéré plus haut
             ]);
-
             // 🔔 Optionnel : envoi de mail d'inscription
             // $motdepasse = $request->password;
             try {
                 Mail::to($user->email)->send(new Inscriptionuser($user,  $motdepassenonhasher));
                 return redirect()->route('etabusers.index')->with('success', __('traduction.Evoiemail_user'));
-
             } catch (Exception $e) {
             return redirect()->route('etabusers.index')
                 ->with('error', __('traduction.ErreurEvoiemail'));
