@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('candidats', function (Blueprint $table) {
             $table->id();
             $table->uuid('public_id')->unique();
+            $table->string('numero_table', 20)->nullable();
             $table->string('nom', 255);
             $table->string('sexe',10)->nullable();
             $table->date('date_naissance')->nullable();
-            $table->string('numero_table', 20)->nullable();
             $table->foreignId('etablissement_id')->constrained()->cascadeOnDelete();
             $table->foreignId('anneescolaire_id')->constrained()->onDelete('cascade');
             $table->foreignId('categorie_examen_id')->constrained('categories_examens')->cascadeOnDelete();
